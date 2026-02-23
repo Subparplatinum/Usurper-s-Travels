@@ -310,6 +310,11 @@ class Entity:
                 if enchantment.trigger == "move":
                     self.triggerEnchant(enchantment)
 
+        # Trigger tile modifiers
+        for modifier in self.tile.modifiers:
+            if modifier == "caltrops":
+                self.enchantments.append(Spellbook.bloodloss)
+
         
 
     #show stats of an entity by hovering over them
@@ -704,7 +709,7 @@ class Entity:
                                 else:
                                     for i in range(round(magnitude*self.mult)):
                                         target.enchantments.append(Spellbook.starSeed)
-                                        self.text = (target.name+" has been implanted with "+str(round(magnitude*self.mult))+" Star Seeds. ")
+                                        self.text = (target.name+" has been implanted with "+str(round(magnitude*self.mult))+" Crystal Buds. ")
 
                         elif enchantment.effectType[i] == "burn":
                             if magnitude == "all":
