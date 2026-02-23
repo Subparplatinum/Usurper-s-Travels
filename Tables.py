@@ -17,14 +17,14 @@ phalanxGrowth = [Armoury.phalanxGrowthStats,None,None,None,None,None,"Armoured S
 ballistaGrowth = [Armoury.BallistaGrowthStats,None,None,None,None,None,"Ballista Sludge","enemy"]
 
 #bosses (has extra field for title card)
-mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Knight of the First Flame","enemy",["Here stands a servant of jealous fire, one of the Pretender's most loyal subjects.",""]]
+mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Knight of the First Flame","enemy",["Here stands a servant of jealous flame, one of the Pretender's most loyal subjects.",""]]
 fireball = [Armoury.fireballStats,None,Armoury.fireballExplode,None,None,Armoury.spellBoots,"Fireball","enemy"]                                                                                                                                                                                                                             
 
 winter = [Armoury.silentNight,None,None,Armoury.frostPlate,Armoury.elfLeggings,Armoury.spellBoots,"The King of Winter","enemy",["Here sits an empty vessel, left to lord over a silent, starless realm by their cold creator",""]]
 winterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","enemy"]
 
 
-mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Oogalash, the Primordial Ooze","enemy",["Here bubbles the First Child of Darkness, kept at bay by a thousand divine fires",""]]
+mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Oogalash, the Primordial Ooze","enemy",["Here bubbles the First Child of Darkness, kept at bay by a thousand divine star-fires",""]]
 
 #super bosses (has extra field for title card)                                                                  
 raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.osirisAttire,Armoury.osirisTrousers,Armoury.starWalker,"Raah, Chosen Lord of Fire ","enemy",["Here sits the final obstacle of your travels",
