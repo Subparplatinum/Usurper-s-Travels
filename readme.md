@@ -1,1 +1,3 @@
-A game I started working on around the same time I started developing Grometry Grash. Its a turn-based hack-and-slash RPG thats heavily inspired by games like Dark Souls and Path of Achra. The levels and lore especially have gone through a disgusting number of revisions, and now that this is finally on Github it'll be much easier to manage this game's development.
+# Usurper's Travels
+
+Is a game I started working on around the same time I started developing Grometry Grash. Its a turn-based hack-and-slash RPG thats heavily inspired by games like Dark Souls and Path of Achra. The levels and lore especially have gone through a disgusting number of revisions, and now that this is finally on Github it'll be much easier to manage this game's development.
