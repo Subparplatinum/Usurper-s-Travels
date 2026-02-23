@@ -1,7 +1,7 @@
 import pygame
+import Armoury
 import Entity
 import Level
-import Armoury
 import Menus
 
 #initialise pygame

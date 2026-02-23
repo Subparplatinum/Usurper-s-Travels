@@ -9,16 +9,23 @@ import random
 import Debug
 
 
-openingLore = ["The land of Alyrant has been thrown into chaos. It's king, Osiris, murdered a star -",
-                        "one of the gods of Alyrant. To kill a star is a cardinal sin, for without their guiding light",
-                        "the people of Alyrant will be consumed by The Darkness. Thus, the Zodiacs of the Pale City",
-                        "declared him the Archenemy, and all across Alyrant Usurpers rose up to take his throne.",
-                        "Followers of Khorgan, the Bloody Star - a violent god that grants strength through sacrifice",
-                        " - and assisted by divine golems created by the Zodiacs, they travel Alyrant, growing in",
-                        "strength, until they are ready to take the throne.","",
-                        "-Press ENTER to continue-"]
+#openingLore = ["The land of Asterant has been thrown into chaos. Its king, Raah, murdered a star -",
+#                        "one of the gods of Asterant. To kill a star is a cardinal sin, for without their guiding light",
+#                        "keeping the Darkness at bay, the people of Asterant will inevitably be consumed. Thus,",
+#                        "the Zodiacs of the Pale City",
+#                        "declared him the Archenemy, and all across Asterant Usurpers rose up to take his throne.",
+#                        "Followers of Khorgan, the Bloody Star - a violent god that grants strength through sacrifice",
+#                        " - and assisted by divine golems created by the Zodiacs, they travel Asterant, growing in",
+#                        "strength, until they are ready to take the throne.","",
+#                        "-Press ENTER to continue-"]
 
+openingLore = []
+loreFile = open("lore/opening.txt","r")
+for line in loreFile:
+    openingLore.append(line.strip())
 
+openingLore.append("")
+openingLore.append("-Press ENTER to continue-")
 
 def selectBoss(window):
 
@@ -669,7 +676,7 @@ def characterMenu(window,level,ycoord,xcoord):
 
                     #Priest
                     if 190 < mousePos[0] < 490 and 390 < mousePos[1] < 430:
-                        player = [Armoury.holyStaff,Armoury.mace,None,Armoury.mageCloak,Armoury.mageRobe,Armoury.mageBoots]
+                        player = [Armoury.holyStaff,Armoury.longsword,None,Armoury.mageCloak,Armoury.mageRobe,Armoury.mageBoots]
                         menu = 2
 
                 elif event.type == pygame.QUIT: 
@@ -857,7 +864,7 @@ def companionMenu(window,level,ycoord,xcoord):
             textToRender = ["An iron golem impaled by a lance-shaped meteorite",
                             "sent by the star-god Dareon, known as the",
                             "Shining Knight. It has sworn an oath to purge",
-                            "Alyrant of all evils, and in its past travels has",
+                            "Asterant of all evils, and in its past travels has",
                             "somehow befriended a horse.",""]
             pygame.draw.rect(window,red,[190,240,300,40])
         window.blit(font.render("Valiant Golem",True,colour),(200,250))

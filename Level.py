@@ -7,6 +7,7 @@ import sys
 import Menus
 #easily accessable variables
 import Debug
+import Spellbook
 
 class Tile:
     def __init__(self,x,y,path,tileSize):
@@ -44,6 +45,9 @@ class Tile:
     def update(self,window):
         #draw
         window.blit(self.image,[self.x,self.y])
+        if Spellbook.bloodloss in self.modifiers:
+            # Draw bloodloss effect
+            window.blit(pygame.image.load("sprites/effects/caltrops.png"),[self.x,self.y])
 
 
 class Level:

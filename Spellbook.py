@@ -155,7 +155,7 @@ disease = Enchantment(["hp","dmg"],[None,None],[5,5],"endTurn","self",0,"Disease
 filthBlessing = Enchantment(["disease"],[None],[1],"ability","adjEnemies",25,"Blessing of Filth",["Apply {} stack/s of Disease to all adjacent enemies. Costs 25 MP per","adjacent enemy."])
 
 bloodloss = Enchantment(["hp"],[None],[5],"move","self",0,"Bloodloss",["On move, reduce your HP by {}.","Reduces by 1 stack per turn."])
-inflictBlood = Enchantment(["bloodloss"],[None],[1],"attack","target",0,"Blood for the Blood God!", ["Apply {} stack/s of Bloodloss to target on hit."])
+inflictBlood = Enchantment(["bloodloss"],[None],[1],"attack","target",0,"Blood for our God!", ["Apply {} stack/s of Bloodloss to target on hit."])
 caltrops = Enchantment(["caltrops"],[None],[1],"ability","self",25,"Caltrop Pouch", ["Drop {} caltrop/s on your tile."])
 rangedCaltrops = Enchantment(["caltrops"],[None],[1],"attack","target",0,"Caltrop Launcher", ["Drop {} caltrop/s on your target's tile."])
 
@@ -165,7 +165,7 @@ lessRegen = Enchantment(["hp"],[None],[-10],"endTurn","self",0,"Lesser Regen",["
 #elf
 attune = Enchantment(["mp"],[None],[-20],"endTurn","self",0,"Astra's Chosen",["When your turn ends, increase your MP by {}."])
 
-sunAttune = Enchantment(["mp"],[None],[-30],"endTurn","self",0,"Servant of Solei",["When your turn ends, increase your MP by {}."])
+sunAttune = Enchantment(["mp"],[None],[-100],"endTurn","self",0,"Chosen of Solei",["When your turn ends, increase your MP by {}."])
 
 #dwarf
 stalwart = Enchantment(["ap"],[None],[-10],"spawn","self",0,"Stalwart",["On spawn, increase your AP by {}."])
@@ -186,7 +186,7 @@ idealist = Enchantment(["idealist"],[None],[4],"ability","self",150,"Hero's Call
 phalanx = Enchantment(["phalanx"],[None],[8],"ability","self",50,"Phalanx Growths",["Summon {} Phalanx Growths in adjacent tiles. Costs 50 MP."])
 ballista = Enchantment(["ballista"],[None],[8],"ability","self",50,"Ballista Growths",["Summon {} Ballista Growths in adjacent tiles. Costs 50 MP."])
 
-osirisTwo = Enchantment(["osirisTwo"],[None],[1],"death","self",50,"Resurgence",["This boss has a second phase"])
+raahTwo = Enchantment(["raahTwo"],[None],[1],"death","self",50,"Resurgence",["This boss has a second phase"])
 
 crystalLump = Enchantment(["crystalLump"],[None],[1],"ability","self",150,"Crystal Growth",["Summon {} Crystal Growth/s in adjacent tiles. Costs 150 MP."])
 

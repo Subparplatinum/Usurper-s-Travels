@@ -1,3 +1,5 @@
+import time
+
 import pygame
 import random
 import Armoury
@@ -886,8 +888,8 @@ class Entity:
                                             self.text = (self.name+" has summoned "+ally.name+" using "+enchantment.name+". ")
                                             tile.occupant = ally
 
-                                        elif enchantment.effectType[i] == "osirisTwo":
-                                            ally = NPC(self.window,self.level,tile,Armoury.severingblade,None,Armoury.starScar,Armoury.osirisAttire2,Armoury.osirisTrousers,Armoury.starWalker,"Osiris the Starbane",summonType,self.mult)
+                                        elif enchantment.effectType[i] == "raahTwo":
+                                            ally = NPC(self.window,self.level,tile,Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire2,Armoury.raahTrousers,Armoury.starWalker,"Raah, the Starbane",summonType,self.mult)
                                             self.text = ("--Second Phase--. ")
                                             tile.occupant = ally
 
@@ -1068,6 +1070,8 @@ class Player(Entity):
             #main menu
             if pressed[pygame.K_ESCAPE]:
                 Menus.mainMenu(self.window)
+                #This should stop the player instantly reentering the menu
+                time.sleep(0.1)
 
             elif pressed[pygame.K_1] or pressed[pygame.K_2] or pressed[pygame.K_3] or pressed[pygame.K_4] or pressed[pygame.K_5] or pressed[pygame.K_6]:
                 #trigger abilities

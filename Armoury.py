@@ -116,7 +116,7 @@ fireballExplode= Equipment(0,0,0,0,0,Spellbook.fireballExplode,"","breastplate",
 Frosthound
 """
 #weapons
-iceClaw = Weapon(0,0,0,0,30,None,"Ice Claw",1,False,None)
+iceClaw = Weapon(1,0,0,0,30,None,"Ice Claw",1,False,None)
 
 #equippable ice claw
 iceClaw2 = Weapon(1,0,0,0,30,None,"Ice Claw",1,False,lootTable)
@@ -213,7 +213,7 @@ silentNight = Weapon(0,0,10,0,75,Spellbook.attackFreeze,"Silent Night",1,True,wi
 #breastplate
 frostPlate = Equipment(0,1000,0,0,0,Spellbook.throne,"Winter's Plate","breastplate",winterLootTable)
 
-elfLeggings = Equipment(0,0,5,50,0,Spellbook.attune,"Spell Leggings","leggings",None)
+elfLeggings = Equipment(0,0,5,50,0,Spellbook.sunAttune,"Spell Leggings","leggings",None)
 
 """
 Winterguard
@@ -238,7 +238,7 @@ riderBoots = Equipment(0,0,0,0,0,None,"Rider's Boots","boots",lootTable)
 
 
 """
-Osiris the Pretender/Osiris the Starbane
+Raah the Pretender/Raah the Starbane
 """
 
 #weapon
@@ -248,24 +248,24 @@ severingblade = Weapon(0,0,10,60,80,Spellbook.fate,"Blade of Severing",1,True,No
 starScar = Equipment(0,50,0,200,10,Spellbook.sunAttune,"Celestial Scar","helmet",None)
 
 #breastplate
-osirisAttire = Equipment(0,150,20,50,0,Spellbook.osirisTwo,"Osiris' Shoulder Jacket","breastplate",None)
-osirisAttire2 = Equipment(2,150,20,50,0,None,"Osiris' Shoulder Jacket","breastplate",None)
+raahAttire = Equipment(0,150,20,50,0,Spellbook.raahTwo,"Raah' Shoulder Jacket","breastplate",None)
+raahAttire2 = Equipment(2,150,20,50,0,None,"Raah' Shoulder Jacket","breastplate",None)
 
 #leggings
-osirisTrousers = Equipment(0,0,5,100,0,None,"Osiris' Trousers","leggings",None)
+raahTrousers = Equipment(0,0,5,100,0,None,"Raah' Trousers","leggings",None)
 
 #boots
 starWalker = Equipment(1,0,0,100,0,None,"Starwalker Boots","boots",None)
 
 
 """
-Oogalash, the Primordial Ooze
+Ooglesh, the Primordial Ooze
 """
 
 #breastplate
-core = Equipment(0,275,0,400,0,None,"Formless Sludge","breastplate",None)
+core = Equipment(0,275,0,400,0,None,"Ooglesh's Core","breastplate",None)
 #leggings
-endlessGrowths = Equipment(0,50,0,0,0,Spellbook.phalanx,"Sludge Skirt","leggings",massLootTable)
+endlessGrowths = Equipment(0,50,0,0,0,Spellbook.phalanx,"Formless Sludge","leggings",massLootTable)
 
 #add a weapon that does area damage, perfect for dealing with the mass
 
@@ -273,7 +273,7 @@ endlessGrowths = Equipment(0,50,0,0,0,Spellbook.phalanx,"Sludge Skirt","leggings
 """
 Abyssal Pit
 """
-pitStats = Weapon(-1,100,10,0,0,Spellbook.ballista,"",0,None,None)
+pitStats = Weapon(-1,-100,10,0,0,Spellbook.ballista,"",0,None,None)
 
 """
 Phalanx Growth
@@ -289,7 +289,7 @@ BallistaGrowthStats = Weapon(0,-150,0,0,20,None,"",11,None,None)
 """
 Darkwalker
 """
-darkwalkerStats = Weapon(0,0,0,0,80,Spellbook.teleport,"",1,False,None)
+darkwalkerStats = Weapon(1,0,0,0,120,Spellbook.teleport,"",1,False,None)
 
 
 
@@ -333,8 +333,8 @@ New North
 
 Feral Peasant
 """
-peasantStats = Weapon(3,0,0,0,50,Spellbook.inflictBlood,"",1,False,None)
-peasantStats2 = Equipment(0,0,0,0,0,Spellbook.bloodDrink,"",1,"helmet",None)
+peasantStats = Weapon(3,-120,0,0,50,Spellbook.inflictBlood,"",1,False,None)
+peasantStats2 = Equipment(0,0,0,0,0,Spellbook.bloodDrink,"","helmet",None)
 
 
 """
@@ -363,6 +363,7 @@ spellShield = Weapon(0,0,0,0,5,Spellbook.spellShield,"Starsteel Shield",1,False,
 tower = Weapon(0,20,20,0,5,Spellbook.brace,"Tower Shield",1,False,lootTable)
 bow = Weapon(0,0,0,0,50,None,"Bow",5,True,lootTable)
 starStaff = Weapon(-1,0,0,100,20,Spellbook.starstrike,"Celestial Staff",11,False,lootTable)
+holyStaff = Weapon(-1,0,0,100,20,Spellbook.heal,"Golden Staff",11,False,lootTable)
 forgehammer = Weapon(0,5,0,0,80,Spellbook.zornhau,"Forgehammer",1,False,lootTable)
 greatsword = Weapon(0,0,0,0,80,None,"Greatsword",1,True,lootTable)
 stonePillar = Weapon(-1,0,0,0,100,None,"Stone Pillar",1,True,lootTable)
