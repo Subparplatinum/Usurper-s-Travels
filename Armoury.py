@@ -326,6 +326,29 @@ Thunderchief
 """
 thunderStaff = Weapon(-1,0,0,100,20,Spellbook.thunderbrand,"Thunderstaff",11,False,lootTable)   
 
+#########################################################
+"""
+New North
+
+
+Feral Peasant
+"""
+peasantStats = Weapon(3,0,0,0,50,Spellbook.inflictBlood,"",1,False,None)
+peasantStats2 = Equipment(0,0,0,0,0,Spellbook.bloodDrink,"",1,"helmet",None)
+
+
+"""
+Razor Knight
+"""
+razorKnightStats = Weapon(1,100,20,100,80,Spellbook.caltrops,"",1,False,None)
+razorKnightStats2 = Equipment(0,0,0,0,0,Spellbook.inflictBlood,"","helmet",None)
+
+"""
+Blood Star Cultist
+"""
+cultistStats = Weapon(0,-120,0,0,20,Spellbook.rangedCaltrops,"",11,False,None)
+
+
 
 """
 Player only

@@ -39,7 +39,7 @@ class Tile:
 
         self.adjTiles = []
 
-        self.modifiers = set()
+        self.modifiers = []
 
     def update(self,window):
         #draw

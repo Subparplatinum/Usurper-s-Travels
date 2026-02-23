@@ -16,13 +16,18 @@ pit = [Armoury.pitStats,None,None,None,None,None,"Abyssal Pit","enemy"]
 phalanxGrowth = [Armoury.phalanxGrowthStats,None,None,None,None,None,"Armoured Sludge","enemy"]
 ballistaGrowth = [Armoury.BallistaGrowthStats,None,None,None,None,None,"Ballista Sludge","enemy"]
 
+#New North
+peasant = [Armoury.peasantStats,Armoury.peasantStats2,None,None,None,None,"Feral Peasant","enemy"]
+razorKnight = [Armoury.razorKnightStats,Armoury.razorKnightStats2,None,None,None,None,"Razor Knight","enemy"]
+cultist = [Armoury.cultistStats,None,None,None,None,None,"Blood Star Cultist","enemy"]
+
 #bosses (has extra field for title card)
 mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Knight of the First Flame","enemy",["Here stands a servant of jealous flame, one of the Pretender's most loyal subjects.",""]]
 fireball = [Armoury.fireballStats,None,Armoury.fireballExplode,None,None,Armoury.spellBoots,"Fireball","enemy"]                                                                                                                                                                                                                             
 
-winter = [Armoury.silentNight,None,None,Armoury.frostPlate,Armoury.elfLeggings,Armoury.spellBoots,"The King of Winter","enemy",["Here sits an empty vessel, left to lord over a silent, starless realm by their cold creator",""]]
+winter = [Armoury.silentNight,None,None,Armoury.frostPlate,Armoury.elfLeggings,Armoury.spellBoots,"The King of Winter","enemy",["Here sits an empty vessel, left to lord over a starless, bloodsoaked realm by their cold creator",""]]
 winterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","enemy"]
-
+friendWinterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","ally"]
 
 mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Oogalash, the Primordial Ooze","enemy",["Here bubbles the First Child of Darkness, kept at bay by a thousand divine star-fires",""]]
 
@@ -39,7 +44,9 @@ raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.osirisAttire,Armoury
 #spawntables - split into the actual spawn table and the sprites for the map
 solarKnights = [[swordsman,crossbowman,solarPriest],"sprites/hrocharad/","Upper Hrocharad"]
 
-north = [[direWolf,beserker,kralBreeder],"sprites/north/","The North"]
+#north = [[direWolf,beserker,kralBreeder],"sprites/north/","The North"]
+newNorth = [[direWolf,peasant,razorKnight,cultist],"sprites/north/","The North"]
+newNorth2 = [[direWolf,peasant,razorKnight,cultist,friendWinterguard],"sprites/north/","The North"]
 
 darkness = [[darkwalker,pit],"sprites/cave/","Cave"]
 
@@ -55,7 +62,7 @@ mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","Inner Sanctum"
 
 
 #all spawntables
-spawnTables = [solarKnights,darkness]
+spawnTables = [solarKnights,darkness,newNorth]
 
 bossTables = [solarBoss,solarBoss,darkBoss,darkBoss,northBoss]
 
@@ -63,3 +70,4 @@ superBossTables = [mageSuperBoss]
 
 #debug
 #bossTables = [solarBoss,solarBoss,solarBoss]
+#spawnTables = [newNorth2]

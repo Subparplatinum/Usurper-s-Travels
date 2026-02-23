@@ -225,6 +225,9 @@ class Entity:
             #remove 1 stack of disease
             if Spellbook.disease in self.enchantments:
                 self.enchantments.remove(Spellbook.disease)
+            # Remove 1 stack of bloodloss
+            if Spellbook.disease in self.enchantments:
+                self.enchantments.remove(Spellbook.bloodloss)
             #remove 4 stacks of frost
             for i in range(4):
                 if Spellbook.frost in self.enchantments:
@@ -312,8 +315,7 @@ class Entity:
 
         # Trigger tile modifiers
         for modifier in self.tile.modifiers:
-            if modifier == "caltrops":
-                self.enchantments.append(Spellbook.bloodloss)
+            self.enchantments.append(modifier)
 
         
 
@@ -684,6 +686,28 @@ class Entity:
                                     for i in range(round(magnitude*self.mult)):
                                         target.enchantments.append(Spellbook.disease)
                                         self.text = (target.name+" has been infected with "+str(round(magnitude*self.mult))+" stacks of Disease. ")
+
+                        elif enchantment.effectType[i] == "bloodloss":
+                            if magnitude == "all":
+                                for Spellbook.bloodloss in target.enchantments:
+                                    target.enchantments.remove(Spellbook.bloodloss)
+                            else:
+                                #don't give status effects to walls, refund cost
+                                if target.entityType == "wall":
+                                    origin.mana += enchantment.cost
+                                else:
+                                    for i in range(round(magnitude*self.mult)):
+                                        target.enchantments.append(Spellbook.bloodloss)
+                                        self.text = (target.name+" has been crippled with "+str(round(magnitude*self.mult))+" stacks of Bloodloss. ")
+
+                        elif enchantment.effectType[i] == "caltrops":
+                            #don't give status effects to walls, refund cost
+                            if target.entityType == "wall":
+                                origin.mana += enchantment.cost
+                            else:
+                                for i in range(round(magnitude*self.mult)):
+                                    target.tile.modifiers.append(Spellbook.bloodloss)
+                                    self.text = (target.name+" has had "+str(round(magnitude*self.mult))+" caltrops placed on their tile. ")
                                     
                         elif enchantment.effectType[i] == "frost":
                             if magnitude == "all":
