@@ -39,6 +39,8 @@ class Tile:
 
         self.adjTiles = []
 
+        self.modifiers = set()
+
     def update(self,window):
         #draw
         window.blit(self.image,[self.x,self.y])
