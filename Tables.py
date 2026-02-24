@@ -43,7 +43,7 @@ raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.r
 
 
 #spawntables - split into the actual spawn table and the sprites for the map
-solarKnights = [[swordsman,crossbowman,solarPriest],"sprites/hrocharad/","Upper Hrocharad"]
+solarKnights = [[swordsman,crossbowman,solarPriest],"sprites/hrocharad/","The Radiant City"]
 
 #north = [[direWolf,beserker,kralBreeder],"sprites/north/","The North"]
 newNorth = [[direWolf,peasant,razorKnight,cultist],"sprites/north/","The North"]
