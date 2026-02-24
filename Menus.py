@@ -23,6 +23,7 @@ openingLore = []
 loreFile = open("lore/opening.txt","r")
 for line in loreFile:
     openingLore.append(line.strip())
+loreFile.close()
 
 openingLore.append("")
 openingLore.append("-Press ENTER to continue-")
