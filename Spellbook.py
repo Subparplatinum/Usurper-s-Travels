@@ -16,7 +16,7 @@ freeze = Enchantment(["frost"],[None],[1],"selfHit","attacker",0,"Freeze",["On b
 
 stupid = Enchantment(["hp"],[None],[500],"selfHit","self",0,"incredible levels of incompetance","")
 
-voidBlade = Enchantment(["mp"],[None],[50],"attack","target",0,"Hungering Darkness",["On attacking a target, reduce their MP by {}."])
+voidBlade = Enchantment(["hp"],[None],[50],"attack","target",0,"Hungering Darkness",["On attacking a target, reduce their HP by {}."])
 
 cosmicFocus = Enchantment(["mp"],[None],[-20],"selfHit","self",0,"Cosmic Surge",["On being attacked, increase your MP by {}."])
 
@@ -38,7 +38,7 @@ regen = Enchantment(["hp"],[None],[-50],"endTurn","self",10,"Regeneration",["Whe
 
 greatThaw = Enchantment(["hp"],[None],[9999999],"death","allAllies",0,"The Great Thaw",["Powerful frost magic dwells within the throne","Destroying it will destroy its subjects"])
 
-noWalls = Enchantment(["hp"],[None],[9999999],"spawn","allWalls",0,"The Great Demolition","")
+noWalls = Enchantment(["hp"],[None],[9999999],"spawn","allWalls",0,"End of Disparity",["On Spawn, destroy all walls on the map."])
 
 counter = Enchantment(["attack"],[None],[1],"block","attacker",10,"Counter",["On blocking an attack (reduce its damage below 0 using your AP),","attack the attacker {} times. Costs 10 MP."])
 
@@ -60,7 +60,7 @@ frente = Enchantment(["sp"],[None],[3],"riderBoots","self",0,"Mounted",["Mounts 
     
 attackFreeze = Enchantment(["frost"],[None],[2],"attack","target",25,"Silence Heart",["On attack, apply {} stacks of Frost to the target. Costs 25 MP."])
 
-attackFreeze2 = Enchantment(["frost"],[None],[1],"attack","target",25,"Ice Fangs",["On attack, apply {} stacks of Frost to the target. Costs 25 MP."])
+attackFreeze2 = Enchantment(["frost"],[None],[1],"attack","target",25,"Like the Blizzard",["On attack, apply {} stacks of Frost to the target. Costs 25 MP."])
 
 inspire = Enchantment(["dmg"],[None],[-10],"death","allAllies",0,"Inspiration",["On death, increase all allies' AT bonus by {}%."])
 
@@ -84,7 +84,7 @@ zodiac = Enchantment(["mp"],[None],[-20],"endTurn","allAllies",10,"Read the Star
 
 fear = Enchantment(["dmg"],[None],[10],"spawn","allEnemies",10,"Fearmongerer",["On spawn, decrease all enemies' AT bonus by {}. Costs 5 MP per enemy."])
 
-healthy = Enchantment(["hp"],[None],[-10],"move","self",10,"Grassrunner",["On move, increase your hp by {}. Costs 10 MP."])
+healthy = Enchantment(["hp"],[None],[-10],"move","self",10,"One with Nature",["On move, increase your hp by {}. Costs 10 MP."])
 
 focus = Enchantment(["mp"],[None],[20],"move","self",0,"Focus",["Decrease your MP by {} for every tile you move."])
 
@@ -97,6 +97,9 @@ poison = Enchantment(["hp"],[None],[10],"endTurn","self",0,"Poison",["On end tur
 frost = Enchantment(["sp"],[None],[0.5],"endTurn","self",0,"Frost",["On end turn, reduce your SP by {} for every 2 stacks of Frost.","Reduces by 4 stacks per turn."])
 
 frostImmune = Enchantment(["frost"],[None],["all"],"endTurn","self",0,"Frost Immune",["On end turn, remove all stacks of Frost on self."])
+burnImmune = Enchantment(["burn"],[None],["all"],"endTurn","self",20,"Burn Immune",["On end turn, remove all stacks of Burn on self. Costs 20 MP per turn."])
+
+
 
 poisoner = Enchantment(["poison"],[None],[1],"attack","target",20,"Poisoner",["On attack, apply {} stacks of Poison to the target.","Costs 20 MP."])
 
@@ -106,7 +109,7 @@ starBirth = Enchantment(["starSeed"],[None],[1],"attack","target",50,"Crystal Se
 
 fate = Enchantment(["multRemove"],[None],[10],"attack","target",50,"Sever Fate",["On attack, weaken the Bloody Star's guidance, reducing Sacrifice by {}%","Costs 50 MP."])
 
-starbane = Enchantment(["mp"],[None],[20],"endTurn","all",0,"Ceaseless Gaze",["On end turn, reduce all entities' MP by {}."])
+starbane = Enchantment(["burn"],[None,None],[1],"endTurn","all",0,"Solei's Wrath",["On end turn, give all entities {} stacks of Burn."])
 
 brace = Enchantment(["tempAp"],[None],[10],"move","self",0,"Brace",["Temporarily decrease your AP by {} for every tile you move this turn."])
 
@@ -130,7 +133,7 @@ reTrigger = Enchantment(["dmg"],[None],[-5],"otherAbility","self",0,"Astral Mast
 
 dragonchild = Enchantment(["dmg"],[None],[-50],"transform","self",0,"Wyvern's Child",["Gain a {}% AT bonus while transformed."])
 
-retaliation = Enchantment(["rangedAttack"],[None],[1],"selfHit","attacker",0,"Retaliation",["On being attacked, attack the attacker {} time/s."])
+retaliation = Enchantment(["rangedAttack"],[None],[1],"selfHit","attacker",0,"Omnipresence",["On being attacked, attack the attacker {} time/s."])
 
 burn = Enchantment(["tempDmg"],[None],[5],"endTurn","self",0,"Burn",["On end turn, reduce your AT bonus by {}% per stack","for next turn. Reduces by 1 stack per turn."])
 burningWeapon = Enchantment(["burn"],[None],[1],"attack","target",0,"Burning Weapon",["On attacking an enemy, apply {} stacks of Burn."])
@@ -150,7 +153,9 @@ thunderbrand = Enchantment(["sp"],[None],[-1],"ability","nearestAlly",100,"Thund
 
 stormSeeker = Enchantment(["sp"],[None],[-1],"startTurn","self",20,"Seeker of the Storm",["Increase your SP by {}. Costs 20 MP per turn."])
 
-#rat stuff
+automaton = Enchantment(["hp"],[None],[30],"attack","nearestEnemy",10,"Hunting Automaton",["On attack, reduce the nearest enemy's HP by {}. Costs 10 MP."])
+
+#ratkin stuff
 disease = Enchantment(["hp","dmg"],[None,None],[5,5],"endTurn","self",0,"Disease",["On end turn, reduce your HP by {} and your AT bonus by {}.","Reduces by 1 stack per turn."])
 filthBlessing = Enchantment(["disease"],[None],[1],"ability","adjEnemies",25,"Blessing of Filth",["Apply {} stack/s of Disease to all adjacent enemies. Costs 25 MP per","adjacent enemy."])
 
@@ -189,6 +194,7 @@ ballista = Enchantment(["ballista"],[None],[8],"ability","self",50,"Ballista Gro
 raahTwo = Enchantment(["raahTwo"],[None],[1],"death","self",50,"Resurgence",["This boss has a second phase"])
 
 crystalLump = Enchantment(["crystalLump"],[None],[1],"ability","self",150,"Crystal Growth",["Summon {} Crystal Growth/s in adjacent tiles. Costs 150 MP."])
+
 
 
 #transformation

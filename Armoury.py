@@ -40,26 +40,6 @@ voidLootTable = []
 
 
 """
-Lawyer Witch
-"""
-#weapons
-lawBook = Weapon(0,0,0,100,20,Spellbook.objection,"Law Book",1,False,lootTable)
-magicBroom = Weapon(3,0,0,0,1,None,"Magic Broom",1,False,lootTable)
-
-#helmets
-mageHat = Equipment(0,0,0,100,0,None,"Mage Hat","helmet",lootTable)
-
-#breasplates
-mageCloak = Equipment(0,20,0,100,0,None,"Mage Cloak","breastplate",lootTable)
-
-#leggings
-mageRobe = Equipment(0,0,0,100,0,None,"Mage Robes","leggings",lootTable)
-
-#boots
-mageBoots = Equipment(1,0,0,100,0,None,"Mage Boots","boots",lootTable)
-
-
-"""
 Wall
 """
 #breastplates
@@ -77,11 +57,6 @@ Crossbow Monk
 #weapons
 crossbowmanStats = Weapon(0,0,0,0,75,Spellbook.reload,"",5,True,None)
 
-#weapon for player
-crossbow2 = Weapon(0,0,0,0,100,Spellbook.reload,"Crossbow",5,True,lootTable)
-
-#add item that gives a large amount of damage but decreases it on move
-hunterLens = Equipment(0,0,0,0,50,Spellbook.aim,"Hunter's Lens","helmet",lootTable)
 
 """
 Solar Priest
@@ -90,8 +65,6 @@ Solar Priest
 solarPriestStats = Weapon(0,-100,0,200,0,Spellbook.burnEnchant,"",5,False,None)
 
 
-#leggings
-atRobe = Equipment(0,0,-20,100,0,Spellbook.atBuff,"Bone Robe","leggings",lootTable)
 
 """
 Knight of the First Flame
@@ -117,9 +90,6 @@ Frosthound
 """
 #weapons
 iceClaw = Weapon(1,0,0,0,30,None,"Ice Claw",1,False,None)
-
-#equippable ice claw
-iceClaw2 = Weapon(1,0,0,0,30,None,"Ice Claw",1,False,lootTable)
 
 #breastplates
 iceHide = Equipment(1,-60,0,0,0,None,"Ice Hide","breastplate",None)
@@ -151,10 +121,10 @@ Rogue
 throwingKnife = Weapon(1,0,0,0,5,None,"Throwing Knife",3,False,lootTable)
 
 #tunic
-tunic = Equipment(0,5,0,0,0,None,"Tunic","breastplate",lootTable)
+tunic = Equipment(0,5,0,0,0,None,"Tunic","breastplate",None)
 
 #boots
-boots = Equipment(1,5,0,0,0,None,"Boots","boots",lootTable)
+boots = Equipment(1,5,0,0,0,None,"Boots","boots",None)
 
 """
 Thug
@@ -171,12 +141,7 @@ trapLeggings = Equipment(0,10,0,50,0,Spellbook.trap,"Trapper's Leggings","leggin
 """
 Assassin
 """
-#weapons
-greatbow = Weapon(-1,0,0,0,75,Spellbook.prepare,"Greatbow",10,True,lootTable)
 
-hasteBoots = Equipment(2,0,-10,0,0,Spellbook.prepared,"Haste boots","boots",lootTable)
-
-lessHp = Equipment(0,-40,-10,0,0,None,"","helmet",None)
 
 """
 Skyla Crystalmouth
@@ -189,11 +154,9 @@ crystalbreaker = Weapon(0,0,10,100,60,None,"Crystalbreaker",1,True,None)
 """
 Kral Breeder
 """
-#weapons
-iceWhistle = Weapon(0,0,0,50,0,Spellbook.frosthound,"Ice Whistle",5,False,lootTable)
 
 #leggings
-fur = Equipment(0,40,0,0,0,None,"Fur","leggings",lootTable)
+fur = Equipment(0,40,0,0,0,None,"Fur","leggings",None)
 
 #boots
 frostHooves = Equipment(1,0,0,0,0,Spellbook.bloodDrink,"Frost Hooves","boots",None)
@@ -234,7 +197,7 @@ bascinet = Equipment(0,20,10,0,0,None,"Bascinet Helm","helmet",lootTable)
 frenteguerra = Equipment(3,0,0,0,0,Spellbook.frente,"Frenteguerra","leggings",None)
 
 #boots
-riderBoots = Equipment(0,0,0,0,0,None,"Rider's Boots","boots",lootTable)
+
 
 
 """
@@ -303,7 +266,7 @@ lance = Weapon(0,0,0,0,20,Spellbook.charge,"Valiant Lance",1,True,None)
 Wyvern Download stuff
 """
 #weapons
-stoneTotem = Weapon(0,0,0,0,80,Spellbook.wyvern,"Stone Totem",1,True,None)
+stoneTotem = Weapon(0,0,0,0,80,Spellbook.wyvern,"Stone Totem",1,True,lootTable)
 
 stoneTotemTwo = Weapon(3,900,0,-100,100,None,"Stone Totem",1,True,None)
 
@@ -324,7 +287,7 @@ stormBow = Weapon(0,0,0,0,60,Spellbook.stormSeeker,"Storm Bow",2,True,lootTable)
 """
 Thunderchief
 """
-thunderStaff = Weapon(-1,0,0,100,20,Spellbook.thunderbrand,"Thunderstaff",11,False,lootTable)   
+thunderStaff = Weapon(-1,0,0,100,20,Spellbook.thunderbrand,"Thunderstaff",11,False,None)   
 
 #########################################################
 """
@@ -360,39 +323,61 @@ nebula = Weapon(1,0,0,0,30,Spellbook.manasteal,"Starsteel Dagger",1,False,lootTa
 viperTooth = Weapon(1,0,0,0,30,Spellbook.poisoner,"Viper's Tooth",1,False,lootTable)
 buckler = Weapon(0,10,10,0,10,Spellbook.counter,"Buckler Shield",1,False,lootTable)
 spellShield = Weapon(0,0,0,0,5,Spellbook.spellShield,"Starsteel Shield",1,False,lootTable)
-tower = Weapon(0,20,20,0,5,Spellbook.brace,"Tower Shield",1,False,lootTable)
+towerShield = Weapon(0,20,20,0,5,Spellbook.brace,"Tower Shield",1,False,lootTable)
 bow = Weapon(0,0,0,0,50,None,"Bow",5,True,lootTable)
 starStaff = Weapon(-1,0,0,100,20,Spellbook.starstrike,"Celestial Staff",11,False,lootTable)
 holyStaff = Weapon(-1,0,0,100,20,Spellbook.heal,"Golden Staff",11,False,lootTable)
+solarStaff = Weapon(-1,0,0,100,20,Spellbook.burningRays,"Solar Staff",11,False,lootTable)
 forgehammer = Weapon(0,5,0,0,80,Spellbook.zornhau,"Forgehammer",1,False,lootTable)
 greatsword = Weapon(0,0,0,0,80,None,"Greatsword",1,True,lootTable)
 stonePillar = Weapon(-1,0,0,0,100,None,"Stone Pillar",1,True,lootTable)
 longsword = Weapon(0,0,0,0,40,None,"Longsword",1,False,lootTable)
+shardblade = Weapon(0,0,0,100,70,Spellbook.crystalLump,"Shardblade",1,True,lootTable)
+lawBook = Weapon(0,0,0,100,20,Spellbook.objection,"Law Book",1,False,lootTable)
+magicBroom = Weapon(3,0,0,0,1,None,"Magic Broom",1,False,lootTable)
+crossbow = Weapon(0,0,0,0,100,Spellbook.reload,"Crossbow",5,True,lootTable)
+hunterLens = Equipment(0,0,0,0,50,Spellbook.aim,"Hunter's Lens","helmet",lootTable)
+iceClaw2 = Weapon(1,0,0,0,30,Spellbook.attackFreeze2,"Ice Claw",1,False,lootTable)
+iceWhistle = Weapon(0,0,0,50,0,Spellbook.frosthound,"Ice Whistle",5,False,lootTable)
+greatbow = Weapon(-1,0,0,0,75,Spellbook.prepare,"Greatbow",10,True,lootTable)
+solarEffigy = Weapon(0,0,0,-100,50,Spellbook.starbane,"Defiled Solar Effigy",1,True,lootTable)
+voidBlade = Weapon(0,0,0,0,50,Spellbook.voidBlade,"Void Blade",15,False,lootTable)
 
 #helmets
-commissarHat = Equipment(0,10,0,0,5,Spellbook.rally,"General's Hat","helmet",lootTable)
-zodiacHat = Equipment(0,0,0,80,0,Spellbook.zodiac,"Zodiac's Hat","helmet",lootTable)
+zodiacHat = Equipment(0,0,0,80,0,Spellbook.zodiac,"Zodiac's Hood","helmet",lootTable)
 fearVisage = Equipment(1,0,0,0,10,Spellbook.fear,"Horrifying Visage","helmet",lootTable)
 iceFangs = Equipment(0,0,0,0,10,Spellbook.attackFreeze2,"Ice Fangs","helmet",lootTable)
 fangs = Equipment(0,0,0,0,20,None,"Fangs","helmet",lootTable)
 ghostFedora = Equipment(0,0,0,100,0,Spellbook.massAbsorb,"Ghosthand's Fedora","helmet",lootTable)
 potHelm = Equipment(0,0,5,0,0,None,"Helmet","helmet",lootTable)
+mageHat = Equipment(0,0,0,100,0,None,"Mage Hat","helmet",lootTable)
+blindfold = Equipment(0,0,0,0,10,Spellbook.teleport,"Abyssal Blindfold","helmet",lootTable)
+dragonSkull = Equipment(0,20,0,0,0,Spellbook.dragonchild,"Dragon Skull","helmet",lootTable)
 
 #breastplates
-hunterCloak = Equipment(0,0,5,50,10,Spellbook.apAmmo,"Hunter's Cloak","breastplate",lootTable)
-cloakOfKnives = Equipment(0,0,5,50,10,Spellbook.apPierce,"Cloak of Knives","breastplate",lootTable)
-crystalcloak = Equipment(0,0,0,100,0,Spellbook.starBirth,"Crystal Cloak","breastplate",lootTable)
+lordsStandard = Equipment(0,10,0,0,5,Spellbook.rally,"Lord's Standard","breastplate",lootTable)
+hunterCloak = Equipment(0,20,0,50,10,Spellbook.apAmmo,"Hunter's Cloak","breastplate",lootTable)
+cloakOfKnives = Equipment(0,20,0,50,10,Spellbook.apPierce,"Cloak of Knives","breastplate",lootTable)
+crystalcloak = Equipment(0,20,0,100,0,Spellbook.starBirth,"Crystal Cloak","breastplate",lootTable)
 ghostSuit = Equipment(0,20,0,50,0,Spellbook.projection,"Ghosthand's Cloak","breastplate",lootTable)
 breastplate = Equipment(0,20,10,0,0,None,"Breastplate","breastplate",lootTable)
 spellPlate = Equipment(0,0,10,20,0,Spellbook.cosmicFocus,"Starsteel Plate","breastplate",lootTable)
+mageCloak = Equipment(0,20,0,100,0,None,"Mage Cloak","breastplate",lootTable)
+darkheart = Equipment(0,50,10,-200,0,Spellbook.retaliation,"Heart of Darkness","breastplate",lootTable)
+waterPlate = Equipment(0,20,10,50,0,Spellbook.burnImmune,"Thassalan Plate","breastplate",lootTable)
 
 #leggings
 calfWings = Equipment(0,0,5,0,0,Spellbook.mpSp,"Calf Wings","leggings",lootTable)
 legplate = Equipment(0,10,10,0,0,None,"Legplate","leggings",lootTable)
 ghostTrousers = Equipment(0,20,0,50,0,Spellbook.swagger,"Ghosthand's Trousers","leggings",lootTable)
 horse = Equipment(3,0,0,0,0,Spellbook.frente,"Warhorse","leggings",lootTable)
-breeches = Equipment(0,5,0,0,0,None,"Breeches","leggings",lootTable)
+breeches = Equipment(0,5,0,0,0,None,"Breeches","leggings",None)
 spellLeggings = Equipment(0,0,5,50,0,None,"Starsteel Leggings","leggings",lootTable)
+runicSkirt = Equipment(0,0,5,25,0,Spellbook.thunderbrand,"Runic Skirt","leggings",lootTable)
+mageRobe = Equipment(0,0,0,100,0,None,"Mage Robes","leggings",lootTable)
+atRobe = Equipment(0,0,-20,100,0,Spellbook.atBuff,"Bone Robe","leggings",lootTable)
+hunterLeggings = Equipment(0,0,0,0,0,Spellbook.automaton,"Hunter's Leggings","leggings",lootTable)
+shiftingLegs = Equipment(0,10,20,0,10,Spellbook.noWalls,"Shifting Legs","leggings",lootTable)
 
 #boots
 grassBoots = Equipment(1,40,0,0,0,Spellbook.healthy,"Druid Boots","boots",lootTable)
@@ -400,3 +385,9 @@ zodiacBoots = Equipment(1,10,0,200,0,Spellbook.focus,"Zodiac's Boots","boots",lo
 deserterBoots = Equipment(1,0,0,0,0,Spellbook.evasion,"Deserter's Boots","boots",lootTable)
 metalBoots = Equipment(1,5,5,0,0,None,"Metal Boots","boots",lootTable)
 spellBoots = Equipment(1,0,5,50,0,None,"Starsteel Boots","boots",lootTable)
+ghostshoes = Equipment(1,0,0,50,0,Spellbook.reTrigger,"Ghosthand's Shoes","boots",lootTable)
+mageBoots = Equipment(1,0,0,100,0,None,"Mage Boots","boots",lootTable)
+riderBoots = Equipment(0,0,0,0,0,None,"Rider's Boots","boots",lootTable)
+hunterBoots = Equipment(2,0,-10,0,0,Spellbook.prepared,"Hunter's Boots","boots",lootTable)
+
+
