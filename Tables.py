@@ -32,6 +32,12 @@ friendWinterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard",
 
 mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Ooglesh, the Primordial Ooze","enemy",["Here bubbles the First Child of Darkness, once kept at bay by a thousand divine star-fires",""]]
 
+lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord of Dusk","enemy",['Here sits a decrepit old man clad in tattered rags, "I am Lethe, Lord of the Dusk Age, and the world is', 
+                                                                                                   'mine to drown in darkness!" he yells, as he waves his rusted shortsword in the air. You conclude this man',
+                                                                                                   'obviously poses no threat to you, and you turn to walk away.','','Then the world goes black...','']]
+
+umbralLegate = [Armoury.legateStats,None,None,None,None,None,"Umbral Legate","enemy"]
+
 #super bosses (has extra field for title card)                                                                  
 raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.raahTrousers,Armoury.starWalker,"Raah, the Pretender ","enemy",["Here sits the final obstacle of your travels",
                                                                                                                                                      "The Chosen of the First Flame,",
@@ -52,11 +58,12 @@ newNorth2 = [[direWolf,peasant,razorKnight,cultist,friendWinterguard],"sprites/n
 darkness = [[darkwalker,pit],"sprites/cave/","Cave"]
 
 #bosstables
-##all enemies after the first will be ads
+#all enemies after the first will be ads
+# I have no idea what the number in the second to last field does, but im scared to take it out so it stays in
 solarBoss = [[mageKnight,swordsman,swordsman,solarPriest],"sprites/throne/","music/Servant of Jealous Fire.mp3","Outer Sanctum",1,Armoury.mageknightLootTable]
 northBoss = [[winter,winterguard,winterguard,winterguard],"sprites/north/","music/Frozen Monarch.mp3","The Starless Citadel",0,Armoury.winterLootTable]
-darkBoss = [[mass,ballistaGrowth,ballistaGrowth,ballistaGrowth],"sprites/depths/","music/Creature of Darkness.mp3","The Depths",4,Armoury.massLootTable]
-
+darkBoss = [[mass,ballistaGrowth,ballistaGrowth,ballistaGrowth],"sprites/cave/","music/Creature of Darkness.mp3","The Depths",4,Armoury.massLootTable]
+darkBoss2 = [[lethe,umbralLegate,umbralLegate,umbralLegate],"sprites/darkness/","music/Deluded Old Man.flac","The Umbral Wood",5,Armoury.letheLootTable]
 
 #superbosstables
 mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","Inner Sanctum",6,None]
@@ -65,7 +72,7 @@ mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","Inner Sanctum"
 #all spawntables
 spawnTables = [solarKnights,darkness,newNorth]
 
-bossTables = [solarBoss,darkBoss,northBoss]
+bossTables = [solarBoss,darkBoss,northBoss,darkBoss2]
 
 superBossTables = [mageSuperBoss]
 

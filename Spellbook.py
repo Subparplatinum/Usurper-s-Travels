@@ -155,14 +155,21 @@ stormSeeker = Enchantment(["sp"],[None],[-1],"startTurn","self",20,"Seeker of th
 
 automaton = Enchantment(["hp"],[None],[30],"attack","nearestEnemy",10,"Hunting Automaton",["On attack, reduce the nearest enemy's HP by {}. Costs 10 MP."])
 
-#ratkin stuff
-disease = Enchantment(["hp","dmg"],[None,None],[5,5],"endTurn","self",0,"Disease",["On end turn, reduce your HP by {} and your AT bonus by {}.","Reduces by 1 stack per turn."])
-filthBlessing = Enchantment(["disease"],[None],[1],"ability","adjEnemies",25,"Blessing of Filth",["Apply {} stack/s of Disease to all adjacent enemies. Costs 25 MP per","adjacent enemy."])
-
 bloodloss = Enchantment(["hp"],[None],[5],"move","self",0,"Bloodloss",["On move, reduce your HP by {}.","Reduces by 1 stack per turn."])
 inflictBlood = Enchantment(["bloodloss"],[None],[1],"attack","target",0,"Blood for our God!", ["Apply {} stack/s of Bloodloss to target on hit."])
 caltrops = Enchantment(["caltrops"],[None],[1],"ability","self",25,"Caltrop Pouch", ["Drop {} caltrop/s on your tile."])
 rangedCaltrops = Enchantment(["caltrops"],[None],[1],"attack","target",0,"Caltrop Launcher", ["Drop {} caltrop/s on your target's tile."])
+
+weakenAllies = Enchantment(["ap"],[None],[100],"death","allAllies",0,"Dispel Delusion",["On death, reduce all allies' AP by {}."])
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#ratkin stuff
+disease = Enchantment(["hp","dmg"],[None,None],[5,5],"endTurn","self",0,"Disease",["On end turn, reduce your HP by {} and your AT bonus by {}.","Reduces by 1 stack per turn."])
+filthBlessing = Enchantment(["disease"],[None],[1],"ability","adjEnemies",25,"Blessing of Filth",["Apply {} stack/s of Disease to all adjacent enemies. Costs 25 MP per","adjacent enemy."])
+
 
 #human
 lessRegen = Enchantment(["hp"],[None],[-10],"endTurn","self",0,"Lesser Regen",["When your turn ends, increase your HP by {}."])

@@ -36,7 +36,7 @@ mageknightLootTable = []
 
 massLootTable = []
 
-voidLootTable = []
+letheLootTable = []
 
 
 """
@@ -312,6 +312,20 @@ Blood Star Cultist
 cultistStats = Weapon(0,-120,0,0,20,Spellbook.rangedCaltrops,"",11,False,None)
 
 
+"""
+Lethe, Lord of Dusk
+"""
+LetheStats = Weapon(0,100,350,0,50,Spellbook.noWalls,"",12,True,None)
+LetheStats2 = Equipment(0,0,0,0,0,Spellbook.retaliation,"","helmet",None)
+
+darkheart = Equipment(0,50,10,-200,0,Spellbook.retaliation,"Heart of Darkness","breastplate",letheLootTable)
+shiftingLegs = Equipment(0,10,20,0,10,Spellbook.noWalls,"Shifting Legs","leggings",letheLootTable)
+
+"""
+Umbral Legate
+"""
+legateStats = Weapon(3,0,0,0,40,Spellbook.weakenAllies,"",1,False,None)
+
 
 """
 Player only
@@ -363,7 +377,6 @@ ghostSuit = Equipment(0,20,0,50,0,Spellbook.projection,"Ghosthand's Cloak","brea
 breastplate = Equipment(0,20,10,0,0,None,"Breastplate","breastplate",lootTable)
 spellPlate = Equipment(0,0,10,20,0,Spellbook.cosmicFocus,"Starsteel Plate","breastplate",lootTable)
 mageCloak = Equipment(0,20,0,100,0,None,"Mage Cloak","breastplate",lootTable)
-darkheart = Equipment(0,50,10,-200,0,Spellbook.retaliation,"Heart of Darkness","breastplate",lootTable)
 waterPlate = Equipment(0,20,10,50,0,Spellbook.burnImmune,"Thassalan Plate","breastplate",lootTable)
 
 #leggings
@@ -377,7 +390,6 @@ runicSkirt = Equipment(0,0,5,25,0,Spellbook.thunderbrand,"Runic Skirt","leggings
 mageRobe = Equipment(0,0,0,100,0,None,"Mage Robes","leggings",lootTable)
 atRobe = Equipment(0,0,-20,100,0,Spellbook.atBuff,"Bone Robe","leggings",lootTable)
 hunterLeggings = Equipment(0,0,0,0,0,Spellbook.automaton,"Hunter's Leggings","leggings",lootTable)
-shiftingLegs = Equipment(0,10,20,0,10,Spellbook.noWalls,"Shifting Legs","leggings",lootTable)
 
 #boots
 grassBoots = Equipment(1,40,0,0,0,Spellbook.healthy,"Druid Boots","boots",lootTable)

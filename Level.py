@@ -102,8 +102,8 @@ class Level:
             self.mult = lastLevel.mult + Debug.enemyMultBonus #enemy mult
 
         #super bosses (spawn at level 20)
-        # Temporarily level 10
-        if self.levelNum%10 == 0:
+        # Temporarily level 15
+        if self.levelNum%15 == 0:
             self.spawnTable = Tables.superBossTables[random.randint(0,len(Tables.superBossTables)-1)]
             self.tableType = "superBoss"
             location = 3
@@ -205,7 +205,6 @@ class Level:
                     randRow = random.randint(0,len(self.tiles)-1)
                     randTile = random.randint(0,len(self.tiles[randRow])-1)
                 #spawn boss
-                #bosses are also no longer affected by mult
                 self.tiles[randRow][randTile].occupant = Entity.NPC(self.window,self,self.tiles[randRow][randTile],enemy[0],enemy[1],enemy[2],enemy[3],enemy[4],enemy[5],enemy[6],enemy[7],self.mult)
 
             
