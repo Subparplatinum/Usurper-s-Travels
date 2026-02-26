@@ -109,7 +109,7 @@ starBirth = Enchantment(["starSeed"],[None],[1],"attack","target",50,"Crystal Se
 
 fate = Enchantment(["multRemove"],[None],[10],"attack","target",50,"Sever Fate",["On attack, weaken the Bloody Star's guidance, reducing Sacrifice by {}%","Costs 50 MP."])
 
-starbane = Enchantment(["burn"],[None,None],[1],"endTurn","all",0,"Solei's Wrath",["On end turn, give all entities {} stacks of Burn."])
+wrath = Enchantment(["burn"],[None,None],[2],"endTurn","all",0,"Solei's Wrath",["On end turn, give all entities {} stacks of Burn."])
 
 brace = Enchantment(["tempAp"],[None],[10],"move","self",0,"Brace",["Temporarily decrease your AP by {} for every tile you move this turn."])
 
@@ -160,7 +160,7 @@ inflictBlood = Enchantment(["bloodloss"],[None],[1],"attack","target",0,"Blood f
 caltrops = Enchantment(["caltrops"],[None],[1],"ability","self",25,"Caltrop Pouch", ["Drop {} caltrop/s on your tile."])
 rangedCaltrops = Enchantment(["caltrops"],[None],[1],"attack","target",0,"Caltrop Launcher", ["Drop {} caltrop/s on your target's tile."])
 
-weakenAllies = Enchantment(["ap"],[None],[100],"death","allAllies",0,"Dispel Delusion",["On death, reduce all allies' AP by {}."])
+weakenAllies = Enchantment(["ap"],[None],[150],"death","allAllies",0,"Dispel Delusion",["On death, reduce all allies' AP by {}."])
 
 
 #------------------------------------------------------------------------------------------------------------------------------------------
@@ -189,7 +189,7 @@ poisonous = Enchantment(["poison"],[None],[1],"attack","target",0,"Poisonous",["
 quick = Enchantment(["sp"],[None],[-3],"spawn","self",0,"Quick",["On spawn, increase your SP by {}."])
 
 #summoning
-frosthound = Enchantment(["frosthound"],[None],[1],"ability","self",100,"Frost Call",["Summon {} Kralspawn/s in an adjacent tile. Costs 100 MP."])
+frosthound = Enchantment(["frosthound"],[None],[1],"ability","self",100,"Frost Call",["Summon {} Direwolves/s in an adjacent tile. Costs 100 MP."])
 
 throne = Enchantment(["throne"],[None],[1],"spawn","self",0,"Winter's King",["On spawn, summon The Throne of Winter in an adjacent tile."])
 

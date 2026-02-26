@@ -252,7 +252,7 @@ BallistaGrowthStats = Weapon(0,-150,0,0,20,None,"",11,None,None)
 """
 Darkwalker
 """
-darkwalkerStats = Weapon(1,0,0,0,120,Spellbook.teleport,"",1,False,None)
+darkwalkerStats = Weapon(0,0,0,0,120,Spellbook.teleport,"",1,False,None)
 
 
 
@@ -315,7 +315,7 @@ cultistStats = Weapon(0,-120,0,0,20,Spellbook.rangedCaltrops,"",11,False,None)
 """
 Lethe, Lord of Dusk
 """
-LetheStats = Weapon(0,100,350,0,50,Spellbook.noWalls,"",12,True,None)
+LetheStats = Weapon(0,0,350,0,20,Spellbook.noWalls,"",12,True,None)
 LetheStats2 = Equipment(0,0,0,0,0,Spellbook.retaliation,"","helmet",None)
 
 darkheart = Equipment(0,50,10,-200,0,Spellbook.retaliation,"Heart of Darkness","breastplate",letheLootTable)
@@ -324,7 +324,7 @@ shiftingLegs = Equipment(0,10,20,0,10,Spellbook.noWalls,"Shifting Legs","legging
 """
 Umbral Legate
 """
-legateStats = Weapon(3,0,0,0,40,Spellbook.weakenAllies,"",1,False,None)
+legateStats = Weapon(3,0,0,0,10,Spellbook.weakenAllies,"",1,False,None)
 
 
 """
@@ -344,7 +344,7 @@ holyStaff = Weapon(-1,0,0,100,20,Spellbook.heal,"Golden Staff",11,False,lootTabl
 solarStaff = Weapon(-1,0,0,100,20,Spellbook.burningRays,"Solar Staff",11,False,lootTable)
 forgehammer = Weapon(0,5,0,0,80,Spellbook.zornhau,"Forgehammer",1,False,lootTable)
 greatsword = Weapon(0,0,0,0,80,None,"Greatsword",1,True,lootTable)
-stonePillar = Weapon(-1,0,0,0,100,None,"Stone Pillar",1,True,lootTable)
+stonePillar = Weapon(-1,0,0,0,150,None,"Stone Pillar",1,True,lootTable)
 longsword = Weapon(0,0,0,0,40,None,"Longsword",1,False,lootTable)
 shardblade = Weapon(0,0,0,100,70,Spellbook.crystalLump,"Shardblade",1,True,lootTable)
 lawBook = Weapon(0,0,0,100,20,Spellbook.objection,"Law Book",1,False,lootTable)
@@ -354,7 +354,7 @@ hunterLens = Equipment(0,0,0,0,50,Spellbook.aim,"Hunter's Lens","helmet",lootTab
 iceClaw2 = Weapon(1,0,0,0,30,Spellbook.attackFreeze2,"Ice Claw",1,False,lootTable)
 iceWhistle = Weapon(0,0,0,50,0,Spellbook.frosthound,"Ice Whistle",5,False,lootTable)
 greatbow = Weapon(-1,0,0,0,75,Spellbook.prepare,"Greatbow",10,True,lootTable)
-solarEffigy = Weapon(0,0,0,-100,50,Spellbook.starbane,"Defiled Solar Effigy",1,True,lootTable)
+solarEffigy = Weapon(0,0,0,-100,50,Spellbook.wrath,"Defiled Solar Effigy",1,True,lootTable)
 voidBlade = Weapon(0,0,0,0,0,Spellbook.voidBlade,"Void Blade",15,False,lootTable)
 
 #helmets
@@ -377,7 +377,7 @@ ghostSuit = Equipment(0,20,0,50,0,Spellbook.projection,"Ghosthand's Cloak","brea
 breastplate = Equipment(0,20,10,0,0,None,"Breastplate","breastplate",lootTable)
 spellPlate = Equipment(0,0,10,20,0,Spellbook.cosmicFocus,"Starsteel Plate","breastplate",lootTable)
 mageCloak = Equipment(0,20,0,100,0,None,"Mage Cloak","breastplate",lootTable)
-waterPlate = Equipment(0,20,10,50,0,Spellbook.burnImmune,"Thassalan Plate","breastplate",lootTable)
+#waterPlate = Equipment(0,20,10,50,0,Spellbook.burnImmune,"Thassalan Plate","breastplate",lootTable) Will re-add after figuring out how to implement status immunity
 
 #leggings
 calfWings = Equipment(0,0,5,0,0,Spellbook.mpSp,"Calf Wings","leggings",lootTable)

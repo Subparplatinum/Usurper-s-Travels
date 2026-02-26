@@ -32,9 +32,9 @@ friendWinterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard",
 
 mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Ooglesh, the Primordial Ooze","enemy",["Here bubbles the First Child of Darkness, once kept at bay by a thousand divine star-fires",""]]
 
-lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord of Dusk","enemy",['Here sits a decrepit old man clad in tattered rags, "I am Lethe, Lord of the Dusk Age, and the world is', 
-                                                                                                   'mine to drown in darkness!" he yells, as he waves his rusted shortsword in the air. You conclude this man',
-                                                                                                   'obviously poses no threat to you, and you turn to walk away.','','Then the world goes black...','']]
+lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord of Dusk","enemy",['Here sits a decrepit old man clad in tattered rags. "I am Lethe, Lord of the Dusk Age, and the', 
+                                                                                                   'world is mine to drown in darkness!" he yells, as he waves his rusted shortsword in the air.',
+                                                                                                   'You conclude this man obviously poses no threat to you, so you turn to walk away.','','...then the world goes black...','']]
 
 umbralLegate = [Armoury.legateStats,None,None,None,None,None,"Umbral Legate","enemy"]
 
