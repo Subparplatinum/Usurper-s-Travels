@@ -341,7 +341,7 @@ iceClaw2 = Weapon(1,0,0,0,30,Spellbook.attackFreeze2,"Ice Claw",1,False,lootTabl
 iceWhistle = Weapon(0,0,0,50,0,Spellbook.frosthound,"Ice Whistle",5,False,lootTable)
 greatbow = Weapon(-1,0,0,0,75,Spellbook.prepare,"Greatbow",10,True,lootTable)
 solarEffigy = Weapon(0,0,0,-100,50,Spellbook.starbane,"Defiled Solar Effigy",1,True,lootTable)
-voidBlade = Weapon(0,0,0,0,50,Spellbook.voidBlade,"Void Blade",15,False,lootTable)
+voidBlade = Weapon(0,0,0,0,0,Spellbook.voidBlade,"Void Blade",15,False,lootTable)
 
 #helmets
 zodiacHat = Equipment(0,0,0,80,0,Spellbook.zodiac,"Zodiac's Hood","helmet",lootTable)
