@@ -96,8 +96,8 @@ poison = Enchantment(["hp"],[None],[10],"endTurn","self",0,"Poison",["On end tur
 
 frost = Enchantment(["sp"],[None],[0.5],"endTurn","self",0,"Frost",["On end turn, reduce your SP by {} for every 2 stacks of Frost.","Reduces by 4 stacks per turn."])
 
-frostImmune = Enchantment(["frost"],[None],["all"],"endTurn","self",0,"Frost Immune",["On end turn, remove all stacks of Frost on self."])
-burnImmune = Enchantment(["burn"],[None],["all"],"endTurn","self",20,"Burn Immune",["On end turn, remove all stacks of Burn on self. Costs 20 MP per turn."])
+frostImmune = Enchantment(["frost"],[None],[-999],"endTurn","self",0,"Frost Immune",["On end turn, remove {} stacks of Frost on self."])
+burnImmune = Enchantment(["burn"],[None],[-999],"endTurn","self",20,"Refreshing Waters",["On end turn, remove {} stacks of Burn on self. Costs 20 MP per turn."])
 
 
 
@@ -140,7 +140,7 @@ burningWeapon = Enchantment(["burn"],[None],[1],"attack","target",0,"Burning Wea
 burnEnchant = Enchantment(["burnEnchant"],[None],[1],"ability","allAllies",20,"Solei's Blessing",["Apply Burning Weapon to all allies.","Costs 20 MP per ally."])
 
 fireballHitSelf = Enchantment(["hp"],[None],[9999],"attack","self",0,"Unstable",["On attack, deal {} damage to self"])
-fireballExplode = Enchantment(["hp","burn"],[None,None],[50,2],"death","adjAll",0,"Explode",["Deal {} damage and apply {} stacks of Burn to all adjacent entities."])
+fireballExplode = Enchantment(["hp","burn"],[None,None],[50,2],"death","adjAll",0,"Explode",["Deal {} damage and apply {} stacks of Burn to all adjacent entities on death."])
 fireballSummon = Enchantment(["fireball"],[None],[1],"ability","self",100,"Wrath of Solei",["Summon {} fireball/s in adjacent tiles. Costs 100 MP."])
 
 bigWildMagic = Enchantment(["hp"],[None],[10],"endTurn","allEnemies",100,"Wild Magic Storm",["On end turn, deal {} damage to all enemies."])                 

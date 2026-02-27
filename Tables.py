@@ -22,7 +22,8 @@ razorKnight = [Armoury.razorKnightStats,None,Armoury.razorKnightStats2,None,None
 cultist = [Armoury.cultistStats,None,None,None,None,None,"Blood Star Cultist","enemy"]
 
 #bosses (has extra field for title card)
-mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Knight of the First Flame","enemy",["Here stands a servant of jealous fire. With unwavering loyalty to the sun-god Solei, known as the First Flame,","they are one of the Pretender's most loyal subjects.",""]]
+mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Knight of the First Flame","enemy",["Here stands a servant of jealous fire. With unwavering loyalty to the sun-god Solei, known as",
+                                                                                                            "the First Flame, they are one of the Pretender's most loyal subjects.",""]]
 fireball = [Armoury.fireballStats,None,Armoury.fireballExplode,None,None,Armoury.spellBoots,"Fireball","enemy"]                                                                                                                                                                                                                             
 
 winter = [Armoury.silentNight,None,None,Armoury.frostPlate,Armoury.elfLeggings,Armoury.spellBoots,"The King of Winter","enemy",["Here sits an empty vessel, a failed experiment, left to rule over a starless, bloodsoaked",

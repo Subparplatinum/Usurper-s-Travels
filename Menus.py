@@ -848,7 +848,7 @@ def companionMenu(window,level,ycoord,xcoord):
             
         window.blit(font.render("Choose a golem companion:",True,colour),(200,100))
 
-        #Skyla
+        #Crystal Golem
         pygame.draw.rect(window,(100,100,100),[190,190,300,40])
         if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 240:
             textToRender = ["A marble golem overgrown with glowing blue crystals.",
@@ -859,7 +859,7 @@ def companionMenu(window,level,ycoord,xcoord):
         window.blit(font.render("Crystalised Golem",True,colour),(200,200))
             
 
-        #Donkey         
+        #Valiant Golem        
         pygame.draw.rect(window,(100,100,100),[190,240,300,40])
         if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 290:
             textToRender = ["An iron golem impaled by a lance-shaped meteorite",
@@ -870,7 +870,7 @@ def companionMenu(window,level,ycoord,xcoord):
             pygame.draw.rect(window,red,[190,240,300,40])
         window.blit(font.render("Valiant Golem",True,colour),(200,250))
 
-        #Heinrich         
+        #Burning Golem       
         pygame.draw.rect(window,(100,100,100),[190,290,300,40])
         if 190 < mousePos[0] < 490 and 290 < mousePos[1] < 340:
             textToRender = ["A basalt golem which cracks and buckles as it",

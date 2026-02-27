@@ -324,7 +324,7 @@ shiftingLegs = Equipment(0,10,20,0,10,Spellbook.noWalls,"Shifting Legs","legging
 """
 Umbral Legate
 """
-legateStats = Weapon(3,0,0,0,10,Spellbook.weakenAllies,"",1,False,None)
+legateStats = Weapon(1,0,0,0,10,Spellbook.weakenAllies,"",1,False,None)
 
 
 """
@@ -377,7 +377,7 @@ ghostSuit = Equipment(0,20,0,50,0,Spellbook.projection,"Ghosthand's Cloak","brea
 breastplate = Equipment(0,20,10,0,0,None,"Breastplate","breastplate",lootTable)
 spellPlate = Equipment(0,0,10,20,0,Spellbook.cosmicFocus,"Starsteel Plate","breastplate",lootTable)
 mageCloak = Equipment(0,20,0,100,0,None,"Mage Cloak","breastplate",lootTable)
-#waterPlate = Equipment(0,20,10,50,0,Spellbook.burnImmune,"Thassalan Plate","breastplate",lootTable) Will re-add after figuring out how to implement status immunity
+waterPlate = Equipment(0,20,10,50,0,Spellbook.burnImmune,"Thassalan Plate","breastplate",lootTable) 
 
 #leggings
 calfWings = Equipment(0,0,5,0,0,Spellbook.mpSp,"Calf Wings","leggings",lootTable)
@@ -403,3 +403,4 @@ riderBoots = Equipment(0,0,0,0,0,None,"Rider's Boots","boots",lootTable)
 hunterBoots = Equipment(2,0,-10,0,0,Spellbook.prepared,"Hunter's Boots","boots",lootTable)
 
 
+crystalLumpPlayer = Equipment(-1,-150,0,400,0,Spellbook.bigWildMagic,"Crystal Lump","breastplate",None)

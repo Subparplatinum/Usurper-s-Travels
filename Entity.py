@@ -422,9 +422,8 @@ class Entity:
         #damage enemy
         damage = (round(weapon.attackBonus*self.mult*(1+self.attack/100)))
 
-        #armour has a 1 in 10 chance to fail
-        if random.random() > 0.1:
-             damage = round(damage / 1+(target.armour / 100)) #armour is now a percentage
+        #armour no longer has a 1 in 10 chance to fail
+        damage = round(damage / 1+(target.armour / 100)) #armour is now a percentage
              
         if damage <= 0:
             damage = 0
@@ -541,6 +540,21 @@ class Entity:
                     if enchantment.trigger == "rangedAttack":
                         self.triggerEnchant(enchantment) 
             return True
+
+    def manageStatusEffects(self,magnitude,effect,target):
+        # Function for adding and removing status effects
+        numeffects = round(magnitude*self.mult)
+        if numeffects < 0:
+            for i in range(-1*numeffects):
+                if effect in target.enchantments:
+                    target.enchantments.remove(effect)
+                else:
+                    return
+            self.text = (target.name+" has had "+str(-1*numeffects)+" stacks of "+effect.name+" removed. ")
+        else:
+            for i in range(numeffects):
+                target.enchantments.append(effect)
+                self.text = (target.name+" has been inflicted with "+str(numeffects)+" stacks of "+effect.name+". ")
 
     def triggerEnchant(self,enchantment):
         #all possible effects
@@ -664,91 +678,53 @@ class Entity:
 
                         #status effects
                         elif enchantment.effectType[i] == "poison":
-                            if magnitude == "all":
-                                for Spellbook.poison in target.enchantments:
-                                    target.enchantments.remove(Spellbook.poison)
+                            #don't give status effects to walls, refund cost
+                            if target.entityType == "wall":
+                                origin.mana += enchantment.cost
                             else:
-                                #don't give status effects to walls, refund cost
-                                if target.entityType == "wall":
-                                    origin.mana += enchantment.cost
-                                else:
-                                    for i in range(round(magnitude*self.mult)):
-                                        target.enchantments.append(Spellbook.poison)
-                                        self.text = (target.name+" has been sickened with "+str(round(magnitude*self.mult))+" stacks of Poison. ")
+                                self.manageStatusEffects(magnitude,Spellbook.poison,target)
 
                         elif enchantment.effectType[i] == "disease":
-                            if magnitude == "all":
-                                for Spellbook.disease in target.enchantments:
-                                    target.enchantments.remove(Spellbook.disease)
+                            #don't give status effects to walls, refund cost
+                            if target.entityType == "wall":
+                                origin.mana += enchantment.cost
                             else:
-                                #don't give status effects to walls, refund cost
-                                if target.entityType == "wall":
-                                    origin.mana += enchantment.cost
-                                else:
-                                    for i in range(round(magnitude*self.mult)):
-                                        target.enchantments.append(Spellbook.disease)
-                                        self.text = (target.name+" has been infected with "+str(round(magnitude*self.mult))+" stacks of Disease. ")
+                                self.manageStatusEffects(magnitude,Spellbook.disease,target)
 
                         elif enchantment.effectType[i] == "bloodloss":
-                            if magnitude == "all":
-                                for Spellbook.bloodloss in target.enchantments:
-                                    target.enchantments.remove(Spellbook.bloodloss)
+                            #don't give status effects to walls, refund cost
+                            if target.entityType == "wall":
+                                origin.mana += enchantment.cost
                             else:
-                                #don't give status effects to walls, refund cost
-                                if target.entityType == "wall":
-                                    origin.mana += enchantment.cost
-                                else:
-                                    for i in range(round(magnitude*self.mult)):
-                                        target.enchantments.append(Spellbook.bloodloss)
-                                        self.text = (target.name+" has been crippled with "+str(round(magnitude*self.mult))+" stacks of Bloodloss. ")
+                                self.manageStatusEffects(magnitude,Spellbook.bloodloss,target)
 
                         elif enchantment.effectType[i] == "caltrops":
                             #don't give status effects to walls, refund cost
                             if target.entityType == "wall":
                                 origin.mana += enchantment.cost
                             else:
-                                for i in range(round(magnitude*self.mult)):
-                                    target.tile.modifiers.append(Spellbook.bloodloss)
-                                    self.text = (target.name+" has had "+str(round(magnitude*self.mult))+" caltrops placed on their tile. ")
-                                    
+                                self.manageStatusEffects(magnitude,Spellbook.caltrops,target)
+
                         elif enchantment.effectType[i] == "frost":
-                            if magnitude == "all":
-                                for Spellbook.frost in target.enchantments:
-                                    target.enchantments.remove(Spellbook.frost)
+                            #don't give status effects to walls, refund cost
+                            if target.entityType == "wall":
+                                origin.mana += enchantment.cost
                             else:
-                                #don't give status effects to walls, refund cost
-                                if target.entityType == "wall":
-                                    origin.mana += enchantment.cost
-                                else:
-                                    for i in range(round(magnitude*self.mult)):
-                                        target.enchantments.append(Spellbook.frost)
-                                        self.text = (target.name+" has been frozen with "+str(round(magnitude*self.mult))+" stacks of Frost. ")
+                                self.manageStatusEffects(magnitude,Spellbook.frost,target)
                                     
                         elif enchantment.effectType[i] == "starSeed":
-                            if magnitude == "all":
-                                for Spellbook.starSeed in target.enchantments:
-                                    target.enchantments.remove(Spellbook.starSeed)
+                            #don't give status effects to walls, refund cost
+                            if target.entityType == "wall":
+                                origin.mana += enchantment.cost
                             else:
-                                #don't give status effects to walls, refund cost
-                                if target.entityType == "wall":
-                                    origin.mana += enchantment.cost
-                                else:
-                                    for i in range(round(magnitude*self.mult)):
-                                        target.enchantments.append(Spellbook.starSeed)
-                                        self.text = (target.name+" has been implanted with "+str(round(magnitude*self.mult))+" Crystal Buds. ")
+                                self.manageStatusEffects(magnitude,Spellbook.starSeed,target)
 
                         elif enchantment.effectType[i] == "burn":
-                            if magnitude == "all":
-                                for Spellbook.burn in target.enchantments:
-                                    target.enchantments.remove(Spellbook.burn)
+                            #don't give status effects to walls, refund cost
+                            if target.entityType == "wall":
+                                origin.mana += enchantment.cost
                             else:
-                                #don't give status effects to walls, refund cost
-                                if target.entityType == "wall":
-                                    origin.mana += enchantment.cost
-                                else:
-                                    for i in range(round(magnitude*self.mult)):
-                                        target.enchantments.append(Spellbook.burn)
-                                        self.text = (target.name+" has been wounded by "+str(round(magnitude*self.mult))+" stacks of Burn. ")
+                                self.manageStatusEffects(magnitude,Spellbook.burn,target)
 
                         elif enchantment.effectType[i] == "burnEnchant":
                             #don't give enchants to walls, refund cost
@@ -768,15 +744,11 @@ class Entity:
                                     self.text = (target.name+"'s weapon has been set aflame, it now applies Burn on attack. ")
 
                         elif enchantment.effectType[i] == "enchantRemove":
-                            if magnitude == "all":
-                                for enchantment in target.enchantments:
-                                    target.enchantments.remove(enchantment)
-                            else:
-                                for i in range(round(magnitude*self.mult)):
-                                    if len(target.enchantments) > 0:
-                                        self.text = (target.name+" has had "+target.enchantments[-1].name+" removed. ")
-                                        #removes enchantment at end of list
-                                        target.enchantments.pop(-1)
+                            for i in range(round(magnitude*self.mult)):
+                                if len(target.enchantments) > 0:
+                                    self.text = (target.name+" has had "+target.enchantments[-1].name+" removed. ")
+                                    #removes enchantment at end of list
+                                    target.enchantments.pop(-1)
 
                         elif enchantment.effectType[i] == "multRemove":
                             #we dont want mult to become negative
