@@ -8,3 +8,5 @@ lastLevelNum = 15
 playerMultBonus = 0.05
 #how much the enemy multiplier increases per level
 enemyMultBonus = 0.1
+
+debugClassEnabled = True

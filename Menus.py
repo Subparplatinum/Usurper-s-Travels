@@ -644,6 +644,14 @@ def characterMenu(window,level,ycoord,xcoord):
                 pygame.draw.rect(window,red,[190,390,300,40])
             window.blit(font.render("Priest",True,colour),(200,400))
 
+            #Debug Class
+            if Debug.debugClassEnabled:
+                pygame.draw.rect(window,(100,100,100),[190,440,300,40])
+                if 190 < mousePos[0] < 490 and 440 < mousePos[1] < 480:
+                    textToRender = ["You are Derius Bugg, Lord of a Functional and","Balanced Game."]
+                    pygame.draw.rect(window,red,[190,440,300,40])
+                window.blit(font.render("Derius Bugg",True,colour),(200,450))
+
             #render descriptions
             lineNum = 0
             for line in textToRender:
@@ -679,6 +687,12 @@ def characterMenu(window,level,ycoord,xcoord):
                     if 190 < mousePos[0] < 490 and 390 < mousePos[1] < 430:
                         player = [Armoury.holyStaff,Armoury.longsword,None,Armoury.mageCloak,Armoury.mageRobe,Armoury.mageBoots]
                         menu = 2
+
+                    if Debug.debugClassEnabled:
+                        if 190 < mousePos[0] < 490 and 440 < mousePos[1] < 480:
+                            player = [Armoury.smoughHammer,None,Armoury.potHelm,Armoury.breastplate,Armoury.legplate,Armoury.metalBoots]
+                            menu = 2
+                    
 
                 elif event.type == pygame.QUIT: 
                     pygame.quit()

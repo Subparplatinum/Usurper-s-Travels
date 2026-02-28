@@ -420,10 +420,10 @@ class Entity:
         self.target = target
         
         #damage enemy
-        damage = (round(weapon.attackBonus*self.mult*(1+self.attack/100)))
+        damage = round(weapon.attackBonus*self.mult*(1+(self.attack/100)))
 
         #armour no longer has a 1 in 10 chance to fail
-        damage = round(damage / 1+(target.armour / 100)) #armour is now a percentage
+        damage = round(damage / 1+(target.armour/100)) #armour is now a percentage
              
         if damage <= 0:
             damage = 0
@@ -758,7 +758,7 @@ class Entity:
                             else:
                                 target.mult = 0
                             
-                            self.text = (target.name+" has had their Sacrifice reduced by"+str(magnitude)+"%. ")
+                            self.text = (target.name+" has had their Sacrifice reduced by "+str(magnitude)+"%. ")
 
                         #transformation
                         elif enchantment.effectType[i] == "wyvern":
@@ -913,7 +913,27 @@ class Entity:
             for tile in self.tile.adjTiles:
                 if tile != None:
                     if tile.occupant != None:
-                        applyEffect(enchantment,self,tile.occupant)
+                        if enchantment.target == "adjEnemies":
+                            if (tile.occupant.entityType != self.entityType and tile.occupant.entityType != "wall") and not((tile.occupant.entityType == "player" and self.entityType == "ally") or (tile.occupant.entityType == "ally" and self.entityType == "player")):
+                                applyEffect(enchantment,self,tile.occupant)
+                        elif enchantment.target == "adjAllies":
+                            if tile.occupant.entityType == self.entityType or (tile.occupant.entityType == "player" and self.entityType == "ally") or (tile.occupant.entityType == "ally" and self.entityType == "player"):
+                                applyEffect(enchantment,self,tile.occupant)
+                        else:
+                            applyEffect(enchantment,self,tile.occupant)
+
+        elif enchantment.target == "targetAdjAll" or enchantment.target == "targetAdjEnemies" or enchantment.target == "targetAdjAllies":
+            for tile in self.target.tile.adjTiles:
+                if tile != None:
+                    if tile.occupant != None:
+                        if enchantment.target == "targetAdjEnemies":
+                            if (tile.occupant.entityType != self.entityType and tile.occupant.entityType != "wall") and not((tile.occupant.entityType == "player" and self.entityType == "ally") or (tile.occupant.entityType == "ally" and self.entityType == "player")):
+                                applyEffect(enchantment,self,tile.occupant)
+                        elif enchantment.target == "targetAdjAllies":
+                            if tile.occupant.entityType == self.entityType or (tile.occupant.entityType == "player" and self.entityType == "ally") or (tile.occupant.entityType == "ally" and self.entityType == "player"):
+                                applyEffect(enchantment,self,tile.occupant)
+                        else:
+                            applyEffect(enchantment,self,tile.occupant)
 
         elif enchantment.target == "all":
             for entity in self.level.entities:

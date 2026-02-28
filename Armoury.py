@@ -266,7 +266,7 @@ lance = Weapon(0,0,0,0,20,Spellbook.charge,"Valiant Lance",1,True,None)
 Wyvern Download stuff
 """
 #weapons
-stoneTotem = Weapon(0,0,0,0,80,Spellbook.wyvern,"Stone Totem",1,True,lootTable)
+stoneTotem = Weapon(-1,0,0,0,80,Spellbook.wyvern,"Stone Totem",1,True,lootTable)
 
 stoneTotemTwo = Weapon(3,900,0,-100,100,None,"Stone Totem",1,True,None)
 
@@ -309,7 +309,7 @@ razorKnightStats2 = Equipment(0,0,0,0,0,Spellbook.inflictBlood,"","helmet",None)
 """
 Blood Star Cultist
 """
-cultistStats = Weapon(0,-120,0,0,20,Spellbook.rangedCaltrops,"",11,False,None)
+cultistStats = Weapon(0,-120,0,0,20,Spellbook.rangedCaltrops,"",5,False,None)
 
 
 """
@@ -356,6 +356,7 @@ iceWhistle = Weapon(0,0,0,50,0,Spellbook.frosthound,"Ice Whistle",5,False,lootTa
 greatbow = Weapon(-1,0,0,0,75,Spellbook.prepare,"Greatbow",10,True,lootTable)
 solarEffigy = Weapon(0,0,0,-100,50,Spellbook.wrath,"Defiled Solar Effigy",1,True,lootTable)
 voidBlade = Weapon(0,0,0,0,0,Spellbook.voidBlade,"Void Blade",15,False,lootTable)
+smoughHammer = Weapon(-1,0,0,0,150,Spellbook.hammerTremor,"Execution Hammer",1,True,lootTable)
 
 #helmets
 zodiacHat = Equipment(0,0,0,80,0,Spellbook.zodiac,"Zodiac's Hood","helmet",lootTable)
@@ -366,7 +367,7 @@ ghostFedora = Equipment(0,0,0,100,0,Spellbook.massAbsorb,"Ghosthand's Fedora","h
 potHelm = Equipment(0,0,5,0,0,None,"Helmet","helmet",lootTable)
 mageHat = Equipment(0,0,0,100,0,None,"Mage Hat","helmet",lootTable)
 blindfold = Equipment(0,0,0,0,10,Spellbook.teleport,"Abyssal Blindfold","helmet",lootTable)
-dragonSkull = Equipment(0,20,0,0,0,Spellbook.dragonchild,"Dragon Skull","helmet",lootTable)
+dragonSkull = Equipment(0,20,0,100,0,Spellbook.dragonchild,"Dragon Skull","helmet",lootTable)
 
 #breastplates
 lordsStandard = Equipment(0,10,0,0,5,Spellbook.rally,"Lord's Standard","breastplate",lootTable)

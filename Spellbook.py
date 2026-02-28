@@ -38,11 +38,11 @@ regen = Enchantment(["hp"],[None],[-50],"endTurn","self",10,"Regeneration",["Whe
 
 greatThaw = Enchantment(["hp"],[None],[9999999],"death","allAllies",0,"The Great Thaw",["Powerful frost magic dwells within the throne","Destroying it will destroy its subjects"])
 
-noWalls = Enchantment(["hp"],[None],[9999999],"spawn","allWalls",0,"End of Disparity",["On Spawn, destroy all walls on the map."])
+noWalls = Enchantment(["hp"],[None],[9999999],"spawn","allWalls",0,"End of Disparity",["On spawn, destroy all walls on the map."])
 
 counter = Enchantment(["attack"],[None],[1],"block","attacker",10,"Counter",["On blocking an attack (reduce its damage below 0 using your AP),","attack the attacker {} times. Costs 10 MP."])
 
-frenzy = Enchantment(["hp"],[None],[10],"action","adjAll",5,"Frenzy",["Whenever you take an action (move, attack or skip turn) deal {} damage","(ignoring AP) to ALL adjacent entities. Costs 5 MP per adjacent entity."])
+frenzy = Enchantment(["hp"],[None],[10],"action","adjEnemies",5,"Frenzy",["Whenever you take an action (move, attack or skip turn) deal {} damage","(ignoring AP) to all adjacent enemies. Costs 5 MP per adjacent enemy."])
 
 bloodDrink = Enchantment(["dmg"],[None],[-10],"kill","self",0,"Blood Drink",["On killing an entity, increase your AT bonus by {}%."])
 
@@ -105,7 +105,7 @@ poisoner = Enchantment(["poison"],[None],[1],"attack","target",20,"Poisoner",["O
 
 starSeed = Enchantment(["hp"],[None],[10],"death","allAllies",0,"Crystal Buds",["On death, deal {} damage to all allies per stack."])
 
-starBirth = Enchantment(["starSeed"],[None],[1],"attack","target",50,"Crystal Seed",["On attack, apply {} stacks of Crystal Buds to the target. When the target dies,","these will shatter and damage their allies in a storm of wild magic.","Costs 50 MP."])
+starBirth = Enchantment(["starSeed"],[None],[1],"attack","target",50,"Crystal Seed",["On attack, apply {} stacks of Crystal Buds to the target. When the target dies,","these will shatter and damage their allies in a storm of wild magic. Costs 50 MP."])
 
 fate = Enchantment(["multRemove"],[None],[10],"attack","target",50,"Sever Fate",["On attack, weaken the Bloody Star's guidance, reducing Sacrifice by {}%","Costs 50 MP."])
 
@@ -145,7 +145,7 @@ fireballSummon = Enchantment(["fireball"],[None],[1],"ability","self",100,"Wrath
 
 bigWildMagic = Enchantment(["hp"],[None],[10],"endTurn","allEnemies",100,"Wild Magic Storm",["On end turn, deal {} damage to all enemies."])                 
   
-teleport = Enchantment(["teleport"],[None],[1],"ability","nearestEnemy",100,"Darkstep",["Teleport to the nearest enemy"])     
+teleport = Enchantment(["teleport"],[None],[1],"ability","nearestEnemy",0,"Darkstep",["Teleport to the nearest enemy"])     
 
 burningRays = Enchantment(["burn"], [None],[1],"ability","nearestEnemy",50,"Burning Rays",["Apply {} stack/s of Burn to the nearest enemy. Costs 50 MP."])
 
@@ -162,6 +162,7 @@ rangedCaltrops = Enchantment(["caltrops"],[None],[1],"attack","target",0,"Caltro
 
 weakenAllies = Enchantment(["ap"],[None],[150],"death","allAllies",0,"Dispel Delusion",["On death, reduce all allies' AP by {}."])
 
+hammerTremor = Enchantment(["hp"],[None],[50],"attack","targetAdjEnemies",0,"Shockwave Strike",["On attack, deal {} damage to your target's adjacent allies."])
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -205,4 +206,4 @@ crystalLump = Enchantment(["crystalLump"],[None],[1],"ability","self",150,"Cryst
 
 
 #transformation
-wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",400,"Wyvern Download",["Succumb to Drakkak's rage, and become an avatar of his fury.","Grants {} turns of Wyvernform per use. Costs 400 MP"])
+wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",200,"Wyvern Download",["Succumb to Drakkak's rage, and become an avatar of his fury.","Grants {} turns of Wyvernform per use. Costs 200 MP"])

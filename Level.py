@@ -103,7 +103,7 @@ class Level:
 
         #super bosses (spawn at level 20)
         # Temporarily level 15
-        if self.levelNum%15 == 0:
+        if self.levelNum%Debug.lastLevelNum == 0:
             self.spawnTable = Tables.superBossTables[random.randint(0,len(Tables.superBossTables)-1)]
             self.tableType = "superBoss"
             location = 3
