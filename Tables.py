@@ -94,7 +94,7 @@ darkness = [[darkwalker,pit],"sprites/cave/","Cave"]
 solarBoss = [[mageKnight,swordsman,swordsman,solarPriest],"sprites/throne/","music/Servant of Jealous Fire.mp3","Outer Sanctum",1,Armoury.mageknightLootTable]
 northBoss = [[winter,winterguard,winterguard,winterguard],"sprites/north/","music/Frozen Monarch.mp3","The Starless Citadel",0,Armoury.winterLootTable]
 darkBoss = [[mass,ballistaGrowth,ballistaGrowth,ballistaGrowth],"sprites/cave/","music/Creature of Darkness.mp3","The Depths",4,Armoury.massLootTable]
-darkBoss2 = [[lethe,umbralLegate,umbralLegate,umbralLegate],"sprites/darkness/","music/Deluded Old Man.flac","The Umbral Wood",5,Armoury.letheLootTable]
+darkBoss2 = [[lethe,umbralLegate,umbralLegate,umbralLegate],"sprites/darkness/","music/Deluded Old Man.mp3","The Umbral Wood",5,Armoury.letheLootTable]
 
 #superbosstables
 mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","Inner Sanctum",6,None]

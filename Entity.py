@@ -776,7 +776,7 @@ class Entity:
                             
                             #fade out music over a second
                             #pygame.mixer.music.fadeout(1000)
-                            pygame.mixer.music.load('music/Ride the Fire!.flac')
+                            pygame.mixer.music.load('music/Ride the Fire!.mp3')
                             pygame.mixer.music.play(-1,0,0)
                             pygame.mixer.music.set_volume(0.6)
 
