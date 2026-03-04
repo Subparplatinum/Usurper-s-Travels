@@ -12,6 +12,14 @@
    "C:\\Users\\charl\\OneDrive\\Documents\\Python Projects\\Usurper's "
    'Travels\\Entity.py',
    'PYMODULE'),
+  ('HelperFunctions',
+   "C:\\Users\\charl\\OneDrive\\Documents\\Python Projects\\Usurper's "
+   'Travels\\HelperFunctions.py',
+   'PYMODULE'),
+  ('Inventory',
+   "C:\\Users\\charl\\OneDrive\\Documents\\Python Projects\\Usurper's "
+   'Travels\\Inventory.py',
+   'PYMODULE'),
   ('Level',
    "C:\\Users\\charl\\OneDrive\\Documents\\Python Projects\\Usurper's "
    'Travels\\Level.py',

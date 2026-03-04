@@ -319,7 +319,11 @@ class Entity:
         for modifier in self.tile.modifiers:
             self.enchantments.append(modifier)
 
-        
+    def showAttackRange(self):
+        if self.tile.x < self.mousePos[0] < self.tile.x1 and self.tile.y < self.mousePos[1] < self.tile.y1:
+                for i in range (0,2):
+                    if self.equipment[i] != None:
+                        pygame.draw.rect(self.window, (100,100,100), (self.x - (self.equipment[i].attackRange)*self.level.tileSize, self.y - (self.equipment[i].attackRange)*self.level.tileSize, (self.equipment[i].attackRange*2)*self.level.tileSize+self.level.tileSize, (self.equipment[i].attackRange*2)*self.level.tileSize+self.level.tileSize), 5)
 
     #show stats of an entity by hovering over them
     def showStats(self):
@@ -329,11 +333,6 @@ class Entity:
         self.window.blit(self.font.render("HP: "+str(self.health)+"/"+str(self.maxHealth),True,self.colour),(0,50))
         
         if self.entityType != "wall":
-            if self.tile.x < self.mousePos[0] < self.tile.x1 and self.tile.y < self.mousePos[1] < self.tile.y1:
-                for i in range (0,2):
-                    if self.equipment[i] != None:
-                        pygame.draw.rect(self.window, (100,100,100), (self.x - (self.equipment[i].attackRange)*self.level.tileSize, self.y - (self.equipment[i].attackRange)*self.level.tileSize, (self.equipment[i].attackRange*2)*self.level.tileSize+self.level.tileSize, (self.equipment[i].attackRange*2)*self.level.tileSize+self.level.tileSize), 5)
-
             self.window.blit(self.font.render(f"AP: {str(self.armour)}%/{str(self.maxArmour)}%",True,self.colour),(0,100))
             #speed now rounded to 1 d.p
             self.window.blit(self.font.render("SP: "+str(round(self.speed,2))+"/"+str(self.maxSpeed),True,self.colour),(0,150))
@@ -1064,9 +1063,16 @@ class Player(Entity):
 
             #main menu
             if pressed[pygame.K_ESCAPE]:
-                Menus.mainMenu(self.window)
+                Menus.controlMenu(self.window)
                 #This should stop the player instantly reentering the menu
                 time.sleep(0.1)
+
+            # If S is pressed, toggle sticky entity (entity whose stats are shown when hovering over other entities)
+            #if pressed[pygame.K_s]:
+                #if self.level.stickyEntity == None:
+                    #self.level.stickyEntity = self.selectedEntity
+                #else:
+                    #self.level.stickyEntity = None
 
             elif pressed[pygame.K_1] or pressed[pygame.K_2] or pressed[pygame.K_3] or pressed[pygame.K_4] or pressed[pygame.K_5] or pressed[pygame.K_6]:
                 #trigger abilities
@@ -1095,7 +1101,7 @@ class Player(Entity):
             
 
 class NPC(Entity):
-    def pathAlgorithm(self,tile,target): #incredibly dumb ai TODO: make smarter
+    def pathAlgorithm(self,tile,target): #incredibly dumb ai
         
         if tile != None:
             xDistance = abs(target.x - tile.x)

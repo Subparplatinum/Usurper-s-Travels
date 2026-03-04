@@ -196,7 +196,7 @@ throne = Enchantment(["throne"],[None],[1],"spawn","self",0,"Winter's King",["On
 
 idealist = Enchantment(["idealist"],[None],[4],"ability","self",150,"Hero's Call",["Summon {} Warriors in adjacent tiles. Costs 50 MP."])
 
-phalanx = Enchantment(["phalanx"],[None],[8],"ability","self",50,"Phalanx Growths",["Summon {} Phalanx Growths in adjacent tiles. Costs 50 MP."])
+phalanx = Enchantment(["phalanx"],[None],[8],"ability","self",150,"Phalanx Growths",["Summon {} Phalanx Growths in adjacent tiles. Costs 150 MP."])
 ballista = Enchantment(["ballista"],[None],[8],"ability","self",50,"Ballista Growths",["Summon {} Ballista Growths in adjacent tiles. Costs 50 MP."])
 
 raahTwo = Enchantment(["raahTwo"],[None],[1],"death","self",50,"Resurgence",["This boss has a second phase"])

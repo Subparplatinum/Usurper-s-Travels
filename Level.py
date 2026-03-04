@@ -1,3 +1,6 @@
+import copy
+import time
+
 import pygame
 import random
 import Entity
@@ -62,7 +65,8 @@ class Level:
         self.text = ["","","","","","","","","",""]
         self.colour = (255,255,255) #white for text
 
-        #lore stuff
+        # Finally not gonna make the game crash when it ends
+        self.gameOver = False
                     
         
         #generate level
@@ -85,6 +89,7 @@ class Level:
 
         #store the selected entity
         self.selectedEntity = None
+        self.stickyEntity = None
 
         #store attacks that need to be rendered
         self.attackToRender = []
@@ -346,6 +351,14 @@ class Level:
             #if a boss was just beaten remove them from the pool
             if self.tableType == "boss":
                 Tables.bossTables.remove(self.spawnTable)
+        
+            # If game was just won then end the game
+            if self.levelNum == Debug.lastLevelNum:
+                winScreen = pygame.image.load("sprites/throneUsurped.png")
+                self.window.blit(winScreen,(300,250))
+                pygame.display.flip()
+                pygame.time.wait(3000) #wait 3 seconds
+                self.gameOver = True
                 
                 
             
@@ -366,16 +379,23 @@ class Level:
 
         #mouse position
         self.mousePos = pygame.mouse.get_pos()
+        pressed = pygame.key.get_pressed()
+        if pressed[pygame.K_s]:
+            self.stickyEntity = None
+
         #if mouse is hovering over an entity
         for entity in self.entities:
             if entity.tile.x < self.mousePos[0] < entity.tile.x1 and entity.tile.y < self.mousePos[1] < entity.tile.y1:
                 #mark that entity as selected
                 self.selectedEntity = entity
+                if pressed[pygame.K_s]:
+                    self.stickyEntity = entity
 
         #select an player to control
-        if self.selectedPlayer == None:
-            for event in pygame.event.get():
-                pressed = pygame.key.get_pressed()
+        for event in pygame.event.get():
+            pressed = pygame.key.get_pressed()
+            # If S is pressed, toggle sticky entity (entity whose stats are shown when hovering over other entities)
+            if self.selectedPlayer == None:
                 if self.selectedEntity != None:
                     if event.type == pygame.MOUSEBUTTONDOWN and self.selectedEntity.entityType == "player":
                         #if RMB pressed
@@ -389,14 +409,20 @@ class Level:
 
                 #show tips
                 elif pressed[pygame.K_ESCAPE]:
-                    Menus.mainMenu(self.window)
+                    Menus.controlMenu(self.window)
+                    time.sleep(0.1)
             
 
         #presume no enchantment info will be shown
         self.enchantInfo = None
-        #show its stats
-        if self.selectedEntity != None:
+        #show its stats (stickied entity takes priority)
+        if self.stickyEntity != None:
+            self.stickyEntity.showStats()
+            # But still show attack range of selected entity if there is one, for QoL reasons
+            self.selectedEntity.showAttackRange()
+        elif self.selectedEntity != None:
             self.selectedEntity.showStats()
+            self.selectedEntity.showAttackRange()
 
         if self.enchantInfo != None:
             lineNum = 0
@@ -442,8 +468,14 @@ class Level:
 
         #if all players dead, end the game
         if end == True:
-            pygame.quit()
-            sys.exit()
+            deathmessage = pygame.image.load("sprites/youDied.png")
+            self.window.blit(deathmessage,(300,250))
+            pygame.display.flip()
+            pygame.time.wait(3000) # wait 3 seconds
+
+            #TODO: return to main menu instead of quitting
+            self.gameOver = True
+            
             
     
         

@@ -7,35 +7,16 @@ import Tables
 import random
 #easy access variables
 import Debug
+from HelperFunctions import *
 
-
-#openingLore = ["The land of Asterant has been thrown into chaos. Its king, Raah, murdered a star -",
-#                        "one of the gods of Asterant. To kill a star is a cardinal sin, for without their guiding light",
-#                        "keeping the Darkness at bay, the people of Asterant will inevitably be consumed. Thus,",
-#                        "the Zodiacs of the Pale City",
-#                        "declared him the Archenemy, and all across Asterant Usurpers rose up to take his throne.",
-#                        "Followers of Khorgan, the Bloody Star - a violent god that grants strength through sacrifice",
-#                        " - and assisted by divine golems created by the Zodiacs, they travel Asterant, growing in",
-#                        "strength, until they are ready to take the throne.","",
-#                        "-Press ENTER to continue-"]
-
-openingLore = []
-loreFile = open("lore/opening.txt","r")
-for line in loreFile:
-    openingLore.append(line.strip())
-loreFile.close()
-
-openingLore.append("")
-openingLore.append("-Press ENTER to continue-")
+font = pygame.font.SysFont(None,40)
+smolFont = pygame.font.SysFont(None,20)
+bigFont = pygame.font.SysFont(None,160)
+colour = (255,255,255)
+red = (100,0,0)
+grey = (100,100,100)
 
 def selectBoss(window):
-
-    font = pygame.font.SysFont(None,40)
-    smolFont = pygame.font.SysFont(None,20)
-    colour = (255,255,255)
-    red = (100,0,0)
-    grey = (100,100,100)
-
     bosses = random.sample(Tables.bossTables, 3)
 
     finished = False
@@ -64,7 +45,7 @@ def selectBoss(window):
         window.blit(font.render(bosses[1][3],True,colour),(385,440))
         window.blit(font.render(bosses[2][3],True,colour),(735,440))
 
-        window.blit(font.render("Determine the rift's destination:",True,colour),(350,50))
+        window.blit(font.render("Determine the your next destination:",True,colour),(350,50))
 
 
         #if player presses esc, exit menu
@@ -80,471 +61,32 @@ def selectBoss(window):
                     
             elif event.type == pygame.QUIT: 
                 pygame.quit()
-                sys.exit()
-                    
-
-#TODO: create class for inventory menu
-def inventory(items,players,window,levelNum):
-    finished = False
-    #used to move items around
-    selectedItem = None
-
-    try: player1 = players[0]
-    except: player1 = None
-    
-    try: player2 = players[1]
-    except: player2 = None
-    
-    font = pygame.font.SysFont(None,40)
-    smolFont = pygame.font.SysFont(None,20)
-    bigFont = pygame.font.SysFont(None,300)
-    colour = (255,255,255)
-    grey = (100,100,100)
-    red = (100,0,0)
-    
-    #if boss level has just concluded,
-    if levelNum%5 == 0:
-        #fade out music over a second
-        pygame.mixer.music.fadeout(1000)
-        pygame.mixer.music.load('music/battle'+str(random.randint(1,4))+'.mp3')
-        #fade music in over 1 second
-        pygame.mixer.music.play(-1,0,1000)
-
-    #where the columns will be located
-    weaponPos = 0
-    helmetPos = 200
-    breastplatePos = 400
-    leggingsPos = 600
-    bootsPos = 800
-
-    weapons = []
-    helmets = []
-    breastplates = []
-    leggings = []
-    boots = []
-
-    def sort(equipment):
-        if equipment != None:
-            if equipment.equipType == "weapon":
-                weapons.append(equipment)
-            elif equipment.equipType == "helmet":
-                helmets.append(equipment)
-            elif equipment.equipType == "breastplate":
-                breastplates.append(equipment)
-            elif equipment.equipType == "leggings":
-                leggings.append(equipment)
-            elif equipment.equipType == "boots":
-                boots.append(equipment)
-        
-
-                                         
-    for equipment in items:
-        sort(equipment)
-
-
-    def showStats(equipment,font,colour,startPos,window,mousePos):
-        window.blit(font.render(equipment.name,True,colour),(900,startPos))
-        window.blit(font.render("HP: "+str(round(equipment.healthBonus*player1.mult)),True,colour),(900,startPos + 30))
-        window.blit(font.render("AP: "+str(round(equipment.armourBonus*player1.mult)),True,colour),(900,startPos + 60))
-        window.blit(font.render("SP: "+str(equipment.speedBonus),True,colour),(900,startPos + 90))
-        window.blit(font.render("MP: "+str(round(equipment.manaBonus*player1.mult)),True,colour),(900,startPos + 120))
-        window.blit(font.render("AT: "+str(round(equipment.attackBonus*player1.mult)),True,colour),(900,startPos + 150))
-        if equipment.equipType == "weapon":
-            if equipment.twoHanded == True:
-                window.blit(font.render("Two-Handed",True,colour),(900,startPos + 180))
-            else:
-                window.blit(font.render("One-Handed",True,colour),(900,startPos + 180))
-
-        #render enchantment
-            if equipment.enchantment != None:
-                pygame.draw.rect(window,grey,[900,startPos + 210,300,30])
-                window.blit(font.render(equipment.enchantment.name,True,(0,255,255)),(900,startPos + 210))
-                if 900 < mousePos[0] < 1100 and (startPos + 210) < mousePos[1] < (startPos + 240):
-                    pygame.draw.rect(window,red,[900,startPos + 210,300,30])
-                    window.blit(font.render(equipment.enchantment.name,True,(0,255,255)),(900,startPos + 210))
-                    return equipment.enchantment
-                
-        else:
-            
-            if equipment.enchantment != None:
-                pygame.draw.rect(window,grey,[900,startPos + 180,300,30])
-                window.blit(font.render(equipment.enchantment.name,True,(0,255,255)),(900,startPos + 180))
-                if 900 < mousePos[0] < 1100 and (startPos + 180) < mousePos[1] < (startPos + 210):
-                    pygame.draw.rect(window,red,[900,startPos + 180,300,30])
-                    window.blit(font.render(equipment.enchantment.name,True,(0,255,255)),(900,startPos + 180))
-                    return equipment.enchantment
-
-    #render win screen
-    window.fill((0,0,0))
-    
-    #if final boss beaten then end the game
-    if levelNum == Debug.lastLevelNum:
-        pygame.quit()
-        sys.exit()
-        
-    #if level just before final boss
-    if levelNum == 19:
-        text = ["big boss coming"]
-        
-    #if level just before regular boss
-    elif (levelNum+1)%5 == 0:
-        text = ["boss coming"]
-
-    #if level just after regular boss
-    elif (levelNum%5) == 0:
-        text = ["boss beat"]
-        
-    #if normal level
-    else:
-        text = ["normal level"]
-
-    text.append("-Press ENTER to continue-")
-    while not(finished):
-        window.fill((0,0,0))
-        drawText(window,font,colour,text,50,100,100)
-        pygame.display.flip()
-
-        #let player move on when they want
-        for event in pygame.event.get():
-            pressed = pygame.key.get_pressed()
-            if pressed[pygame.K_RETURN]:
-                #player is ready to move on
-                finished = True
-            
-            elif event.type == pygame.QUIT: 
-                pygame.quit()
-                sys.exit()
-
-    finished = False
-    hoveredItem = None
-    while not(finished):
-        enchantInfo = None
-        pygame.display.flip()
-        window.fill((0,0,0))
-        mousePos = pygame.mouse.get_pos()
-
-        #player 1 equipment
-        if player1 != None:
-            window.blit(font.render(player1.name,True,colour),(300,0))
-            for i in range(len(player1.equipment)):
-                if player1.equipment[i] != None:
-                    pygame.draw.rect(window,grey,[290,40+(i*50),295,45])
-                    #if hovering over equipment:
-                    if 290 < mousePos[0] < 585 and 40+(i*50) < mousePos[1] < 85+(i*50):
-                        #show stats
-                        pygame.draw.rect(window,red,[290,40+(i*50),295,45])
-                        hoveredItem = player1.equipment[i]
-                    window.blit(font.render(player1.equipment[i].name,True,colour),(300,50+(i*50)))
-            
-        #player 2 equipment
-        if player2 != None:
-            window.blit(font.render(player2.name,True,colour),(600,0))
-            for i in range(len(player2.equipment)):
-                if player2.equipment[i] != None:
-                    pygame.draw.rect(window,grey,[590,40+(i*50),295,45])
-                    #if hovering over equipment:
-                    if 590 < mousePos[0] < 885 and 40+(i*50) < mousePos[1] < 85+(i*50):
-                        #show stats
-                        pygame.draw.rect(window,red,[590,40+(i*50),295,45])
-                        hoveredItem = player2.equipment[i]
-                    window.blit(font.render(player2.equipment[i].name,True,colour),(600,50+(i*50)))
-
-        #unused equipment
-
-        #titles
-        window.blit(font.render("Weapons",True,colour),(weaponPos,450))
-        window.blit(font.render("Helmets",True,colour),(helmetPos,450))
-        window.blit(font.render("Breasplates",True,colour),(breastplatePos,450))
-        window.blit(font.render("Leggings",True,colour),(leggingsPos,450))
-        window.blit(font.render("Boots",True,colour),(bootsPos,450))
-
-        #level number
-        window.blit(font.render("Level: "+str(levelNum + 1),True,colour),(0,100))
-
-        #mult num
-        window.blit(font.render("Sacrifice: "+str(round((player1.mult-1)*100))+"%",True,colour),(0,150))
-
-        #actual equipment
-        for i in range(len(weapons)):
-            pygame.draw.rect(window,grey,[weaponPos - 5,497+(i*20),197,17])
-            #if hovering over equipment
-            if weaponPos - 5 < mousePos[0] < weaponPos + 192  and 497+(i*20) < mousePos[1] < 514+(i*20):
-                pygame.draw.rect(window,red,[weaponPos - 5,497+(i*20),197,17])
-                #show stats
-                hoveredItem = weapons[i]
-            window.blit(smolFont.render(weapons[i].name,True,colour),(weaponPos,500 + (i*20)))
-                
-        for i in range(len(helmets)):
-            pygame.draw.rect(window,grey,[helmetPos - 5,497+(i*20),197,17])
-            #if hovering over equipment
-            if helmetPos - 5 < mousePos[0] < helmetPos + 192  and 497+(i*20) < mousePos[1] < 514+(i*20):
-                pygame.draw.rect(window,red,[helmetPos - 5,497+(i*20),197,17])
-                #show stats
-                hoveredItem = helmets[i]
-            window.blit(smolFont.render(helmets[i].name,True,colour),(helmetPos,500 + (i*20)))
-                
-        for i in range(len(breastplates)):
-            pygame.draw.rect(window,grey,[breastplatePos - 5,497+(i*20),197,17])
-            #if hovering over equipment
-            if breastplatePos - 5 < mousePos[0] < breastplatePos + 192  and 497+(i*20) < mousePos[1] < 514+(i*20):
-                pygame.draw.rect(window,red,[breastplatePos - 5,497+(i*20),197,17])
-                #show stats
-                hoveredItem = breastplates[i]
-            window.blit(smolFont.render(breastplates[i].name,True,colour),(breastplatePos,500 + (i*20)))
-                
-        for i in range(len(leggings)):
-            pygame.draw.rect(window,grey,[leggingsPos - 5,497+(i*20),197,17])
-            #if hovering over equipment
-            if leggingsPos - 5 < mousePos[0] < leggingsPos + 192  and 497+(i*20) < mousePos[1] < 514+(i*20):
-                pygame.draw.rect(window,red,[leggingsPos - 5,497+(i*20),197,17])
-                #show stats
-                hoveredItem = leggings[i]
-            window.blit(smolFont.render(leggings[i].name,True,colour),(leggingsPos,500 + (i*20)))
-                
-        for i in range(len(boots)):
-            pygame.draw.rect(window,grey,[bootsPos - 5,497+(i*20),197,17])
-            #if hovering over equipment
-            if bootsPos - 5 < mousePos[0] < bootsPos + 192  and 497+(i*20) < mousePos[1] < 514+(i*20):
-                pygame.draw.rect(window,red,[bootsPos - 5,497+(i*20),197,17])
-                #show stats
-                hoveredItem = boots[i]
-            window.blit(smolFont.render(boots[i].name,True,colour),(bootsPos,500 + (i*20)))
-                
-
-            
-        #if enter key pressed:
-        window.blit(font.render("ENTER - brave the rift",True,colour),(50,750))
-        window.blit(font.render("RMB - sacrifice an item",True,colour),(550,750))
-        for event in pygame.event.get():
-            pressed = pygame.key.get_pressed()
-            if pressed[pygame.K_RETURN]:
-                #player is ready to move on
-                finished = True
-                window.fill((0,0,0))
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                #if LMB pressed
-                if event.button == 1:
-                    #distinguish between items
-
-                    #only update itemPos if player is selecting items from their inventory, not already equipped items
-                    if mousePos[1] > 497:
-                        itemPos = (mousePos[1]-497)//20
-                        #print(itemPos)
-                        if weaponPos < mousePos[0] < helmetPos:
-                            try: selectedItem = weapons[itemPos]
-                            except: selectedItem = None
-                            itemList = weapons
-                            #print(selectedItem)
-
-                        elif helmetPos < mousePos[0] < breastplatePos:
-                            try: selectedItem = helmets[itemPos]
-                            except: selectedItem = None
-                            itemList = helmets
-                            #print(selectedItem)
-                            
-                        elif breastplatePos < mousePos[0] < leggingsPos:
-                            try: selectedItem = breastplates[itemPos]
-                            except: selectedItem = None
-                            itemList = breastplates
-                            #print(selectedItem.name)
-
-                        elif leggingsPos < mousePos[0] < bootsPos:
-                            try: selectedItem = leggings[itemPos]
-                            except: selectedItem = None
-                            itemList = leggings
-                            #print(selectedItem)
-                            
-                        elif bootsPos < mousePos[0]:
-                            try: selectedItem = boots[itemPos]
-                            except: selectedItem = None
-                            itemList = boots
-                            #print(selectedItem)
-
-                    #TODO: render stats of equipment being hovered over AND equipment selected
-                        
-
-                    #if clicked again on item in player inventory, swap the items
-                    player = None
-                    if 290 <= mousePos[0] <= 585:
-                        player = player1
-                    elif 590 <= mousePos[0] <= 885:
-                        player = player2
-                                        
-                    if player != None:
-                        for i in range(len(player.equipment)):
-                            #if equipment clicked
-                            if 40+(i*50) < mousePos[1] < 85+(i*50):
+                sys.exit()                    
                                 
-                                #unequip equipment
-                                #WORKS
-                                sort(player.equipment[i])
-                                items.append(player.equipment[i])
-                                player.equipment[i] = None
-
-                                #if replacement equipment is selected
-                                if selectedItem != None:
-
-                                    #prevent player from dual wielding if weapon cannot be dual wielded?
-                                    prevent = False
-                                    if selectedItem in weapons:
-                                        for j in range(2):
-                                            if player.equipment[j] != None:
-                                                if player.equipment[j].twoHanded == True or selectedItem.twoHanded == True:
-                                                    prevent = True
-                                    
-                                    if (i == 0 or i == 1) and selectedItem.equipType == "weapon":
-                                        #if player can equip the weapon, let them equip it
-                                        if prevent != True:
-                                            player.equipment[i] = selectedItem
-                                            itemList.remove(selectedItem)
-                                            items.remove(selectedItem)
-                                            selectedItem = None
-
-                                    if (i == 2) and selectedItem.equipType == "helmet":
-                                        player.equipment[i] = selectedItem
-                                        itemList.remove(selectedItem)
-                                        items.remove(selectedItem)
-                                        selectedItem = None
-
-                                    if (i == 3) and selectedItem.equipType == "breastplate":
-                                        player.equipment[i] = selectedItem
-                                        itemList.remove(selectedItem)
-                                        items.remove(selectedItem)
-                                        selectedItem = None
-                                        
-                                    if (i == 4) and selectedItem.equipType == "leggings":
-                                        player.equipment[i] = selectedItem
-                                        itemList.remove(selectedItem)
-                                        items.remove(selectedItem)
-                                        selectedItem = None
-
-                                    if (i == 5) and selectedItem.equipType == "boots":
-                                        player.equipment[i] = selectedItem
-                                        itemList.remove(selectedItem)
-                                        items.remove(selectedItem)
-                                        selectedItem = None
-
-                #if RMB pressed
-                elif event.button == 3:
-
-                    #MAKE THIS MORE EFFICIENT
-                    if mousePos[1] > 497:
-                        itemPos = (mousePos[1]-497)//20
-                        #print(itemPos)
-                        itemRemoved = False
-                        if weaponPos < mousePos[0] < helmetPos:
-                            try: selectedItem = weapons[itemPos]
-                            except: selectedItem = None
-
-                            if selectedItem != None:
-                                weapons.remove(selectedItem)
-                                items.remove(selectedItem)
-                                itemRemoved = True
-                                selectedItem = None
-
-                        elif helmetPos < mousePos[0] < breastplatePos:
-                            try: selectedItem = helmets[itemPos]
-                            except: selectedItem = None
-                            
-                            if selectedItem != None:
-                                helmets.remove(selectedItem)
-                                items.remove(selectedItem)
-                                itemRemoved = True
-                                selectedItem = None
-                            
-                        elif breastplatePos < mousePos[0] < leggingsPos:
-                            try: selectedItem = breastplates[itemPos]
-                            except: selectedItem = None
-                            
-                            if selectedItem != None:
-                                breastplates.remove(selectedItem)
-                                items.remove(selectedItem)
-                                itemRemoved = True
-                                selectedItem = None
-
-                        elif leggingsPos < mousePos[0] < bootsPos:
-                            try: selectedItem = leggings[itemPos]
-                            except: selectedItem = None
-                            
-                            if selectedItem != None:
-                                leggings.remove(selectedItem)
-                                items.remove(selectedItem)
-                                itemRemoved = True
-                                selectedItem = None
-                            
-                        elif bootsPos < mousePos[0]:
-                            try: selectedItem = boots[itemPos]
-                            except: selectedItem = None
-                            
-                            if selectedItem != None:
-                                boots.remove(selectedItem)
-                                items.remove(selectedItem)
-                                itemRemoved = True
-                                selectedItem = None
-
-                        if itemRemoved == True:
-                            player1.mult = round(player1.mult + Debug.playerMultBonus,2) #player mult
-                            if player2 != None:
-                                player2.mult = round(player2.mult + Debug.playerMultBonus,2) #player mult
-
-                elif event.type == pygame.QUIT: 
-                    pygame.quit()
-                    sys.exit()
-
-        #render text and button at mouse position
-        if selectedItem != None:
-            pygame.draw.rect(window,red,[mousePos[0],mousePos[1],197,17])
-            window.blit(smolFont.render(selectedItem.name,True,colour),(mousePos[0],mousePos[1]))
-            #show selected item stats
-            enchantInfo = showStats(selectedItem,font,colour,0,window,mousePos)
-
-        #render information of last item hovered over
-        if hoveredItem != None:
-            if enchantInfo == None:
-                enchantInfo = showStats(hoveredItem,font,colour,270,window,mousePos)
-            else:
-                showStats(hoveredItem,font,colour,270,window,mousePos)
-                
-        if enchantInfo != None:
-            lineNum = 0
-            #render all lines of info
-            pygame.draw.rect(window,(255,0,0),[250,400,800,100])
-            
-            values = []
-            #add all magnitudes to list for formatting
-            for magnitude in enchantInfo.magnitude:
-                values.append(str(round(abs(magnitude))))
-                    
-            lineNum = 0
-            for line in enchantInfo.desc:
-                window.blit(pygame.font.SysFont(None,30).render(line.format(*values),True,(255,255,255)),(250,400+lineNum*40))
-                lineNum +=1
-                
-                
-    window.fill((0,0,0))
-    pygame.display.flip()
-                                
-def mainMenu(window):
-    font = pygame.font.SysFont(None,40)
-    smolFont = pygame.font.SysFont(None,20)
-    colour = (255,255,255)
+def controlMenu(window):
 
     finished = False
+    textToRender = ["Right click on a green character to select them.",
+                    "Left click on a tile to move there.",
+                    "Hover over an entity to show information about them.",
+                    "Left click on an enemy in weapon range to attack them.",
+                    "Weapon ranges are shown by grey boxes when an entity is hovered over.",
+                    "Press ENTER to skip a character's turn.",
+                    "Sacrifice items to increase the multiplier for your character's stats.",
+                    "Press the number shown above abilities to trigger that ability.",
+                    "Press S while hovering over an entity to only look at that entity's stats.",
+                    "Press S again while not hovering over an entity to look at other entities' stats.",
+                    "Press ESC to access this menu while playing a level.",
+                    "Press ESC to exit this menu."]
+
     #while menu hasnt been exited
     while not(finished):
         pygame.display.flip()
         window.fill((0,0,0))
         mousePos = pygame.mouse.get_pos()
 
-        window.blit(font.render("Right click on a green character to select them.",True,colour),(0,100))
-        window.blit(font.render("Left click on a tile to move there.",True,colour),(0,150))
-        window.blit(font.render("Hover over an entity to show information about them.",True,colour),(0,200))
-        window.blit(font.render("Left click on an enemy in weapon range to attack them.",True,colour),(0,250))
-        window.blit(font.render("Weapon ranges are shown by grey boxes when an entity is hovered over.",True,colour),(0,300))
-        window.blit(font.render("Press ENTER to skip a character's turn.",True,colour),(0,350))
-        window.blit(font.render("Sacrifice items to increase the multiplier for your character's stats.",True,colour),(0,400))
-        window.blit(font.render("Press the number shown above abilities to trigger that ability",True,colour),(0,450))
+        for line in textToRender:
+            window.blit(font.render(line,True,colour),(0,100+50*textToRender.index(line)))
 
         #if player presses esc, exit menu
         for event in pygame.event.get():
@@ -559,22 +101,13 @@ def mainMenu(window):
                 sys.exit()
 
 def characterMenu(window,level,ycoord,xcoord):
-    font = pygame.font.SysFont(None,40)
-    smolFont = pygame.font.SysFont(None,20)
-    colour = (255,255,255)
-    red = (100,0,0)
-    grey = (100,100,100)
 
     #DO NOT ADD "TBA" HERE
     textToRender = [""]
     enchantment = None
-    
-    #play menu music
-    pygame.mixer.music.load("music/Usurper's Travels.mp3")
-    pygame.mixer.music.play(-1,0,0)
 
     #play opening cutscene when game first starts
-    openingCutscene(window,font,colour,openingLore)
+    openingCutscene(window,font,colour)
 
     menu = 1
 
@@ -920,13 +453,6 @@ def companionMenu(window,level,ycoord,xcoord):
                 pygame.quit()
                 sys.exit()
 
-#render text
-def drawText(window,font,colour,textToRender,startX,startY,space):
-    lineNum = 0
-    for line in textToRender:
-        window.blit(font.render(line,True,colour),(startX,startY+space*lineNum))
-        lineNum += 1
-
 
 
 def startOfGame(window):
@@ -939,24 +465,80 @@ def startOfGame(window):
     pygame.mixer.music.play(-1,0,1000)
 
 
-def openingCutscene(window,font,colour,textToRender):                                                                                                                                                                                                         
-        
-        finished = False
-        while finished == False:
-            window.fill((0,0,0))
-            #draw text
-            drawText(window,font,colour,textToRender,0,0,40)
-            
-            pygame.display.flip()
-        
-            
-            #let player move on when they want
-            for event in pygame.event.get():
-                pressed = pygame.key.get_pressed()
-                if pressed[pygame.K_RETURN]:
-                    #player is ready to move on
-                    finished = True
+def openingCutscene(window,font,colour):
 
-                elif event.type == pygame.QUIT: 
-                    pygame.quit()
-                    sys.exit()
+    openingLore = []
+    loreFile = open("lore/opening.txt","r")
+    for line in loreFile:
+        openingLore.append(line.strip())
+    loreFile.close()
+
+    openingLore.append("")
+    openingLore.append("-Press ENTER to continue-")                                                                                                                                                                                                         
+        
+    finished = False
+    while finished == False:
+        window.fill((0,0,0))
+        #draw text
+        drawText(window,font,colour,openingLore,0,0,40)
+            
+        pygame.display.flip()
+        
+            
+        #let player move on when they want
+        for event in pygame.event.get():
+            pressed = pygame.key.get_pressed()
+            if pressed[pygame.K_RETURN]:
+                #player is ready to move on
+                finished = True
+
+            elif event.type == pygame.QUIT: 
+                pygame.quit()
+                sys.exit()
+
+def startMenu(window):
+
+    #play menu music
+    # Fade it in if music is already playing, otherwise just start it
+    if pygame.mixer.music.get_busy():
+        pygame.mixer.music.fadeout(1000)
+    pygame.mixer.music.load("music/Usurper's Travels.mp3")
+    pygame.mixer.music.play(-1,0,0)
+
+    menu = 0
+
+    def changeMenu(value):
+        nonlocal menu
+        menu = value
+
+
+    playButton = Button(500,500,200,50,"Play",grey,red,font, lambda: changeMenu(1))
+    controlsButton = Button(500,600,200,50,"Controls",grey,red,font, lambda: changeMenu(2))
+
+
+    # While play hasnt been pressed, stay in menu
+    while menu != 1:
+        pygame.display.flip()
+        window.fill((0,0,0))
+        mousePos = pygame.mouse.get_pos()
+
+
+        if menu == 0:
+            window.blit(bigFont.render("Usurper's Travels",True,red),(100,50))
+
+            # Draw Play button
+            playButton.draw(mousePos,window)
+        
+            # Draw Controls button
+            controlsButton.draw(mousePos,window)
+
+        # If Controls button pressed:
+        if menu == 2:
+            controlMenu(window)
+            menu = 0
+
+        #let player exit game
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: 
+                pygame.quit()
+                sys.exit()

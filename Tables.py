@@ -101,13 +101,13 @@ mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","Inner Sanctum"
 usurperSuperBoss = [[usurper],"sprites/throne/","music/Heolstor 1.mp3","Inner Sanctum",6,None]
 
 #all spawntables
-spawnTables = [solarKnights,darkness,newNorth]
+spawnTables = [solarKnights,solarKnights,darkness,darkness,newNorth,newNorth2]
 
 bossTables = [solarBoss,darkBoss,northBoss,darkBoss2]
 
-#superBossTables = [mageSuperBoss,usurperSuperBoss]
+superBossTables = [mageSuperBoss,usurperSuperBoss]
 
 #debug
 #bossTables = [solarBoss,solarBoss,solarBoss]
 #spawnTables = [newNorth2]
-superBossTables = [usurperSuperBoss]
+#superBossTables = [usurperSuperBoss]

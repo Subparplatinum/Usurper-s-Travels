@@ -226,7 +226,7 @@ Ooglesh, the Primordial Ooze
 """
 
 #breastplate
-core = Equipment(0,275,0,400,0,None,"Ooglesh's Core","breastplate",None)
+core = Equipment(0,100,0,400,0,None,"Ooglesh's Core","breastplate",None)
 #leggings
 endlessGrowths = Equipment(0,50,0,0,0,Spellbook.phalanx,"Formless Sludge","leggings",massLootTable)
 
