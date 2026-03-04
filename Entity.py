@@ -423,7 +423,10 @@ class Entity:
         damage = round(weapon.attackBonus*self.mult*(1+(self.attack/100)))
 
         #armour no longer has a 1 in 10 chance to fail
-        damage = round(damage / 1+(target.armour/100)) #armour is now a percentage
+        armour = round((target.armour)/100,3)
+        if armour > 1:
+            armour = 1
+        damage = round(damage * (1 - armour)) #armour is now a percentage
              
         if damage <= 0:
             damage = 0
