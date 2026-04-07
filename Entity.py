@@ -10,7 +10,7 @@ import Tables
 import sys #to get rid of one STUPID ERROR
 
 class Entity:
-    def __init__(self,window,level,startTile,weapon1,weapon2,helmet,breastplate,leggings,boots,name,entityType,mult,sigEnchant = None,spritePath = None):
+    def __init__(self,window,level,startTile,weapon1,weapon2,helmet,breastplate,leggings,boots,name,entityType,mult,sigEnchant = None,spritePath = None,torch = False):
         #entity types include: player,ally,enemy,wall
         self.entityType = entityType
         self.x = startTile.x
@@ -84,6 +84,9 @@ class Entity:
         self.font = pygame.font.SysFont(None,40)
         self.smolFont = pygame.font.SysFont(None,20)
         self.text = ""
+
+        #store whether entity is a light source or not
+        self.torch = torch
         
         #colours (will be replaced with sprites)
         if self.entityType == "enemy":
@@ -100,6 +103,9 @@ class Entity:
             
         elif self.entityType == "wall":
             self.colour = (50,50,50)
+
+        else:
+            self.colour = (255,255,0)
 
         #Check if riderBoots are equipped
         if len(self.enchantments) > 0:
@@ -215,6 +221,10 @@ class Entity:
         #end turn effects
         if self.endTurn == True and self.endTurnActions == 1:
 
+            #player entities regen mana at the end of their turn
+            if self.entityType == "player":
+                self.mana += 20
+
             #remove self as selected player to stop the game freezing
             if self.level.selectedPlayer == self:
                 self.level.selectedPlayer = None
@@ -318,6 +328,10 @@ class Entity:
         # Trigger tile modifiers
         for modifier in self.tile.modifiers:
             self.enchantments.append(modifier)
+
+        # if light source, update darkness
+        if self.torch:
+            self.level.updateLighting()
 
     def showAttackRange(self):
         if self.tile.x < self.mousePos[0] < self.tile.x1 and self.tile.y < self.mousePos[1] < self.tile.y1:
@@ -705,7 +719,9 @@ class Entity:
                             if target.entityType == "wall":
                                 origin.mana += enchantment.cost
                             else:
-                                self.manageStatusEffects(magnitude,Spellbook.caltrops,target)
+                                for i in range(magnitude):
+                                    target.tile.modifiers.append(Spellbook.bloodloss)
+                                #self.manageStatusEffects(magnitude,Spellbook.caltrops,target)
 
                         elif enchantment.effectType[i] == "frost":
                             #don't give status effects to walls, refund cost
@@ -780,7 +796,7 @@ class Entity:
                             #pygame.mixer.music.fadeout(1000)
                             pygame.mixer.music.load('music/Ride the Fire!.mp3')
                             pygame.mixer.music.play(-1,0,0)
-                            pygame.mixer.music.set_volume(0.6)
+                            
 
                         #teleportation
                         elif enchantment.effectType[i] == "teleport":
@@ -841,7 +857,7 @@ class Entity:
                                         if enchantment.effectType[i] == "fireball":
                                             #summon fireball on same team
                                             allyStats = Tables.fireball
-                                            ally = NPC(self.window,self.level,tile,allyStats[0],allyStats[1],allyStats[2],allyStats[3],allyStats[4],allyStats[5],allyStats[6],summonType,self.mult)
+                                            ally = NPC(self.window,self.level,tile,allyStats[0],allyStats[1],allyStats[2],allyStats[3],allyStats[4],allyStats[5],allyStats[6],summonType,self.mult,torch = True)
                                             self.text = (self.name+" has summoned "+ally.name+" using "+enchantment.name+". ")
                                             tile.occupant = ally
 
@@ -858,12 +874,12 @@ class Entity:
                                             tile.occupant = ally
 
                                         elif enchantment.effectType[i] == "throne":
-                                            ally = NPC(self.window,self.level,tile,Armoury.longsword,None,None,Armoury.winterCore,None,None,"The Throne of Winter",summonType,self.mult)
+                                            ally = NPC(self.window,self.level,tile,Armoury.longsword,None,None,Armoury.winterCore,None,None,"The Throne of Winter",summonType,self.mult,torch = True)
                                             self.text = (self.name+" has summoned "+ally.name+" using "+enchantment.name+". ")
                                             tile.occupant = ally
 
                                         elif enchantment.effectType[i] == "raahTwo":
-                                            ally = NPC(self.window,self.level,tile,Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire2,Armoury.raahTrousers,Armoury.starWalker,"Raah, the Starbane",summonType,self.mult)
+                                            ally = NPC(self.window,self.level,tile,Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire2,Armoury.raahTrousers,Armoury.starWalker,"Raah, the Starbane",summonType,self.mult,torch = True)
                                             self.text = ("--Second Phase--. ")
                                             tile.occupant = ally
 
@@ -873,7 +889,7 @@ class Entity:
                                             pygame.mixer.music.play(-1,0,1000)
 
                                         elif enchantment.effectType[i] == "crystalLump":
-                                            ally = NPC(self.window,self.level,tile,None,None,None,Armoury.crystalLumpPlayer,None,None,"Crystal Growth",summonType,self.mult)
+                                            ally = NPC(self.window,self.level,tile,None,None,None,Armoury.crystalLumpPlayer,None,None,"Crystal Growth",summonType,self.mult,torch = True)
                                             self.text = (self.name+" has created a "+ally.name+" using "+enchantment.name+". ")
                                             tile.occupant = ally
                                             
@@ -1189,7 +1205,7 @@ class NPC(Entity):
         if target == None:
             self.speed = 0
             
-        #render team
+        #render self
         pygame.draw.rect(self.window,self.colour,[self.tile.x,self.tile.y,55,55])
         #render sprite
         if self.image != None:

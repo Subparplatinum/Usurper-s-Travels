@@ -239,14 +239,14 @@ Abyssal Pit
 pitStats = Weapon(-1,-100,10,0,0,Spellbook.ballista,"",0,None,None)
 
 """
-Phalanx Growth
+Chitinous Sludge
 """
 phalanxGrowthStats = Weapon(0,-100,0,0,25,Spellbook.amalgamation,"",1,None,None)
 
 """
 Ballista Growth
 """
-BallistaGrowthStats = Weapon(0,-150,0,0,20,None,"",11,None,None)
+BallistaGrowthStats = Weapon(0,-150,0,0,20,None,"",3,None,None)
 
 
 """

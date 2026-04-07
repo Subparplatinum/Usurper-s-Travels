@@ -10,7 +10,9 @@ import sys
 import Menus
 #easily accessable variables
 import Debug
+
 import Spellbook
+import math
 
 class Tile:
     def __init__(self,x,y,path,tileSize):
@@ -45,13 +47,42 @@ class Tile:
 
         self.modifiers = []
 
+        #darkness
+        self.darkness = pygame.Surface((self.tileSize,self.tileSize))
+        self.darkness.set_alpha(255)
+        self.darkness.fill((10,10,10))
+
+    # torchPos is an array full of torch positions
+    def updateLighting(self,torchPos):
+        #find actual distance to torch
+        self.distance = []
+        for pos in torchPos:
+            self.distance.append(math.sqrt((self.x - pos[0])**2 + (self.y - pos[1])**2))
+            #max is 300
+
+        #find lowest distance
+        lowest = 1000
+        for distance in self.distance:
+            if distance < lowest:
+                lowest = distance
+        
+
+        lowest = lowest/1.1 #denominator dictates strength of light source
+        if lowest > 255:
+            lowest = 255
+
+        self.darkness.set_alpha(lowest)
+
     def update(self,window):
-        #draw
-        window.blit(self.image,[self.x,self.y])
+        #draw (no point in drawing if tile is pitch black)
+        if self.darkness.get_alpha() < 255:
+            window.blit(self.image,[self.x,self.y])
         if Spellbook.bloodloss in self.modifiers:
             # Draw bloodloss effect
             window.blit(pygame.image.load("sprites/effects/caltrops.png"),[self.x,self.y])
 
+    def drawDark(self,window):
+        window.blit(self.darkness,[self.x,self.y])
 
 class Level:
     def __init__(self,window,lastLevel):
@@ -145,7 +176,7 @@ class Level:
         self.spritePath = self.spawnTable[1]
 
         #generate the level
-        self.tiles = self.levelGen(self.window,self.tileSize,self.spritePath,wallChance)
+        self.tiles = self.levelGen(self.window,self.tileSize,self.spritePath,wallChance,location)
 
     ##################################
 
@@ -180,7 +211,7 @@ class Level:
                     while self.tiles[ycoord][xcoord].occupant != None:
                         xcoord = random.randint(0,len(self.tiles[1])-1)
                         ycoord = random.randint(0,len(self.tiles)-1)
-                    self.tiles[ycoord][xcoord].occupant = Entity.Player(window,self,self.tiles[ycoord][xcoord],entity.equipment[0],entity.equipment[1],entity.equipment[2],entity.equipment[3],entity.equipment[4],entity.equipment[5],entity.name,"player",entity.mult,entity.sigEnchant)
+                    self.tiles[ycoord][xcoord].occupant = Entity.Player(window,self,self.tiles[ycoord][xcoord],entity.equipment[0],entity.equipment[1],entity.equipment[2],entity.equipment[3],entity.equipment[4],entity.equipment[5],entity.name,"player",entity.mult,entity.sigEnchant,torch = True)
                     
 
         #spawn enemies in random tiles
@@ -198,7 +229,7 @@ class Level:
                     randTile = random.randint(0,len(self.tiles[randRow])-1)
                 #spawn enemy
                 #enemies' stats are no longer affected by mult, only their quantity
-                self.tiles[randRow][randTile].occupant = Entity.NPC(self.window,self,self.tiles[randRow][randTile],enemy[0],enemy[1],enemy[2],enemy[3],enemy[4],enemy[5],enemy[6],enemy[7],self.mult)
+                self.tiles[randRow][randTile].occupant = Entity.NPC(self.window,self,self.tiles[randRow][randTile],enemy[0],enemy[1],enemy[2],enemy[3],enemy[4],enemy[5],enemy[6],enemy[7],self.mult,torch = enemy[8])
 
         #spawn boss in random tile
         elif self.tableType == "boss" or self.tableType == "superBoss":
@@ -210,7 +241,7 @@ class Level:
                     randRow = random.randint(0,len(self.tiles)-1)
                     randTile = random.randint(0,len(self.tiles[randRow])-1)
                 #spawn boss
-                self.tiles[randRow][randTile].occupant = Entity.NPC(self.window,self,self.tiles[randRow][randTile],enemy[0],enemy[1],enemy[2],enemy[3],enemy[4],enemy[5],enemy[6],enemy[7],self.mult)
+                self.tiles[randRow][randTile].occupant = Entity.NPC(self.window,self,self.tiles[randRow][randTile],enemy[0],enemy[1],enemy[2],enemy[3],enemy[4],enemy[5],enemy[6],enemy[7],self.mult,torch = enemy[8])
 
             
 
@@ -220,7 +251,7 @@ class Level:
             #find length of dialogue
 
             #boss speaks (boss will always be first entity in list)
-            textToRender = self.spawnTable[0][0][8]
+            textToRender = self.spawnTable[0][0][9]
             #find length of dialogue
             lenDialogue = len(textToRender)
             
@@ -261,6 +292,8 @@ class Level:
                 if enchantment.trigger == "spawn":
                     entity.triggerEnchant(enchantment)
 
+        #generate lighting data
+        self.updateLighting()
 
     def update(self,items):
         #presume there will be a world turn
@@ -270,6 +303,8 @@ class Level:
         for row in self.tiles:
             for tile in row:
                 tile.update(self.window)
+                #if tile.occupant == None:
+                tile.drawDark(self.window)
 
 
         #assume level is complete
@@ -277,11 +312,15 @@ class Level:
         entityCount = 0
         for entity in self.entities:
             entity.update()
+            entity.tile.drawDark(self.window)
+
             #see what the other entities are up to
             if entity.entityType == "ally" or entity.entityType == "enemy":
                 #if their turn is incomplete
                 if entity.endTurn == False:
 
+                    #cover entity in darkness
+                    entity.tile.drawDark(self.window)
                     #update screen so you can actually see whats going on
                     pygame.display.flip()
 
@@ -432,6 +471,16 @@ class Level:
                 lineNum +=1
             
 
+    def updateLighting(self):
+        torches = []
+        for entity in self.entities:
+            if entity.torch:
+                torches.append([entity.x,entity.y])
+
+        for line in self.tiles:
+            for tile in line:
+                tile.updateLighting(torches)
+
             
 
     def worldTurn(self):
@@ -482,7 +531,7 @@ class Level:
 
 
     #takes these things as input, returns a level
-    def levelGen(self,window,tileSize,spritePath,wallChance):
+    def levelGen(self,window,tileSize,spritePath,wallChance,location):
 
         tiles = []
 
@@ -555,7 +604,10 @@ class Level:
                 #generate walls while youre at it
                 #chance of wall depends on environment
                 if random.random() < wallChance and tile.occupant == None:
-                    tile.occupant = Entity.Wall(window,self,tiles[rowNum][tileNum],None,None,None,Armoury.bricks,None,None,"Wall","wall",1,spritePath = self.spritePath+"wall.png")               
+                    wall_is_light = False
+                    if self.spawnTable[location] == "'Burning Vengeance'":
+                        wall_is_light = True
+                    tile.occupant = Entity.Wall(window,self,tiles[rowNum][tileNum],None,None,None,Armoury.bricks,None,None,"Wall","wall",1,spritePath = self.spritePath+"wall.png",torch=wall_is_light)               
                         
                 tileNum += 1
             rowNum += 1

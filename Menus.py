@@ -249,7 +249,7 @@ def characterMenu(window,level,ycoord,xcoord):
                 textToRender = ["TBA"]
                 pygame.draw.rect(window,red,[190,240,300,40])
                 enchantment = Spellbook.attune
-            window.blit(font.render("Elf",True,colour),(200,250))
+            window.blit(font.render("Star-Elf",True,colour),(200,250))
                 
             #Dwarf     
             pygame.draw.rect(window,(100,100,100),[190,290,300,40])
@@ -376,7 +376,7 @@ def characterMenu(window,level,ycoord,xcoord):
                     sys.exit()
 
         elif menu == 3:
-            return Entity.Player(window,level,level.tiles[ycoord][xcoord],player[0],player[1],player[2],player[3],player[4],player[5],"The Usurper","player",1,player[6])
+            return Entity.Player(window,level,level.tiles[ycoord][xcoord],player[0],player[1],player[2],player[3],player[4],player[5],"The Usurper","player",1,player[6],torch = True)
 
 def companionMenu(window,level,ycoord,xcoord):
     font = pygame.font.SysFont(None,40)
@@ -400,8 +400,10 @@ def companionMenu(window,level,ycoord,xcoord):
         if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 240:
             textToRender = ["A marble golem overgrown with glowing blue crystals.",
                             "These crystals are fragments of the star-god Astra,",
-                            "know as the Broken Star - who shattered herself to",
-                            "bring magic to the world.",""]
+                            "know as the Broken Star - who shattered themself to",
+                            "bring magic to the world. Many Zodiacs believe that",
+                            "it was only because of this selfless act that",
+                            "mortalkind survived the horrors of the Second Night."]
             pygame.draw.rect(window,red,[190,190,300,40])
         window.blit(font.render("Crystalised Golem",True,colour),(200,200))
             
@@ -409,11 +411,13 @@ def companionMenu(window,level,ycoord,xcoord):
         #Valiant Golem        
         pygame.draw.rect(window,(100,100,100),[190,240,300,40])
         if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 290:
-            textToRender = ["An iron golem impaled by a lance-shaped meteorite",
-                            "sent by the star-god Dareon, known as the",
-                            "Shining Knight. It has sworn an oath to purge",
-                            "Asterant of all evils, and in its past travels has",
-                            "somehow befriended a horse.",""]
+            textToRender = ["An iron golem wielding a lance-shaped meteorite",
+                            "sent by the star-god Dareon, known as the Shining",
+                            "Knight. Dareon is a kind and chivalrous god, and thus",
+                            "this star-golem is one of the few that possess free",
+                            "will. Much to the joy of their god, it has sworn an",
+                            "oath to purge the world of all evils, and in its past",
+                            "travels has somehow befriended a horse.",""]
             pygame.draw.rect(window,red,[190,240,300,40])
         window.blit(font.render("Valiant Golem",True,colour),(200,250))
 
@@ -422,8 +426,10 @@ def companionMenu(window,level,ycoord,xcoord):
         if 190 < mousePos[0] < 490 and 290 < mousePos[1] < 340:
             textToRender = ["A basalt golem which cracks and buckles as it",
                             "stuggles to contain the fires of the star-god Drakkak,",
-                            "known as the Father of Wyverns - who yearns to set the",
-                            "world aflame.",""]
+                            "known as the Father of Wyverns. Drakkak's unceasing",
+                            "hatred of all things earned them a place in exile far",
+                            "beyond the Outer Void, where they have fought alone",
+                            "against the Darkness for centuries.",""]
             pygame.draw.rect(window,red,[190,290,300,40])
         window.blit(font.render("Burning Golem",True,colour),(200,300))
 
@@ -438,16 +444,16 @@ def companionMenu(window,level,ycoord,xcoord):
                 #Crystal Golem
                 if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 230:
                     startOfGame(window)
-                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.greatsword,None,Armoury.potHelm,Armoury.breastplate,Armoury.legplate,Armoury.metalBoots,"Crystal Golem","player",1,Spellbook.wildMagic)
+                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.greatsword,None,Armoury.potHelm,Armoury.breastplate,Armoury.legplate,Armoury.metalBoots,"Crystal Golem","player",1,Spellbook.wildMagic,torch = True)
                 #Valiant Golem
                 if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 280:
                     startOfGame(window)
-                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.oatLance,None,None,Armoury.breastplate,Armoury.frenteguerra,Armoury.riderBoots,"Valiant Golem","player",1,Spellbook.charge)
+                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.oatLance,None,None,Armoury.breastplate,Armoury.frenteguerra,Armoury.riderBoots,"Valiant Golem","player",1,Spellbook.charge,torch = True)
 
                 #Burning Golem
                 if 190 < mousePos[0] < 490 and 290 < mousePos[1] < 330:
                     startOfGame(window)
-                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.stonePillar,None,None,Armoury.mageCloak,Armoury.mageRobe,Armoury.mageBoots,"Burning Golem","player",1,Spellbook.wyvern)
+                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.stonePillar,None,None,Armoury.mageCloak,Armoury.mageRobe,Armoury.mageBoots,"Burning Golem","player",1,Spellbook.wyvern,torch = True)
 
             elif event.type == pygame.QUIT: 
                 pygame.quit()
@@ -461,11 +467,15 @@ def startOfGame(window):
     pygame.mixer.music.fadeout(1000)
     #play battle music
     pygame.mixer.music.load('music/battle'+str(random.randint(1,4))+'.mp3')
+    #set volume to 0.6
+    pygame.mixer.music.set_volume(0.6)
     #fade music in over 1 second
     pygame.mixer.music.play(-1,0,1000)
 
 
 def openingCutscene(window,font,colour):
+    #needed for scrolling
+    offset = 0
 
     openingLore = []
     loreFile = open("lore/opening.txt","r")
@@ -480,7 +490,7 @@ def openingCutscene(window,font,colour):
     while finished == False:
         window.fill((0,0,0))
         #draw text
-        drawText(window,font,colour,openingLore,0,0,40)
+        drawText(window,font,colour,openingLore,0,offset,40)
             
         pygame.display.flip()
         
@@ -491,6 +501,16 @@ def openingCutscene(window,font,colour):
             if pressed[pygame.K_RETURN]:
                 #player is ready to move on
                 finished = True
+
+            #it appears ive written to much lore, so I need to add scrolling
+            if event.type == pygame.MOUSEWHEEL:
+                #scroll up
+                if event.y == 1:
+                    offset += 20
+
+                #scroll down
+                elif event.y == -1:
+                    offset -= 20
 
             elif event.type == pygame.QUIT: 
                 pygame.quit()

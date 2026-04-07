@@ -26,7 +26,7 @@ apPierce = Enchantment(["hp"],[None],[10],"attack","target",10,"Piercing Knives"
 
 trap = Enchantment(["sp"],[None],[1],"move","adjAll",10,"Traps","")
 
-wildMagic = Enchantment(["hp"],[None],[50],"ability","adjAll",25,"Wild Magic",["Deal {} damage (ignoring AP) to ALL adjacent entities.","Costs 25 MP per entity hit."])
+wildMagic = Enchantment(["hp"],[None],[50],"ability","adjEnemies",25,"Wild Magic",["Deal {} damage (ignoring AP) to all adjacent enemies.","Costs 25 MP per enemy hit."])
 
 starstrike = Enchantment(["hp"],[None],[30],"ability","nearestEnemy",50,"Celestial Smite",["Reduce the nearest enemy's hp by {}. Costs 50 MP."])
 
@@ -52,7 +52,7 @@ prepare = Enchantment(["sp"],[None],[1],"spawn","self",0,"Prepare",["On spawn, r
 
 heal = Enchantment(["hp"],[None],[-10],"ability","allAllies",40,"Healing Light",["Increase all allies' HP by {}. Costs 40 MP per ally."])
 
-atBuff = Enchantment(["dmg"],[None],[-5],"endTurn","allAllies",10,"Strengthening Light",["When your turn ends, increase all allies' AT bonus by {}%.","Costs 10 MP per ally."])
+atBuff = Enchantment(["dmg"],[None],[-5],"endTurn","allAllies",10,"Primal Rage",["When your turn ends, increase all allies' AT bonus by {}%.","Costs 10 MP per ally."])
 
 charge = Enchantment(["tempDmg"],[None],[-25],"move","self",0,"Charge",["Increase your AT bonus by {}% for every tile you move this turn.","Resets on end turn."])
 
@@ -70,7 +70,7 @@ aim = Enchantment(["tempDmg"],[None],[25],"move","self",0,"Aim",["Decrease your 
 
 rage = Enchantment(["sp"],[None],[-1],"selfHit","self",50,"Rage",["On being hit, increase your SP by {}. Costs 50 MP per hit."])
 
-objection = Enchantment(["hp"],[None],[50],"selfHit","attacker",50,"Objection",["On being hit, reduce your attacker's HP by {}. Costs 20 MP."])
+objection = Enchantment(["hp"],[None],[50],"selfHit","attacker",50,"OBJECTION!",["On being hit, reduce your attacker's HP by {}. Costs 20 MP."])
 
 lifesteal = Enchantment(["hp"],[None],[-20],"attack","self",50,"Lifesteal",["On attack, increase your HP by {}. Costs 50 MP."])
 
@@ -129,7 +129,7 @@ evasion = Enchantment(["tempAp"],["maxSp"],[-5],"startTurn","self",0,"Evasion",[
 
 zornhau = Enchantment(["tempDmg"],[None],[25],"move","self",0,"Zornhau",["Decrease your AT bonus by {}% for every tile you move this turn.","Resets on end turn."])
 
-reTrigger = Enchantment(["dmg"],[None],[-5],"otherAbility","self",0,"Astral Mastery",["Gain a {}% AT bonus after using an ability."])
+reTrigger = Enchantment(["dmg"],[None],[-5],"otherAbility","self",0,"Mastery of the Self",["Gain a {}% AT bonus after using an ability."])
 
 dragonchild = Enchantment(["dmg"],[None],[-50],"transform","self",0,"Wyvern's Child",["Gain a {}% AT bonus while transformed."])
 
@@ -157,8 +157,8 @@ automaton = Enchantment(["hp"],[None],[30],"attack","nearestEnemy",10,"Hunting A
 
 bloodloss = Enchantment(["hp"],[None],[5],"move","self",0,"Bloodloss",["On move, reduce your HP by {}.","Reduces by 1 stack per turn."])
 inflictBlood = Enchantment(["bloodloss"],[None],[1],"attack","target",0,"Blood for our God!", ["Apply {} stack/s of Bloodloss to target on hit."])
-caltrops = Enchantment(["caltrops"],[None],[1],"ability","self",25,"Caltrop Pouch", ["Drop {} caltrop/s on your tile. Caltrop Tiles inflict 1 Bloodloss when entered. Costs 25 MP."])
-rangedCaltrops = Enchantment(["caltrops"],[None],[1],"attack","target",0,"Caltrop Launcher", ["Drop {} caltrop/s on your target's tile. Caltrop Tiles inflict 1 Bloodloss when entered."])
+caltrops = Enchantment(["caltrops"],[None],[1],"ability","self",25,"Caltrop Pouch", ["Drop {} fistful of caltrops on your tile. Caltrop Tiles inflict 1 Bloodloss when entered. Costs 25 MP."])
+rangedCaltrops = Enchantment(["caltrops"],[None],[1],"attack","target",0,"Caltrop Launcher", ["Drop {} fistful of caltrops on your target's tile. Caltrop Tiles inflict 1 Bloodloss when entered."])
 
 weakenAllies = Enchantment(["ap"],[None],[150],"death","allAllies",0,"Dispel Delusion",["On death, reduce all allies' AP by {}."])
 
@@ -196,8 +196,8 @@ throne = Enchantment(["throne"],[None],[1],"spawn","self",0,"Winter's King",["On
 
 idealist = Enchantment(["idealist"],[None],[4],"ability","self",150,"Hero's Call",["Summon {} Warriors in adjacent tiles. Costs 50 MP."])
 
-phalanx = Enchantment(["phalanx"],[None],[8],"ability","self",150,"Phalanx Growths",["Summon {} Phalanx Growths in adjacent tiles. Costs 150 MP."])
-ballista = Enchantment(["ballista"],[None],[8],"ability","self",50,"Ballista Growths",["Summon {} Ballista Growths in adjacent tiles. Costs 50 MP."])
+phalanx = Enchantment(["phalanx"],[None],[8],"ability","self",150,"Phalanx Growths",["Summon {} Chitinous Sludges in adjacent tiles. Costs 150 MP."])
+ballista = Enchantment(["ballista"],[None],[8],"ability","self",50,"Ballista Growths",["Summon {} Spiked Sludges in adjacent tiles. Costs 50 MP."])
 
 raahTwo = Enchantment(["raahTwo"],[None],[1],"death","self",50,"Resurgence",["This boss has a second phase"])
 
