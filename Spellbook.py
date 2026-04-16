@@ -14,7 +14,7 @@ thorns = Enchantment(["hp"],[None],[5],"selfHit","attacker",50,"Thorns","")
 
 freeze = Enchantment(["frost"],[None],[1],"selfHit","attacker",0,"Freeze",["On being attacked, apply {} stacks of Frost to the attacker."])
 
-stupid = Enchantment(["hp"],[None],[500],"selfHit","self",0,"incredible levels of incompetance","")
+stupid = Enchantment(["hp"],[None],[500],"selfHit","self",0,"Incredible levels of incompetance","")
 
 voidBlade = Enchantment(["hp"],[None],[50],"attack","target",0,"Hungering Darkness",["On attacking a target, reduce their HP by {}."])
 
@@ -36,7 +36,7 @@ tremor = Enchantment(["hp"],[None],[15],"action","adjAll",0,"Glacial Tremors",["
 
 regen = Enchantment(["hp"],[None],[-50],"endTurn","self",10,"Regeneration",["When your turn ends, increase your HP by {}. Costs 10 MP."])
 
-greatThaw = Enchantment(["hp"],[None],[9999999],"death","allAllies",0,"The Great Thaw",["Powerful frost magic dwells within the throne","Destroying it will destroy its subjects"])
+greatThaw = Enchantment(["hp"],[None],[9999999],"death","allAllies",0,"The Great Thaw",["On death, deal {} damage to all allies"])
 
 noWalls = Enchantment(["hp"],[None],[9999999],"spawn","allWalls",0,"End of Disparity",["On spawn, destroy all walls on the map."])
 
@@ -109,7 +109,7 @@ starBirth = Enchantment(["starSeed"],[None],[1],"attack","target",50,"Crystal Se
 
 fate = Enchantment(["multRemove"],[None],[10],"attack","target",50,"Sever Fate",["On attack, weaken the Bloody Star's guidance, reducing Sacrifice by {}%","Costs 50 MP."])
 
-wrath = Enchantment(["burn"],[None,None],[2],"endTurn","all",0,"Solei's Wrath",["On end turn, give all entities {} stacks of Burn."])
+wrath = Enchantment(["burn"],[None,None],[2],"endTurn","all",0,"Solei's Ire",["On end turn, give all entities {} stacks of Burn."])
 
 brace = Enchantment(["tempAp"],[None],[10],"move","self",0,"Brace",["Temporarily decrease your AP by {} for every tile you move this turn."])
 
@@ -173,7 +173,7 @@ filthBlessing = Enchantment(["disease"],[None],[2],"ability","adjEnemies",25,"Bl
 
 
 #human
-lessRegen = Enchantment(["hp"],[None],[-10],"endTurn","self",0,"Lesser Regen",["When your turn ends, increase your HP by {}."])
+lessRegen = Enchantment(["hp"],[None],[-20],"endTurn","self",0,"Spirit of Parity",["When your turn ends, increase your HP by {}."])
 
 #elf
 attune = Enchantment(["mp"],[None],[-20],"endTurn","self",0,"Astra's Chosen",["When your turn ends, increase your MP by {}."])
@@ -181,7 +181,7 @@ attune = Enchantment(["mp"],[None],[-20],"endTurn","self",0,"Astra's Chosen",["W
 sunAttune = Enchantment(["mp"],[None],[-100],"endTurn","self",0,"Chosen of Solei",["When your turn ends, increase your MP by {}."])
 
 #dwarf
-stalwart = Enchantment(["ap"],[None],[-10],"spawn","self",0,"Stalwart",["On spawn, increase your AP by {}."])
+stalwart = Enchantment(["ap"],[None],[-10],"spawn","self",0,"Child of Dawnbringers",["On spawn, increase your AP by {}."])
 
 #lizardfolk
 poisonous = Enchantment(["poison"],[None],[1],"attack","target",0,"Poisonous",["On attack, apply {} stacks of Poison to the target."])
@@ -206,4 +206,4 @@ crystalLump = Enchantment(["crystalLump"],[None],[1],"ability","self",150,"Cryst
 
 
 #transformation
-wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",200,"Wyvern Download",["Succumb to Drakkak's rage, and become an avatar of his fury.","Grants {} turns of Wyvernform per use. Costs 200 MP"])
+wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",50,"Wyvern Download",["Succumb to Drakkak's rage, and become an avatar of his fury.","Grants {} turns of Wyvernform per use. Requires 40 MP, but uses all of your mana upon activation"])

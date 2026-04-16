@@ -238,7 +238,7 @@ class Entity:
             if Spellbook.disease in self.enchantments:
                 self.enchantments.remove(Spellbook.disease)
             # Remove 1 stack of bloodloss
-            if Spellbook.disease in self.enchantments:
+            if Spellbook.bloodloss in self.enchantments:
                 self.enchantments.remove(Spellbook.bloodloss)
             #remove 4 stacks of frost
             for i in range(4):

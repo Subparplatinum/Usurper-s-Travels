@@ -103,7 +103,7 @@ def controlMenu(window):
 def characterMenu(window,level,ycoord,xcoord):
 
     #DO NOT ADD "TBA" HERE
-    textToRender = [""]
+    textToRender = ""
     enchantment = None
 
     #play opening cutscene when game first starts
@@ -145,35 +145,35 @@ def characterMenu(window,level,ycoord,xcoord):
             #Swordsman
             pygame.draw.rect(window,(100,100,100),[190,190,300,40])
             if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 240:
-                textToRender = ["You are proficient in the art of the sword."]
+                textToRender = "You are proficient in the art of the sword."
                 pygame.draw.rect(window,red,[190,190,300,40])
             window.blit(font.render("Swordsman",True,colour),(200,200))
 
             #Archer       
             pygame.draw.rect(window,(100,100,100),[190,240,300,40])
             if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 290:
-                textToRender = ["You are proficient in the art of the bow."]
+                textToRender = "You are proficient in the art of the bow."
                 pygame.draw.rect(window,red,[190,240,300,40])
             window.blit(font.render("Archer",True,colour),(200,250))
 
             #Rogue        
             pygame.draw.rect(window,(100,100,100),[190,290,300,40])
             if 190 < mousePos[0] < 490 and 290 < mousePos[1] < 340:
-                textToRender = ["You are proficient in the art of the thrown blade."]
+                textToRender = "You are proficient in the art of the thrown blade."
                 pygame.draw.rect(window,red,[190,290,300,40])
             window.blit(font.render("Rogue",True,colour),(200,300))
 
             #Mage       
             pygame.draw.rect(window,(100,100,100),[190,340,300,40])
             if 190 < mousePos[0] < 490 and 340 < mousePos[1] < 390:
-                textToRender = ["You are proficient in celestial magics."]
+                textToRender = "You are proficient in celestial magics."
                 pygame.draw.rect(window,red,[190,340,300,40])
             window.blit(font.render("Mage",True,colour),(200,350))
 
             #Priest
             pygame.draw.rect(window,(100,100,100),[190,390,300,40])
             if 190 < mousePos[0] < 490 and 390 < mousePos[1] < 440:
-                textToRender = ["You are proficient in the arts of divine healing."]
+                textToRender = "You are proficient in the arts of divine healing."
                 pygame.draw.rect(window,red,[190,390,300,40])
             window.blit(font.render("Priest",True,colour),(200,400))
 
@@ -181,15 +181,12 @@ def characterMenu(window,level,ycoord,xcoord):
             if Debug.debugClassEnabled:
                 pygame.draw.rect(window,(100,100,100),[190,440,300,40])
                 if 190 < mousePos[0] < 490 and 440 < mousePos[1] < 480:
-                    textToRender = ["You are Derius Bugg, Lord of a Functional and","Balanced Game."]
+                    textToRender = "You are Derius Bugg, Lord of a Functional and","Balanced Game."
                     pygame.draw.rect(window,red,[190,440,300,40])
                 window.blit(font.render("Derius Bugg",True,colour),(200,450))
 
             #render descriptions
-            lineNum = 0
-            for line in textToRender:
-                window.blit(font.render(line,True,colour),(500,200+40*lineNum))
-                lineNum += 1
+            drawText(window,font,colour,textToRender,500,200,40)
                 
             
 
@@ -238,7 +235,7 @@ def characterMenu(window,level,ycoord,xcoord):
             #Human
             pygame.draw.rect(window,(100,100,100),[190,190,300,40])
             if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 240:
-                textToRender = ["TBA"]
+                textToRender = allLore["human"]
                 pygame.draw.rect(window,red,[190,190,300,40])
                 enchantment = Spellbook.lessRegen
             window.blit(font.render("Human",True,colour),(200,200))
@@ -246,7 +243,7 @@ def characterMenu(window,level,ycoord,xcoord):
             #Elf      
             pygame.draw.rect(window,(100,100,100),[190,240,300,40])
             if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 290:
-                textToRender = ["TBA"]
+                textToRender = allLore["star-elf"]
                 pygame.draw.rect(window,red,[190,240,300,40])
                 enchantment = Spellbook.attune
             window.blit(font.render("Star-Elf",True,colour),(200,250))
@@ -254,7 +251,7 @@ def characterMenu(window,level,ycoord,xcoord):
             #Dwarf     
             pygame.draw.rect(window,(100,100,100),[190,290,300,40])
             if 190 < mousePos[0] < 490 and 290 < mousePos[1] < 340:
-                textToRender = ["TBA"]
+                textToRender = allLore["dwarf"]
                 pygame.draw.rect(window,red,[190,290,300,40])
                 enchantment = Spellbook.stalwart
             window.blit(font.render("Dwarf",True,colour),(200,300))
@@ -262,8 +259,7 @@ def characterMenu(window,level,ycoord,xcoord):
             #Lizardkin      
             pygame.draw.rect(window,(100,100,100),[190,340,300,40])
             if 190 < mousePos[0] < 490 and 340 < mousePos[1] < 390:
-                textToRender = ["TBA"]
-                
+                textToRender = allLore["lizardkin"]
                 pygame.draw.rect(window,red,[190,340,300,40])
                 enchantment = Spellbook.poisonous
             window.blit(font.render("Lizardkin",True,colour),(200,350))
@@ -271,7 +267,7 @@ def characterMenu(window,level,ycoord,xcoord):
             #Harpy     
             pygame.draw.rect(window,(100,100,100),[190,390,300,40])
             if 190 < mousePos[0] < 490 and 390 < mousePos[1] < 440:
-                textToRender = ["TBA"]
+                textToRender = allLore["harpy"]
                 pygame.draw.rect(window,red,[190,390,300,40])
                 enchantment = Spellbook.quick
             window.blit(font.render("Harpy",True,colour),(200,400))
@@ -279,7 +275,7 @@ def characterMenu(window,level,ycoord,xcoord):
             #beastkin   
             pygame.draw.rect(window,(100,100,100),[190,440,300,40])
             if 190 < mousePos[0] < 490 and 440 < mousePos[1] < 480:
-                textToRender = ["TBA"]
+                textToRender = allLore["beastkin"]
                 pygame.draw.rect(window,red,[190,440,300,40])
                 enchantment = Spellbook.bloodDrink
             window.blit(font.render("Beastkin",True,colour),(200,450))
@@ -287,7 +283,7 @@ def characterMenu(window,level,ycoord,xcoord):
             #ratkin
             pygame.draw.rect(window,(100,100,100),[190,490,300,40])
             if 190 < mousePos[0] < 490 and 490 < mousePos[1] < 540:
-                textToRender = ["TBA"]
+                textToRender = allLore["ratkin"]
                 pygame.draw.rect(window,red,[190,490,300,40])
                 enchantment = Spellbook.filthBlessing
             window.blit(font.render("Ratkin",True,colour),(200,500))
@@ -313,11 +309,8 @@ def characterMenu(window,level,ycoord,xcoord):
             window.blit(font.render("Back",True,colour),(200,750))
 
             #render descriptions
-            lineNum = 0
-            for line in textToRender:
-                window.blit(font.render(line,True,colour),(500,200+40*lineNum))
-                lineNum += 1
-            renderEnchant(enchantment,200+40*lineNum)
+            drawText(window,font,colour,textToRender,500,200,40)
+            renderEnchant(enchantment,600)
                 
             
 
@@ -390,7 +383,7 @@ def companionMenu(window,level,ycoord,xcoord):
         pygame.display.flip()
         window.fill((0,0,0))
         mousePos = pygame.mouse.get_pos()
-        textToRender = [""]
+        textToRender = ""
 
             
         window.blit(font.render("Choose a golem companion:",True,colour),(200,100))
@@ -398,12 +391,8 @@ def companionMenu(window,level,ycoord,xcoord):
         #Crystal Golem
         pygame.draw.rect(window,(100,100,100),[190,190,300,40])
         if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 240:
-            textToRender = ["A marble golem overgrown with glowing blue crystals.",
-                            "These crystals are fragments of the star-god Astra,",
-                            "know as the Broken Star - who shattered themself to",
-                            "bring magic to the world. Many Zodiacs believe that",
-                            "it was only because of this selfless act that",
-                            "mortalkind survived the horrors of the Second Night."]
+
+            textToRender = allLore["crystal"]
             pygame.draw.rect(window,red,[190,190,300,40])
         window.blit(font.render("Crystalised Golem",True,colour),(200,200))
             
@@ -411,25 +400,18 @@ def companionMenu(window,level,ycoord,xcoord):
         #Valiant Golem        
         pygame.draw.rect(window,(100,100,100),[190,240,300,40])
         if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 290:
-            textToRender = ["An iron golem wielding a lance-shaped meteorite",
-                            "sent by the star-god Dareon, known as the Shining",
-                            "Knight. Dareon is a kind and chivalrous god, and thus",
-                            "this star-golem is one of the few that possess free",
-                            "will. Much to the joy of their god, it has sworn an",
-                            "oath to purge the world of all evils, and in its past",
-                            "travels has somehow befriended a horse.",""]
+
+            textToRender = allLore["valiant"]
+
             pygame.draw.rect(window,red,[190,240,300,40])
         window.blit(font.render("Valiant Golem",True,colour),(200,250))
 
         #Burning Golem       
         pygame.draw.rect(window,(100,100,100),[190,290,300,40])
         if 190 < mousePos[0] < 490 and 290 < mousePos[1] < 340:
-            textToRender = ["A basalt golem which cracks and buckles as it",
-                            "stuggles to contain the fires of the star-god Drakkak,",
-                            "known as the Father of Wyverns. Drakkak's unceasing",
-                            "hatred of all things earned them a place in exile far",
-                            "beyond the Outer Void, where they have fought alone",
-                            "against the Darkness for centuries.",""]
+
+            textToRender = allLore["burning"]
+
             pygame.draw.rect(window,red,[190,290,300,40])
         window.blit(font.render("Burning Golem",True,colour),(200,300))
 
@@ -444,7 +426,7 @@ def companionMenu(window,level,ycoord,xcoord):
                 #Crystal Golem
                 if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 230:
                     startOfGame(window)
-                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.greatsword,None,Armoury.potHelm,Armoury.breastplate,Armoury.legplate,Armoury.metalBoots,"Crystal Golem","player",1,Spellbook.wildMagic,torch = True)
+                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.greatsword,None,Armoury.potHelm,Armoury.breastplate,Armoury.legplate,Armoury.metalBoots,"Crystalised Golem","player",1,Spellbook.wildMagic,torch = True)
                 #Valiant Golem
                 if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 280:
                     startOfGame(window)
@@ -477,14 +459,8 @@ def openingCutscene(window,font,colour):
     #needed for scrolling
     offset = 0
 
-    openingLore = []
-    loreFile = open("lore/opening.txt","r")
-    for line in loreFile:
-        openingLore.append(line.strip())
-    loreFile.close()
-
-    openingLore.append("")
-    openingLore.append("-Press ENTER to continue-")                                                                                                                                                                                                         
+    openingLore = allLore["opening"]
+    openingLore +=" -Press ENTER to continue-"                                                                                                                                                                                                         
         
     finished = False
     while finished == False:

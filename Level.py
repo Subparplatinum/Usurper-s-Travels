@@ -10,6 +10,7 @@ import sys
 import Menus
 #easily accessable variables
 import Debug
+import HelperFunctions
 
 import Spellbook
 import math
@@ -244,18 +245,12 @@ class Level:
                 self.tiles[randRow][randTile].occupant = Entity.NPC(self.window,self,self.tiles[randRow][randTile],enemy[0],enemy[1],enemy[2],enemy[3],enemy[4],enemy[5],enemy[6],enemy[7],self.mult,torch = enemy[8])
 
             
-
-
             #render lore
-
-            #find length of dialogue
 
             #boss speaks (boss will always be first entity in list)
             textToRender = self.spawnTable[0][0][9]
-            #find length of dialogue
-            lenDialogue = len(textToRender)
             
-            textToRender.append("-Press ENTER to continue-")
+            textToRender += " -Press ENTER to continue-"
             #print(lenDialogue)
 
             #fade out music over a second
@@ -270,11 +265,9 @@ class Level:
             
                 #render boss title card
                 self.window.fill((0,0,0))
-                #if too much text, shrink it so its readable
-                if lenDialogue >= 20:
-                    Menus.drawText(self.window,self.font,self.colour,textToRender,0,0,20)
-                else:
-                    Menus.drawText(self.window,self.bossFont,self.colour,textToRender,0,0,40)
+
+                #Draw lore
+                HelperFunctions.drawText(self.window,self.bossFont,self.colour,textToRender,0,0,40)
                 pygame.display.flip()
 
                 #let player move on when they want

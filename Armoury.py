@@ -266,9 +266,9 @@ lance = Weapon(0,0,0,0,20,Spellbook.charge,"Valiant Lance",1,True,None)
 Wyvern Download stuff
 """
 #weapons
-stoneTotem = Weapon(-1,0,0,0,80,Spellbook.wyvern,"Stone Totem",1,True,lootTable)
+stoneTotem = Weapon(-1,0,0,0,80,Spellbook.wyvern,"Basalt Totem",1,True,lootTable)
 
-stoneTotemTwo = Weapon(3,900,0,-100,100,None,"Stone Totem",1,True,None)
+stoneTotemTwo = Weapon(3,900,0,-100,100,None,"Basalt Totem",1,True,None)
 
 
 """
@@ -370,7 +370,7 @@ blindfold = Equipment(0,0,0,0,10,Spellbook.teleport,"Abyssal Blindfold","helmet"
 dragonSkull = Equipment(0,20,0,100,0,Spellbook.dragonchild,"Dragon Skull","helmet",lootTable)
 
 #breastplates
-lordsStandard = Equipment(0,10,0,0,5,Spellbook.rally,"Lord's Standard","breastplate",lootTable)
+lordsStandard = Equipment(0,20,10,0,5,Spellbook.rally,"Breastplate w/ Lord's Standard","breastplate",lootTable)
 hunterCloak = Equipment(0,20,0,50,10,Spellbook.apAmmo,"Hunter's Cloak","breastplate",lootTable)
 cloakOfKnives = Equipment(0,20,0,50,10,Spellbook.apPierce,"Cloak of Knives","breastplate",lootTable)
 crystalcloak = Equipment(0,20,0,100,0,Spellbook.starBirth,"Crystal Cloak","breastplate",lootTable)

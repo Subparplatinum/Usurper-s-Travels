@@ -99,28 +99,28 @@ def inventory(items,players,window,level):
 
     #if final boss beaten then end the game
     if level.levelNum == Debug.lastLevelNum:
-        text = ["The World Unfurls"]
+        text = "Raah is slain, and the succession crisis that follows tears apart both his crusade and all Sun-Elf civilisation. With their strength and influence greatly diminished, Solei willingly succumbs to the Darkness. Thus begins the Third Night - yet, one light still shines in the darkness... \p "
         
     #if level just before final boss
     elif level.levelNum == Debug.lastLevelNum - 1:
-        text = ["big boss coming"]
+        text = "The great black creature once again traps Solei in their embrace, but this time the world goes darker than before. Solei's power is greatly diminished, there is no better time to strike down their champion. Even the starfire braziers within Raah's throne room are extinguished, and you are able to travel straight inside. \p "
         
     #if level just before regular boss
     elif (level.levelNum+1)%5 == 0:
-        text = ["boss coming"]
+        text = "A great black creature, stretching from horizon to horizon, leaps across the sky. The distant Star-Gods are obscured, and Solei vanishes in it's embrace. Darkness falls across the whole world, and in a brief moment of parity you are able to instantly travel wherever you wish. \p "
 
     #if level just after regular boss
     elif (level.levelNum%5) == 0:
-        text = ["boss beat"]
+        text = "The sky suddenly erupts into flame as Solei banishes the Darkness deep underground. The night has ended, but how long will this new day last? \p "
         
     #if normal level
     else:
-        text = ["normal level"]
+        text = "Darkness creeps across the world. Continue your travels, grow in strength! \p "
 
-    text.append("-Press ENTER to continue-")
+    text += " -Press ENTER to continue-"
     while not(finished):
         window.fill((0,0,0))
-        drawText(window,font,colour,text,50,100,100)
+        drawText(window,font,colour,text,50,100,40)
         pygame.display.flip()
 
         #let player move on when they want
