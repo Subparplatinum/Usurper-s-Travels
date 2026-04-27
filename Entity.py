@@ -836,6 +836,13 @@ class Entity:
                                     if origin.equipment[i] != None:
                                         origin.attackEntity(target,origin.equipment[i])
 
+                        #enemy attacks self
+                        elif enchantment.effectType[i] == "selfAttack":
+                            for j in range(int(abs(magnitude))):
+                                for i in range(0,2):
+                                    if target.equipment[i] != None:
+                                        target.attackEntity(target,target.equipment[i])
+
                         #there'll be  a lot of summon stuff
                         else:
                             numSummons = magnitude

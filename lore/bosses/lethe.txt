@@ -1,6 +1,5 @@
-Here sits a decrepit old man clad in tattered rags. "I am Lethe, Lord of the Dusk Age, and the world is mine to drown in darkness!" he yells, 
-as he rises and waves his rusted shortsword in the air. You conclude this man obviously poses no threat to you, so you turn to walk away.
-\p
-
-...then the world goes black... 
+Those who have lost their memory are plagued with visions, recurring dreams of a lightless abyss, and the old man who lives
+within. They say he greets them like an old friend, and invites them into his home, where he says they can rest for the night. You feel
+a serene sense of peace now, as the forest around you melts into black ichor. Even as your light sputters, choked by the inky
+black tendrils of night, you see him in the distance. 
 \p

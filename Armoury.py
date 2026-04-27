@@ -230,13 +230,12 @@ core = Equipment(0,100,0,400,0,None,"Ooglesh's Core","breastplate",None)
 #leggings
 endlessGrowths = Equipment(0,50,0,0,0,Spellbook.phalanx,"Formless Sludge","leggings",massLootTable)
 
-#add a weapon that does area damage, perfect for dealing with the mass
 
 
 """
 Abyssal Pit
 """
-pitStats = Weapon(-1,-100,10,0,0,Spellbook.ballista,"",0,None,None)
+pitStats = Weapon(-1,-100,10,0,0,Spellbook.phalanx,"",0,None,None)
 
 """
 Chitinous Sludge
@@ -315,7 +314,7 @@ cultistStats = Weapon(0,-120,0,0,20,Spellbook.rangedCaltrops,"",5,False,None)
 """
 Lethe, Lord of Dusk
 """
-LetheStats = Weapon(0,0,350,0,20,Spellbook.noWalls,"",12,True,None)
+LetheStats = Weapon(0,0,900,0,20,Spellbook.noWalls,"",12,True,None)
 LetheStats2 = Equipment(0,0,0,0,0,Spellbook.retaliation,"","helmet",None)
 
 darkheart = Equipment(0,50,10,-200,0,Spellbook.retaliation,"Heart of Darkness","breastplate",letheLootTable)
@@ -346,7 +345,7 @@ forgehammer = Weapon(0,5,0,0,80,Spellbook.zornhau,"Forgehammer",1,False,lootTabl
 greatsword = Weapon(0,0,0,0,80,None,"Greatsword",1,True,lootTable)
 stonePillar = Weapon(-1,0,0,0,150,None,"Stone Pillar",1,True,lootTable)
 longsword = Weapon(0,0,0,0,40,None,"Longsword",1,False,lootTable)
-shardblade = Weapon(0,0,0,100,70,Spellbook.crystalLump,"Shardblade",1,True,lootTable)
+shardblade = Weapon(0,0,0,100,70,Spellbook.crystalLump,"Queen Ilast's Blade",1,True,lootTable)
 lawBook = Weapon(0,0,0,100,20,Spellbook.objection,"Law Book",1,False,lootTable)
 magicBroom = Weapon(3,0,0,0,1,None,"Magic Broom",1,False,lootTable)
 crossbow = Weapon(0,0,0,0,100,Spellbook.reload,"Crossbow",5,True,lootTable)

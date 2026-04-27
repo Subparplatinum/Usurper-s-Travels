@@ -133,7 +133,7 @@ reTrigger = Enchantment(["dmg"],[None],[-5],"otherAbility","self",0,"Mastery of 
 
 dragonchild = Enchantment(["dmg"],[None],[-50],"transform","self",0,"Wyvern's Child",["Gain a {}% AT bonus while transformed."])
 
-retaliation = Enchantment(["rangedAttack"],[None],[1],"selfHit","attacker",0,"Omnipresence",["On being attacked, attack the attacker {} time/s."])
+retaliation = Enchantment(["selfAttack"],[None],[1],"selfHit","attacker",0,"Your Old Friend",["On being attacked, the attacker will hit themselves {} time/s.","Lethe is your friend, why would you attack Lethe?"])
 
 burn = Enchantment(["tempDmg"],[None],[5],"endTurn","self",0,"Burn",["On end turn, reduce your AT bonus by {}% per stack","for next turn. Reduces by 1 stack per turn."])
 burningWeapon = Enchantment(["burn"],[None],[1],"attack","target",0,"Burning Weapon",["On attacking an enemy, apply {} stacks of Burn."])
@@ -160,7 +160,7 @@ inflictBlood = Enchantment(["bloodloss"],[None],[1],"attack","target",0,"Blood f
 caltrops = Enchantment(["caltrops"],[None],[1],"ability","self",25,"Caltrop Pouch", ["Drop {} fistful of caltrops on your tile. Caltrop Tiles inflict 1 Bloodloss when entered. Costs 25 MP."])
 rangedCaltrops = Enchantment(["caltrops"],[None],[1],"attack","target",0,"Caltrop Launcher", ["Drop {} fistful of caltrops on your target's tile. Caltrop Tiles inflict 1 Bloodloss when entered."])
 
-weakenAllies = Enchantment(["ap"],[None],[150],"death","allAllies",0,"Dispel Delusion",["On death, reduce all allies' AP by {}."])
+weakenAllies = Enchantment(["ap"],[None],[300],"death","allAllies",0,"Dispel Delusion",["On death, reduce all allies' AP by {}."])
 
 hammerTremor = Enchantment(["hp"],[None],[50],"attack","targetAdjEnemies",0,"Shockwave Strike",["On attack, deal {} damage to your target's adjacent allies."])
 
@@ -190,7 +190,7 @@ poisonous = Enchantment(["poison"],[None],[1],"attack","target",0,"Poisonous",["
 quick = Enchantment(["sp"],[None],[-3],"spawn","self",0,"Quick",["On spawn, increase your SP by {}."])
 
 #summoning
-frosthound = Enchantment(["frosthound"],[None],[1],"ability","self",100,"Frost Call",["Summon {} Direwolves/s in an adjacent tile. Costs 100 MP."])
+frosthound = Enchantment(["frosthound"],[None],[1],"ability","self",200,"Frost Call",["Summon {} Direwolf in an adjacent tile. Costs 200 MP."])
 
 throne = Enchantment(["throne"],[None],[1],"spawn","self",0,"Winter's King",["On spawn, summon The Throne of Winter in an adjacent tile."])
 
@@ -206,4 +206,4 @@ crystalLump = Enchantment(["crystalLump"],[None],[1],"ability","self",150,"Cryst
 
 
 #transformation
-wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",50,"Wyvern Download",["Succumb to Drakkak's rage, and become an avatar of his fury.","Grants {} turns of Wyvernform per use. Requires 40 MP, but uses all of your mana upon activation"])
+wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",40,"Wyvern Download",["Succumb to Drakkak's rage, and become an avatar of his fury.","Grants {} turns of Wyvernform per use. Requires 40 MP, but uses","all of your mana upon activation"])
