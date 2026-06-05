@@ -449,8 +449,8 @@ def startOfGame(window):
     pygame.mixer.music.fadeout(1000)
     #play battle music
     pygame.mixer.music.load('music/battle'+str(random.randint(1,4))+'.mp3')
-    #set volume to 0.6
-    pygame.mixer.music.set_volume(0.6)
+    #set volume to 0.3
+    pygame.mixer.music.set_volume(0.3)
     #fade music in over 1 second
     pygame.mixer.music.play(-1,0,1000)
 

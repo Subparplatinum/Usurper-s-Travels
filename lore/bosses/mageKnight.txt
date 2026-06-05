@@ -1,5 +1,4 @@
 'Burning Vengeance' - the floating citadel-ship from which Raah coordinates his armies, swarms with his finest soldiers. Some of them stand before you now
- - a knight and their comrades. All of them are Sun-Elves, and their armour is decorated with ostentatious golden ornamentation that glows with their inner 
-radiance. Yet their looks are deceiving, for they are servants of Solei, and their souls have been blackened by the ash of the countless innocents consumed 
-in the fires of Raah's crusade.
+ - a knight and their comrades. All of them are Sun-Elves, and their armour is decorated with immaculate golden ornamentation that glows with their inner 
+radiance. Yet their looks are deceiving, for they are servants of Solei, and in the fires of Raah's crusade their souls have been scorched black.
 \p

@@ -1,8 +1,8 @@
 #starts at 1
 levelNum = 1
 
-#ends at 15
-lastLevelNum = 15
+#ends at 20
+lastLevelNum = 20
 
 #how much the player multiplier increases per sacrifice
 playerMultBonus = 0.05

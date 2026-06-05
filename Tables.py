@@ -40,6 +40,10 @@ lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord
 
 umbralLegate = [Armoury.legateStats,None,None,None,None,None,"Umbral Legate","enemy",False]
 
+prideDaughter = [Armoury.corruptStats,Armoury.prideStats,None,None,None,None,"Daughter of Pride","enemy",False,allLore["DoC"]]
+slothDaughter = [None,Armoury.slothStats,None,None,None,None,"Daughter of Sloth","enemy",False]
+envyDaughter = [Armoury.corruptStats,Armoury.envyStats,None,None,None,None,"Daughter of Envy","enemy",False]
+
 #super bosses (has extra field for title card)                                                                  
 raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.raahTrousers,Armoury.starWalker,"Raah, the Pretender ","enemy",True,allLore["raah"]]
                                                                                                                                                      
@@ -88,6 +92,7 @@ solarBoss = [[mageKnight,swordsman,swordsman,solarPriest],"sprites/throne/","mus
 northBoss = [[winter,winterguard,winterguard,winterguard],"sprites/north/","music/Frozen Monarch.mp3","The Starless Citadel",0,Armoury.winterLootTable]
 darkBoss = [[mass,ballistaGrowth,ballistaGrowth,ballistaGrowth],"sprites/forest/","music/Creature of Darkness.mp3","Impact Site",4,Armoury.massLootTable]
 darkBoss2 = [[lethe,umbralLegate,umbralLegate,umbralLegate],"sprites/darkness/","music/Deluded Old Man.mp3","The Umbral Wood",5,Armoury.letheLootTable]
+lifeBoss = [[prideDaughter,slothDaughter,envyDaughter],"sprites/greattree/","music/Daughter of Corruption.mp3","Guijao's Curse",5,Armoury.daughterLootTable]
 
 #superbosstables
 mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","'Burning Vengeance'",6,None]
@@ -96,11 +101,12 @@ usurperSuperBoss = [[usurper],"sprites/throne/","music/Heolstor 1.mp3","'Burning
 #all spawntables
 spawnTables = [solarKnights,solarKnights,darkness,darkness,newNorth,newNorth2]
 
-bossTables = [solarBoss,darkBoss,northBoss,darkBoss2]
+bossTables = [solarBoss,darkBoss,northBoss,darkBoss2,lifeBoss]
 
 superBossTables = [mageSuperBoss,usurperSuperBoss]
 
+
 #debug
-#bossTables = [solarBoss,solarBoss,solarBoss]
+#bossTables = [lifeBoss,lifeBoss,lifeBoss]
 #spawnTables = [newNorth2]
 #superBossTables = [usurperSuperBoss]

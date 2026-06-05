@@ -38,6 +38,8 @@ massLootTable = []
 
 letheLootTable = []
 
+daughterLootTable = []
+
 
 """
 Wall
@@ -109,7 +111,7 @@ hide = Equipment(0,-60,0,0,0,None,"Hide","breastplate",None)
 Beserker
 """
 #weapons
-bloodyAxe = Weapon(0,0,5,0,20,Spellbook.bloodDrink,"Bloody Axe",1,False,lootTable)
+bloodyAxe = Weapon(0,0,5,0,40,Spellbook.bloodDrink,"Bloody Axe",1,False,lootTable)
 
 #helmet
 warMask = Equipment(1,0,0,0,0,Spellbook.frenzy,"War Mask","helmet",lootTable)
@@ -325,6 +327,16 @@ Umbral Legate
 """
 legateStats = Weapon(1,0,0,0,10,Spellbook.weakenAllies,"",1,False,None)
 
+"""
+Daughters of Corruption
+"""
+corruptStats = Weapon(1,0,0,0,15,Spellbook.quick,"",1,False,None)
+prideStats = Weapon(2,0,0,0,15,Spellbook.pridePrayer,"",1,False,None)
+slothStats = Weapon(0,0,0,0,90,Spellbook.slothPrayer,"",1,False,None)
+envyStats = Weapon(2,0,0,0,15,Spellbook.envyPrayer,"",1,False,None)
+
+pridetalon = Equipment(2,0,0,0,30,Spellbook.pridePrayer,"Possessed Talons","boots",daughterLootTable)
+lifeStaff = Weapon(0,0,0,200,30,Spellbook.wilderMagic,"Staff of Growth",5,True,daughterLootTable)
 
 """
 Player only

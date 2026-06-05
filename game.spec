@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['Game.py'],
+    ['game.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='Game',
+    name='game',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

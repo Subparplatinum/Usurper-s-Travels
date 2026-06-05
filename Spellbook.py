@@ -27,6 +27,7 @@ apPierce = Enchantment(["hp"],[None],[10],"attack","target",10,"Piercing Knives"
 trap = Enchantment(["sp"],[None],[1],"move","adjAll",10,"Traps","")
 
 wildMagic = Enchantment(["hp"],[None],[50],"ability","adjEnemies",25,"Wild Magic",["Deal {} damage (ignoring AP) to all adjacent enemies.","Costs 25 MP per enemy hit."])
+wilderMagic = Enchantment(["hp","poison"],[None,None],[50,1],"ability","adjEnemies",20,"Grasping Thorns",["Deal {} damage (ignoring AP) to all adjacent enemies and inflict {} stacks of","Poison. Costs 20 MP per enemy hit."])
 
 starstrike = Enchantment(["hp"],[None],[30],"ability","nearestEnemy",50,"Celestial Smite",["Reduce the nearest enemy's hp by {}. Costs 50 MP."])
 
@@ -40,7 +41,7 @@ greatThaw = Enchantment(["hp"],[None],[9999999],"death","allAllies",0,"The Great
 
 noWalls = Enchantment(["hp"],[None],[9999999],"spawn","allWalls",0,"End of Disparity",["On spawn, destroy all walls on the map."])
 
-counter = Enchantment(["attack"],[None],[1],"block","attacker",10,"Counter",["On blocking an attack (reduce its damage below 0 using your AP),","attack the attacker {} times. Costs 10 MP."])
+counter = Enchantment(["attack"],[None],[1],"selfHit","attacker",10,"Counter",["When attacked, attack the attacker {} times."])
 
 frenzy = Enchantment(["hp"],[None],[10],"action","adjEnemies",5,"Frenzy",["Whenever you take an action (move, attack or skip turn) deal {} damage","(ignoring AP) to all adjacent enemies. Costs 5 MP per adjacent enemy."])
 
@@ -120,8 +121,10 @@ collapse = Enchantment(["hp"],[None],[9999999],"death","allAllies",0,"Collapse",
 projection = Enchantment(["rangedAttack"],["mp"],[-1/100],"ability","nearestEnemy",50,"Projection",["Perform 1 attack against the nearest enemy","regardless of range per 100 MP. Costs 50 MP."])
 
 massAbsorb = Enchantment(["mp"],[None],[50],"spawn","allEnemies",-50,"Mass Manasteal",["On spawn, reduce all enemies MP by 50 and increase your MP","by 50 per enemy."])
+envyPrayer = Enchantment(["mp"],[None],[50],"endTurn","allEnemies",-50,'"Grant Me Power!"',["On end turn, reduce all enemies MP by 50 and increase your MP","by 50 per enemy."])
 
 swagger = Enchantment(["sp"],[None],[2],"endTurn","nearestEnemy",50,"Swagger",["On end turn, reduce the nearest enemy's sp by {}. Costs 50 MP."])
+slothPrayer = Enchantment(["sp"],[None],[1],"endTurn","nearestEnemy",0,'"Sap Their Will!"',["On end turn, reduce the nearest enemy's sp by {}."])
 
 spellShield = Enchantment(["tempAp"],["mp"],[-1/10],"startTurn","self",20,"Spell Shield",["On start turn, increase your AP by 1 for every 10 points of MP.","Costs 20 MP per turn."])
 
@@ -163,6 +166,8 @@ rangedCaltrops = Enchantment(["caltrops"],[None],[1],"attack","target",0,"Caltro
 weakenAllies = Enchantment(["ap"],[None],[300],"death","allAllies",0,"Dispel Delusion",["On death, reduce all allies' AP by {}."])
 
 hammerTremor = Enchantment(["hp"],[None],[50],"attack","targetAdjEnemies",0,"Shockwave Strike",["On attack, deal {} damage to your target's adjacent allies."])
+
+pridePrayer = Enchantment(["move"],[None],[1],"selfHit","randEmptyAdjTile",20,'"Make Me Triumph!"',["Upon being hit, move the attacker to a random tile adjacent to them. Costs 20 MP."])
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -206,4 +211,4 @@ crystalLump = Enchantment(["crystalLump"],[None],[1],"ability","self",150,"Cryst
 
 
 #transformation
-wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",40,"Wyvern Download",["Succumb to Drakkak's rage, and become an avatar of his fury.","Grants {} turns of Wyvernform per use. Requires 40 MP, but uses","all of your mana upon activation"])
+wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",40,"Wyvern Download",["Grants {} turns of Wyvernform per use. Requires 40 MP, but uses","all of your mana upon activation"])

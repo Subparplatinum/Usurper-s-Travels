@@ -1,5 +1,5 @@
 An iron golem wielding a lance-shaped meteorite sent by the star-god Dareon, known as the Shining Knight. 
 Dareon is a kind and chivalrous god, and thus this star-golem is one of the few that possess free will. 
 Much to the joy of their god, it has sworn an oath to purge the world of all evils, and in its past travels 
-has somehow befriended a horse!
+has somehow befriended a horse.
 \p

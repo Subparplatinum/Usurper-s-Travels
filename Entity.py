@@ -283,7 +283,7 @@ class Entity:
                 self.updateStats()
 
                 #remove cost of transformation
-                self.mana -= 400 
+                self.mana = 0
 
                 #fade out music over a second
                 pygame.mixer.music.fadeout(1000)
@@ -463,6 +463,7 @@ class Entity:
             target.killer = self
 
         #trigger enemy enchantments (they get hit)
+        # This means the attacker is the origin for the enchantment
         if len(target.enchantments) > 0:
             for enchantment in target.enchantments:
                 if enchantment.trigger == "selfHit":
@@ -791,10 +792,11 @@ class Entity:
                                 for enchantment in self.enchantments:
                                     if enchantment.trigger == "transform":
                                         self.triggerEnchant(enchantment)
-                            
+
                             #fade out music over a second
                             #pygame.mixer.music.fadeout(1000)
-                            pygame.mixer.music.load('music/Ride the Fire!.mp3')
+
+                            pygame.mixer.music.load('music/Fire and Blood.mp3')
                             pygame.mixer.music.play(-1,0,0)
                             
 
@@ -842,6 +844,14 @@ class Entity:
                                 for i in range(0,2):
                                     if target.equipment[i] != None:
                                         target.attackEntity(target,target.equipment[i])
+
+                        # Move to tile (target must be a tile or this will crash!)
+                        elif enchantment.effectType[i] == "move":
+                            origin.move(target)
+
+                            # Refund movement cost
+                            origin.speed += 1
+
 
                         #there'll be  a lot of summon stuff
                         else:
@@ -987,6 +997,19 @@ class Entity:
             applyEffect(enchantment,self,self.findTarget("enemy"))
         elif enchantment.target == "nearestAlly":
             applyEffect(enchantment,self,self.findTarget("ally"))
+
+        # This target is different, as it applies to a tile and not an entity
+        elif enchantment.target == "randEmptyAdjTile":
+            # Get all adjacent tiles that are empty
+            open_tiles = []
+            for tile in self.tile.adjTiles:
+                if tile != None:
+                    if tile.occupant == None:
+                        open_tiles.append(tile)
+            
+            # Pick a random one
+            if len(open_tiles) > 0:
+                applyEffect(enchantment,self,random.choice(open_tiles))
 
         
             

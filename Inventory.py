@@ -107,7 +107,7 @@ def inventory(items,players,window,level):
         
     #if level just before regular boss
     elif (level.levelNum+1)%5 == 0:
-        text = "A great black creature, stretching from horizon to horizon, leaps across the sky. The distant Star-Gods are obscured, and Solei vanishes in it's embrace. Darkness falls across the whole world, and in a brief moment of parity you are able to instantly travel wherever you wish. \p "
+        text = "A great black creature, stretching from horizon to horizon, leaps across the sky. The distant Star-Gods are obscured, and Solei vanishes in its embrace. Darkness falls across the whole world, and in a brief moment of parity you are able to instantly travel wherever you wish. \p "
 
     #if level just after regular boss
     elif (level.levelNum%5) == 0:
