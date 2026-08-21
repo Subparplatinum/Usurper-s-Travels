@@ -99,23 +99,23 @@ def inventory(items,players,window,level):
 
     #if final boss beaten then end the game
     if level.levelNum == Debug.lastLevelNum:
-        text = "Raah is slain, and the succession crisis that follows tears apart both his crusade and all Sun-Elf civilisation. With their strength and influence greatly diminished, Solei willingly succumbs to the Darkness. Thus begins the Third Night - yet, one light still shines in the darkness... \p "
+        text = "Ra'ah is slain, and you, Usurper, sit upon his throne. Yet his people do not accept you as their ruler, and the succession crisis that follows tears apart both his crusade and all Sun-Elf civilisation. With their strength and influence greatly diminished, Solei lets themselves be devoured by the Darkness. Now the Third Night truly begins, and the free peoples shall meet it with fire and steel, as they have before, and shall do again. \p "
         
     #if level just before final boss
     elif level.levelNum == Debug.lastLevelNum - 1:
-        text = "The great black creature once again traps Solei in their embrace, but this time the world goes darker than before. Solei's power is greatly diminished, there is no better time to strike down their champion. Even the starfire braziers within Raah's throne room are extinguished, and you are able to travel straight inside. \p "
+        text = "The great black creature once again traps Solei in their embrace, but this time you hear a sharp cry of pain that shakes the world. Solei's power is greatly diminished - there is no better time to strike down their champion. Even the sunfire braziers within Ra'ah's throne room are extinguished, and you are able to travel straight inside. \p "
         
     #if level just before regular boss
     elif (level.levelNum+1)%5 == 0:
-        text = "A great black creature, stretching from horizon to horizon, leaps across the sky. The distant Star-Gods are obscured, and Solei vanishes in its embrace. Darkness falls across the whole world, and in a brief moment of parity you are able to instantly travel wherever you wish. \p "
+        text = "A great black creature, stretching from horizon to horizon, leaps across the sky. The distant star-gods are obscured, and Solei vanishes in its embrace. True Night falls across the whole world, and in a brief moment of parity you are able to instantly travel to the domain of a powerful foe. Khurgan demands sacrifice, after all. \p "
 
     #if level just after regular boss
     elif (level.levelNum%5) == 0:
-        text = "The sky suddenly erupts into flame as Solei banishes the Darkness deep underground. The night has ended, but how long will this new day last? \p "
+        text = "The sky suddenly erupts into flame as Solei banishes great black creature deep underground. For now, the True Night is over, but Darkness still covers the land. \p "
         
     #if normal level
     else:
-        text = "Darkness creeps across the world. Continue your travels, grow in strength! \p "
+        text = "Darkness blankets the world. Continue your travels and grow in strength, before the True Night comes! \p "
 
     text += " -Press ENTER to continue-"
     while not(finished):

@@ -1,10 +1,21 @@
-Here sits the final obstacle of your travels
+It was after the First Night that the star-gods gave chase to the banished Darkness, and appointed Solei to watch over the realms in
+their absence. Yet mortalkind did not sing praises to the sun, they chose instead to worship the star-gods whose light shone upon
+them from far away, who stood vigil over the outer void and the Darkness that lurked within.
 \p
-The Lord of Light
+
+Now, millenia have passed, and Solei is closer than ever to fixing this 'betrayal'. The star-gods are routed, and the free peoples
+fight a hopeless war against the Darkness as solar armies sweep across their battered realms. 
 \p
-The Starbane
+
+Yet there is still hope, because of you, Usurper. Here you stand at last, before Ra'ah's throne, before the King of the Sun-elves, 
 \p
-Pretender
+The Chosen of Solei,
 \p
-Strike him down, and take from him the throne he does not deserve
+The Elf Who Slew a God.
+\p
+
+Solei has no power here, not while He struggles against the great black beast. Now is the time to fulfill your oath. Strike down 
+Ra'ah, and usurp his throne!
+\p 
+"For Khurgan! For Vengeance!"
 \p

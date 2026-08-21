@@ -598,7 +598,7 @@ class Level:
                 #chance of wall depends on environment
                 if random.random() < wallChance and tile.occupant == None:
                     wall_is_light = False
-                    if self.spawnTable[location] == "'Burning Vengeance'":
+                    if self.spawnTable[location] == "Crusader Fortress":
                         wall_is_light = True
                     tile.occupant = Entity.Wall(window,self,tiles[rowNum][tileNum],None,None,None,Armoury.bricks,None,None,"Wall","wall",1,spritePath = self.spritePath+"wall.png",torch=wall_is_light)               
                         

@@ -81,7 +81,7 @@ lessmanasteal = Enchantment(["mp"],[None],[-10],"attack","self",0,"Manapinch",["
 
 rally = Enchantment(["dmg"],[None],[-10],"endTurn","allAllies",0,"Rally",["On end turn, increase all allies' AT bonus by {}%."])
 
-zodiac = Enchantment(["mp"],[None],[-20],"endTurn","allAllies",10,"Read the Stars",["On end turn, increase all allies' MP by {}. Costs 10 MP per ally."])
+zodiac = Enchantment(["mp"],[None],[-20],"endTurn","allAllies",10,"Divine the Stars",["On end turn, increase all allies' MP by {}. Costs 10 MP per ally."])
 
 fear = Enchantment(["dmg"],[None],[10],"spawn","allEnemies",10,"Fearmongerer",["On spawn, decrease all enemies' AT bonus by {}. Costs 5 MP per enemy."])
 

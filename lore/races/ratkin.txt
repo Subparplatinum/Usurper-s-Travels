@@ -1,4 +1,5 @@
-During the Second Night, many great cities were left abandoned as their civilian populations were slain by the encroaching Darkness, yet vermin are harder to exterminate.
-Exploiting the parity within the Darkness, they wished themselves greater, and metamorphosed into the Ratkin. Using the myriad of diseases they harboured as a potent weapon,
-they managed to carve out many great ruin-kingdoms after the coming of the Second Age.
+During the Second Night, many great cities were left abandoned as their populations were slain by the encroaching Darkness, 
+yet vermin are harder to exterminate. Exploiting the parity within the Darkness, they wished themselves greater, and metamorphosed 
+into the Ratkin. Using the myriad of diseases they harboured as a potent weapon, they managed to carve out many great 
+ruin-kingdoms after the coming of the Second Age.
 \p 

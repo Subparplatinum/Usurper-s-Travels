@@ -1,4 +1,5 @@
-Beastkin are the creations of the vile Bloody Star Cult. An amalgamation of many different animals, they are engineered to take advantage of the sinister and barbaric aspects of the 
-star-god Khurgan - they have an insatiable urge to slaughter, and grow stronger when they indulge this bloodlust. They form the rank-and-file of the Bloody Star Cult's armies in 
-their efforts to revive Khurgan by spilling the blood of nations.
+Beastkin are the creations of the vile Cult of the Bloody Star. An amalgamation of many different animals, they are engineered to
+take advantage of the sinister and barbaric aspects of the star-god Khurgan - they have an insatiable urge to slaughter, and 
+grow stronger when they indulge this bloodlust. They form the rank-and-file of the Bloody Star Cult's armies in their efforts 
+to revive Khurgan by spilling the blood of nations.
 \p

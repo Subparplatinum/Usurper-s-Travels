@@ -26,7 +26,7 @@ razorKnight = [Armoury.razorKnightStats,None,Armoury.razorKnightStats2,None,None
 cultist = [Armoury.cultistStats,None,None,None,None,None,"Blood Star Cultist","enemy",True]
 
 #bosses (has extra field for title card)
-mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Knight of the First Flame","enemy",True,allLore["mageKnight"]]
+mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Solar Knight","enemy",True,allLore["mageKnight"]]
                                                                                                                  
 fireball = [Armoury.fireballStats,None,Armoury.fireballExplode,None,None,Armoury.spellBoots,"Fireball","enemy",True]                                                                                                                                                                                                                             
 
@@ -88,15 +88,15 @@ darkness = [[darkwalker,pit],"sprites/forest/","Cave"]
 #bosstables
 #all enemies after the first will be ads
 # I have no idea what the number in the second to last field does, but im scared to take it out so it stays in
-solarBoss = [[mageKnight,swordsman,swordsman,solarPriest],"sprites/throne/","music/Servant of Jealous Fire.mp3","'Burning Vengeance'",1,Armoury.mageknightLootTable]
+solarBoss = [[mageKnight,swordsman,swordsman,solarPriest],"sprites/throne/","music/Servant of Jealous Fire.mp3","Crusader Fortress",1,Armoury.mageknightLootTable]
 northBoss = [[winter,winterguard,winterguard,winterguard],"sprites/north/","music/Frozen Monarch.mp3","The Starless Citadel",0,Armoury.winterLootTable]
 darkBoss = [[mass,ballistaGrowth,ballistaGrowth,ballistaGrowth],"sprites/forest/","music/Creature of Darkness.mp3","Impact Site",4,Armoury.massLootTable]
 darkBoss2 = [[lethe,umbralLegate,umbralLegate,umbralLegate],"sprites/darkness/","music/Deluded Old Man.mp3","The Umbral Wood",5,Armoury.letheLootTable]
-lifeBoss = [[prideDaughter,slothDaughter,envyDaughter],"sprites/greattree/","music/Daughter of Corruption.mp3","Guijao's Curse",5,Armoury.daughterLootTable]
+lifeBoss = [[prideDaughter,slothDaughter,envyDaughter],"sprites/greattree/","music/Daughter of Corruption.mp3","Cursed Great-Tree",5,Armoury.daughterLootTable]
 
 #superbosstables
-mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","'Burning Vengeance'",6,None]
-usurperSuperBoss = [[usurper],"sprites/throne/","music/Heolstor 1.mp3","'Burning Vengeance'",6,None]
+mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","Ra'ah's Inner Sanctum",6,None]
+usurperSuperBoss = [[usurper],"sprites/throne/","music/Heolstor 1.mp3","Ra'ah's Inner Sanctum",6,None]
 
 #all spawntables
 spawnTables = [solarKnights,solarKnights,darkness,darkness,newNorth,newNorth2]

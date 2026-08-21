@@ -69,7 +69,7 @@ solarPriestStats = Weapon(0,-100,0,200,0,Spellbook.burnEnchant,"",5,False,None)
 
 
 """
-Knight of the First Flame
+Solar Knight
 """
 
 #stats
@@ -213,7 +213,7 @@ severingblade = Weapon(0,0,10,60,80,Spellbook.fate,"Blade of Severing",1,True,No
 starScar = Equipment(0,50,0,200,10,Spellbook.sunAttune,"Celestial Scar","helmet",None)
 
 #breastplate
-raahAttire = Equipment(0,150,20,50,0,Spellbook.raahTwo,"Raah' Shoulder Jacket","breastplate",None)
+raahAttire = Equipment(0,150,20,50,0,Spellbook.raahTwo,"Raah's Shoulder Jacket","breastplate",None)
 raahAttire2 = Equipment(2,150,20,50,0,None,"Raah' Shoulder Jacket","breastplate",None)
 
 #leggings

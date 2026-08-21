@@ -1,5 +1,8 @@
-Those who have lost their memory are plagued with visions, recurring dreams of a lightless abyss, and the old man who lives
-within. They say he greets them like an old friend, and invites them into his home, where he says they can rest for the night. You feel
-a serene sense of peace now, as the forest around you melts into black ichor. Even as your light sputters, choked by the inky
-black tendrils of night, you see him in the distance. 
+Those who have lost their memory are plagued with visions, recurring dreams of a lightless abyss, and the nice old man who lives
+within. They say he greets them like an old friend, and invites them into his home, where he says they can rest for the night. 
+\p
+None among the living have ever taken him up on his offer.
+\p
+You feel a serene sense of peace now, as the forest around you melts into black ichor. As your light begins to fade, choked by the 
+inky black tendrils of True Night, you see him in the distance, calling for you to come home... 
 \p
