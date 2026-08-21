@@ -1,3 +1,5 @@
 dist/
 build/**
+build/game/**
+build/game/local/pycs/**
 game.spec
