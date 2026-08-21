@@ -8,13 +8,13 @@ Although Its been a few years and I should really be working on other, more impo
 
 ## Screenshots!
 
-![Main Menu](/screenshots/img.jpg?raw=true "Main Menu")
+![Main Menu](/screenshots/img_1.jpg?raw=true "Main Menu")
 
-![The Night is Dark and Full of Terrors](/screenshots/img.jpg?raw=true "'The Night is Dark and Full of Terrors'")
+![The Night is Dark and Full of Terrors](/screenshots/img_2.jpg?raw=true "'The Night is Dark and Full of Terrors'")
 
-![Inventory System](/screenshots/img.jpg?raw=true "Inventory System")
+![Inventory System](/screenshots/img_3.jpg?raw=true "Inventory System")
 
-![YOU DIED!](/screenshots/img.jpg?raw=true "YOU DIED!")
+![YOU DIED!](/screenshots/img_4.jpg?raw=true "YOU DIED!")
 
 ## One more thing...
 Press ESC when in a level to show controls - As I mentioned earlier, you may find the game unintuitive to play. Sorry in advance, UI is really annoying to make with Pygame!
