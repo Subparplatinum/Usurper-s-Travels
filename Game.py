@@ -1,3 +1,10 @@
+"""
+
+Run "Pyinstaller game.py" to compile the game files
+
+"""
+
+
 import pygame
 #initialise pygame
 pygame.init()
