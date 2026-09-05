@@ -1,0 +1,16 @@
+"Can you hear me Usurper? I am Serismund, a Cardinal of the Pale City. I have been tasked by the High Zodiacs to ensure you have not
+Sacrificed your wits!"
+\p
+
+"As you have probably forgotten, the road ahead of you is long and arduous, but it is of the utmost importance that you do not
+faulter while you travel it."
+\p
+
+"Now, the Darkness can be treacherous, hence why we have given you a vial of starlight to see in its murky depths"
+\p
+
+"Some of your foes with have light sources of their own - but do not rely on their generosity"
+\p
+
+
+glooby
