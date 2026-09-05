@@ -140,7 +140,7 @@ def characterMenu(window,level,ycoord,xcoord):
 
         if menu == 1:
             
-            window.blit(font.render("Choose your background:",True,colour),(200,100))
+            window.blit(font.render("What is your background?",True,colour),(200,100))
 
             #Swordsman
             pygame.draw.rect(window,(100,100,100),[190,190,300,40])
@@ -230,7 +230,7 @@ def characterMenu(window,level,ycoord,xcoord):
 
         elif menu == 2:
             
-            window.blit(font.render("Choose your race:",True,colour),(200,100))
+            window.blit(font.render("What is your species?",True,colour),(200,100))
 
             #Human
             pygame.draw.rect(window,(100,100,100),[190,190,300,40])
@@ -386,34 +386,34 @@ def companionMenu(window,level,ycoord,xcoord):
         textToRender = ""
 
             
-        window.blit(font.render("Choose a golem companion:",True,colour),(200,100))
+        window.blit(font.render("Who is accompanying you on your travels?",True,colour),(200,100))
 
-        #Crystal Golem
+        #Skylar Crystalmouth
         pygame.draw.rect(window,(100,100,100),[190,190,300,40])
         if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 240:
 
             textToRender = allLore["crystal"]
             pygame.draw.rect(window,red,[190,190,300,40])
-        window.blit(font.render("Crystalised Golem",True,colour),(200,200))
+        window.blit(font.render("Skylar Crystalmouth",True,colour),(200,200))
             
 
-        #Valiant Golem        
+        #Donkey Oaty    
         pygame.draw.rect(window,(100,100,100),[190,240,300,40])
         if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 290:
 
             textToRender = allLore["valiant"]
 
             pygame.draw.rect(window,red,[190,240,300,40])
-        window.blit(font.render("Valiant Golem",True,colour),(200,250))
+        window.blit(font.render("Donkey Oaty",True,colour),(200,250))
 
-        #Burning Golem       
+        #Karl Drakkenesserin   
         pygame.draw.rect(window,(100,100,100),[190,290,300,40])
         if 190 < mousePos[0] < 490 and 290 < mousePos[1] < 340:
 
             textToRender = allLore["burning"]
 
             pygame.draw.rect(window,red,[190,290,300,40])
-        window.blit(font.render("Burning Golem",True,colour),(200,300))
+        window.blit(font.render("Karl Drakkenesserin",True,colour),(200,300))
 
         #render descriptions
         drawText(window,font,colour,textToRender,500,200,40)

@@ -1,4 +1,6 @@
-A basalt golem which cracks and buckles as it stuggles to contain the fires of the Star-God Drakkak, 
-known as the Father of Wyverns. Drakkak's unceasing hatred of all things earned them a place in exile deep within the Outer Void, 
-where they have fought alone against the Darkness for millenia.
+Once one of the many dragonhunters that called the frigid city of Drakkengrad their home, Karl was part of an ill-fated expedition
+to the far northern reaches of the realms. The only survivor of this expedition, Karl had to eat the flesh of many drakes to 
+stay alive. Now he is cursed - his own flesh burns with the fires of the Star-God Drakkak, and he is
+hunted by the very dragonhunters that once fought beside him. Only by doing a deed as noble as slaying the traitorous king Ra'ah
+can he hope to clear his name.
 \p
