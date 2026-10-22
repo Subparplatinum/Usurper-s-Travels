@@ -40,6 +40,8 @@ letheLootTable = []
 
 daughterLootTable = []
 
+glassLootTable = []
+
 
 """
 Wall
@@ -200,14 +202,23 @@ frenteguerra = Equipment(3,0,0,0,0,Spellbook.frente,"Frenteguerra","leggings",No
 
 #boots
 
+"""
+Glass Knight
+"""
+glassKnightStats = Weapon(4,100,40,-100,40,Spellbook.charge,"",1,True,None)
+glassKnightStats2 = Equipment(0,0,0,0,0,Spellbook.push,"","helmet",None)
+glassKnightStats3 = Equipment(0,0,0,0,0,Spellbook.mirror,"","breastplate",None)
 
+mirrorShield = Weapon(0,50,20,0,0,Spellbook.mirror,"Mirror Shield",1,False,glassLootTable)
+
+glassHorse = Equipment(3,0,0,0,0,Spellbook.push,"Glass Steed","leggings",glassLootTable)
 
 """
 Raah the Pretender/Raah the Starbane
 """
 
 #weapon
-severingblade = Weapon(0,0,10,60,80,Spellbook.fate,"Blade of Severing",1,True,None)
+severingblade = Weapon(0,0,10,60,80,Spellbook.fate,"Blade of Severing",1,False,None)
 
 #helmet
 starScar = Equipment(0,50,0,200,10,Spellbook.sunAttune,"Celestial Scar","helmet",None)
@@ -323,9 +334,9 @@ darkheart = Equipment(0,50,10,-200,0,Spellbook.retaliation,"Heart of Darkness","
 shiftingLegs = Equipment(0,10,20,0,10,Spellbook.noWalls,"Shifting Legs","leggings",letheLootTable)
 
 """
-Umbral Legate
+Umbral Daemon
 """
-legateStats = Weapon(1,0,0,0,10,Spellbook.weakenAllies,"",1,False,None)
+daemonStats = Weapon(1,0,0,0,10,Spellbook.weakenAllies,"",1,False,None)
 
 """
 Daughters of Corruption
@@ -381,7 +392,7 @@ blindfold = Equipment(0,0,0,0,10,Spellbook.teleport,"Abyssal Blindfold","helmet"
 dragonSkull = Equipment(0,20,0,100,0,Spellbook.dragonchild,"Dragon Skull","helmet",lootTable)
 
 #breastplates
-lordsStandard = Equipment(0,20,10,0,5,Spellbook.rally,"Breastplate w/ Lord's Standard","breastplate",lootTable)
+lordsStandard = Equipment(0,20,10,0,5,Spellbook.rally,"Galeshian Backbanner","breastplate",lootTable)
 hunterCloak = Equipment(0,20,0,50,10,Spellbook.apAmmo,"Hunter's Cloak","breastplate",lootTable)
 cloakOfKnives = Equipment(0,20,0,50,10,Spellbook.apPierce,"Cloak of Knives","breastplate",lootTable)
 crystalcloak = Equipment(0,20,0,100,0,Spellbook.starBirth,"Crystal Cloak","breastplate",lootTable)

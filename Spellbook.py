@@ -169,6 +169,11 @@ hammerTremor = Enchantment(["hp"],[None],[50],"attack","targetAdjEnemies",0,"Sho
 
 pridePrayer = Enchantment(["move"],[None],[1],"selfHit","randEmptyAdjTile",20,'"Make Me Triumph!"',["Upon being hit, move the attacker to a random tile adjacent to them. Costs 20 MP."])
 
+push = Enchantment(["knockback"],[None],[1],"attack","target",0,"Preternatural Force",["On hit, push your target back {} tile/s."])
+
+mirror = Enchantment(["knockback"],[None],[1],"endTurn","adjEnemies",0,"'Look Upon Thyself!'",["On end turn, adjacent enemies retreat {} tile/s."])
+
+
 #------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -183,7 +188,7 @@ lessRegen = Enchantment(["hp"],[None],[-20],"endTurn","self",0,"Spirit of Parity
 #elf
 attune = Enchantment(["mp"],[None],[-20],"endTurn","self",0,"Astra's Chosen",["When your turn ends, increase your MP by {}."])
 
-sunAttune = Enchantment(["mp"],[None],[-100],"endTurn","self",0,"Chosen of Solei",["When your turn ends, increase your MP by {}."])
+sunAttune = Enchantment(["mp"],[None],[-100],"endTurn","self",0,"Blessed by Solei",["When your turn ends, increase your MP by {}."])
 
 #dwarf
 stalwart = Enchantment(["ap"],[None],[-10],"spawn","self",0,"Child of Dawnbringers",["On spawn, increase your AP by {}."])
@@ -207,8 +212,6 @@ ballista = Enchantment(["ballista"],[None],[8],"ability","self",50,"Ballista Gro
 raahTwo = Enchantment(["raahTwo"],[None],[1],"death","self",50,"Resurgence",["This boss has a second phase"])
 
 crystalLump = Enchantment(["crystalLump"],[None],[1],"ability","self",150,"Crystal Growth",["Summon {} Crystal Growth/s in adjacent tiles. Costs 150 MP."])
-
-
 
 #transformation
 wyvern = Enchantment(["wyvern"],[None],[1],"ability","self",40,"Wyvern Download",["Grants {} turns of Wyvernform per use. Requires 40 MP, but uses","all of your mana upon activation"])

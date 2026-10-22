@@ -426,16 +426,16 @@ def companionMenu(window,level,ycoord,xcoord):
                 #Crystal Golem
                 if 190 < mousePos[0] < 490 and 190 < mousePos[1] < 230:
                     startOfGame(window)
-                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.greatsword,None,Armoury.potHelm,Armoury.breastplate,Armoury.legplate,Armoury.metalBoots,"Crystalised Golem","player",1,Spellbook.wildMagic,torch = True)
+                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.greatsword,None,Armoury.potHelm,Armoury.breastplate,Armoury.legplate,Armoury.metalBoots,"Skylar Crystalmouth","player",1,Spellbook.wildMagic,torch = True)
                 #Valiant Golem
                 if 190 < mousePos[0] < 490 and 240 < mousePos[1] < 280:
                     startOfGame(window)
-                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.oatLance,None,None,Armoury.breastplate,Armoury.frenteguerra,Armoury.riderBoots,"Valiant Golem","player",1,Spellbook.charge,torch = True)
+                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.oatLance,None,None,Armoury.breastplate,Armoury.frenteguerra,Armoury.riderBoots,"Donkey Oaty","player",1,Spellbook.charge,torch = True)
 
                 #Burning Golem
                 if 190 < mousePos[0] < 490 and 290 < mousePos[1] < 330:
                     startOfGame(window)
-                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.stonePillar,None,None,Armoury.mageCloak,Armoury.mageRobe,Armoury.mageBoots,"Burning Golem","player",1,Spellbook.wyvern,torch = True)
+                    return Entity.Player(window,level,level.tiles[ycoord][xcoord],Armoury.stonePillar,None,None,Armoury.mageCloak,Armoury.mageRobe,Armoury.mageBoots,"Karl Drakkenesserin","player",1,Spellbook.wyvern,torch = True)
 
             elif event.type == pygame.QUIT: 
                 pygame.quit()

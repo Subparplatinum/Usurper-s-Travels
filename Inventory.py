@@ -103,15 +103,15 @@ def inventory(items,players,window,level):
         
     #if level just before final boss
     elif level.levelNum == Debug.lastLevelNum - 1:
-        text = "The great black creature once again traps Solei in their embrace, but this time you hear a sharp cry of pain that shakes the world. Solei's power is greatly diminished - there is no better time to strike down their champion. Even the sunfire braziers within Ra'ah's throne room are extinguished, and you are able to travel straight inside. \p "
+        text = "The Shadowy Godbeast once again traps Solei in their embrace, but this time you hear a sharp cry of pain that shakes the world. Solei's power is greatly diminished - there is no better time to strike down their champion. Even the sunfire braziers within Ra'ah's throne room are extinguished, and you are able to travel straight inside. \p "
         
     #if level just before regular boss
     elif (level.levelNum+1)%5 == 0:
-        text = "A great black creature, stretching from horizon to horizon, leaps across the sky. The distant star-gods are obscured, and Solei vanishes in its embrace. True Night falls across the whole world, and in a brief moment of parity you are able to instantly travel to the domain of a powerful foe. Khurgan demands sacrifice, after all. \p "
+        text = "A Shadowy Godbeast, stretching from horizon to horizon, leaps across the sky. The distant star-gods are obscured, and Solei vanishes in its embrace. True Night falls across the whole world, and in a brief moment of parity you are able to instantly travel to the domain of a powerful foe. Khurgan demands sacrifice, after all. \p "
 
     #if level just after regular boss
     elif (level.levelNum%5) == 0:
-        text = "The sky suddenly erupts into flame as Solei banishes great black creature deep underground. For now, the True Night is over, but Darkness still covers the land. \p "
+        text = "The sky suddenly erupts into flame as Solei banishes Shadowy Godbeast deep underground. For now, the True Night is over, but Darkness still covers the land. \p "
         
     #if normal level
     else:

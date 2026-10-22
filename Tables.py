@@ -38,14 +38,16 @@ mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Oo
 
 lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord of Dusk","enemy",False,allLore["lethe"]]
 
-umbralLegate = [Armoury.legateStats,None,None,None,None,None,"Umbral Legate","enemy",False]
+umbralDaemon = [Armoury.daemonStats,None,None,None,None,None,"Umbral Daemon","enemy",False]
 
 prideDaughter = [Armoury.corruptStats,Armoury.prideStats,None,None,None,None,"Daughter of Pride","enemy",False,allLore["DoC"]]
 slothDaughter = [None,Armoury.slothStats,None,None,None,None,"Daughter of Sloth","enemy",False]
 envyDaughter = [Armoury.corruptStats,Armoury.envyStats,None,None,None,None,"Daughter of Envy","enemy",False]
 
+glassKnight = [Armoury.glassKnightStats,None,Armoury.glassKnightStats2,Armoury.glassKnightStats3,None,None,"Glass Knight","enemy",True,allLore["glass"]]
+
 #super bosses (has extra field for title card)                                                                  
-raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.raahTrousers,Armoury.starWalker,"Raah, the Pretender ","enemy",True,allLore["raah"]]
+raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.raahTrousers,Armoury.starWalker,"Sun-King Ra'ah","enemy",True,allLore["raah"]]
                                                                                                                                                      
 weapons = []
 helmets = []
@@ -88,25 +90,27 @@ darkness = [[darkwalker,pit],"sprites/forest/","Cave"]
 #bosstables
 #all enemies after the first will be ads
 # I have no idea what the number in the second to last field does, but im scared to take it out so it stays in
-solarBoss = [[mageKnight,swordsman,swordsman,solarPriest],"sprites/throne/","music/Servant of Jealous Fire.mp3","Crusader Fortress",1,Armoury.mageknightLootTable]
+solarBoss = [[mageKnight,swordsman,swordsman,solarPriest],"sprites/throne/","music/Radiant Thousand.mp3","Crusader Fortress",1,Armoury.mageknightLootTable]
 northBoss = [[winter,winterguard,winterguard,winterguard],"sprites/north/","music/Frozen Monarch.mp3","The Starless Citadel",0,Armoury.winterLootTable]
 darkBoss = [[mass,ballistaGrowth,ballistaGrowth,ballistaGrowth],"sprites/forest/","music/Creature of Darkness.mp3","Impact Site",4,Armoury.massLootTable]
-darkBoss2 = [[lethe,umbralLegate,umbralLegate,umbralLegate],"sprites/darkness/","music/Deluded Old Man.mp3","The Umbral Wood",5,Armoury.letheLootTable]
+darkBoss2 = [[lethe,umbralDaemon,umbralDaemon,umbralDaemon],"sprites/darkness/","music/Deluded Old Man.mp3","The Umbral Wood",5,Armoury.letheLootTable]
 lifeBoss = [[prideDaughter,slothDaughter,envyDaughter],"sprites/greattree/","music/Daughter of Corruption.mp3","Cursed Great-Tree",5,Armoury.daughterLootTable]
+knightBoss = [[glassKnight],"sprites/palmor/","music/Daughter of Corruption.mp3","Sinking City",5,Armoury.glassLootTable]
 
 #superbosstables
-mageSuperBoss = [[raah],"sprites/throne/","music/Heolstor 1.mp3","Ra'ah's Inner Sanctum",6,None]
-usurperSuperBoss = [[usurper],"sprites/throne/","music/Heolstor 1.mp3","Ra'ah's Inner Sanctum",6,None]
+mageSuperBoss = [[raah],"sprites/throne/","music/Starslayer.mp3","Ra'ah's Inner Sanctum",6,None]
+usurperSuperBoss = [[usurper],"sprites/throne/","music/Usurper's Travels.mp3","Ra'ah's Inner Sanctum",6,None]
 
 #all spawntables
 spawnTables = [solarKnights,solarKnights,darkness,darkness,newNorth,newNorth2]
 
-bossTables = [solarBoss,darkBoss,northBoss,darkBoss2,lifeBoss]
+FullBossTables = [solarBoss,darkBoss,northBoss,darkBoss2,lifeBoss,knightBoss]
+bossTables = FullBossTables
 
 superBossTables = [mageSuperBoss,usurperSuperBoss]
 
 
 #debug
-#bossTables = [lifeBoss,lifeBoss,lifeBoss]
+#bossTables = [knightBoss,knightBoss,knightBoss]
 #spawnTables = [newNorth2]
 #superBossTables = [usurperSuperBoss]

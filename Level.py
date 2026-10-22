@@ -515,8 +515,10 @@ class Level:
             pygame.display.flip()
             pygame.time.wait(3000) # wait 3 seconds
 
-            #TODO: return to main menu instead of quitting
             self.gameOver = True
+
+            # reset boss tables
+            Tables.bossTable = Tables.FullBossTables 
             
             
     

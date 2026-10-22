@@ -67,6 +67,11 @@ class Entity:
         self.transformTurns = 0
 
 
+        # set maximum and minimum ranges for pathfinding to/from targets
+        self.inverse_pathfinding = -1
+        self.pathfinding = 10000
+
+
 
         #create list of all equipment
         self.equipment = [self.weapon1,self.weapon2,self.helmet,self.breastplate,self.leggings,self.boots]
@@ -115,6 +120,56 @@ class Entity:
                         self.triggerEnchant(enchantment)
                     elif self.equipment[5].name != "Rider's Boots":
                         self.triggerEnchant(enchantment)
+
+    def pathAlgorithm(self,tile,target,towards): #incredibly dumb ai
+        
+        if tile != None:
+            xDistance = abs(target.x - tile.x)
+            yDistance = abs(target.y - tile.y)
+            #add these together
+            distance = xDistance + yDistance
+
+            #move towards target
+            if towards:
+                #find lowest xDistance and YDistance
+                if distance < self.pathfinding:
+                    #only attempt to move to a tile that isnt occupied by an entity of the same faction
+                    if tile.occupant == None:
+                        self.tileSelected = tile
+                        self.pathfinding = distance
+                    #only attempt to move to a tile that isnt occupied by an entity of the same faction
+                    elif (not(tile.occupant.entityType == "ally" or tile.occupant.entityType == "player") and self.entityType == "ally") or  (tile.occupant.entityType != "enemy" and self.entityType == "enemy"):
+                        #if the tile is occupied by a wall, only break through if theres no other option
+                        if tile.occupant.entityType == "wall":
+                            if self.tileSelected == None:
+                                self.tileSelected = tile
+                                self.pathfinding = distance
+                        else:
+                            self.tileSelected = tile
+                            self.pathfinding = distance
+
+            #move away from target
+            else:
+                #find highest xDistance and YDistance
+                if distance > self.inverse_pathfinding:
+                    #only attempt to move to a tile that isnt occupied by an entity of the same faction
+                    if tile.occupant == None:
+                        self.tileSelected = tile
+                        self.inverse_pathfinding = distance
+                    #only attempt to move to a tile that isnt occupied by an entity of the same faction
+                    elif (not(tile.occupant.entityType == "ally" or tile.occupant.entityType == "player") and self.entityType == "ally") or  (tile.occupant.entityType != "enemy" and self.entityType == "enemy"):
+                        #if the tile is occupied by a wall, only break through if theres no other option
+                        if tile.occupant.entityType == "wall":
+                            if self.tileSelected == None:
+                                self.tileSelected = tile
+                                self.inverse_pathfinding = distance
+                        else:
+                            self.tileSelected = tile
+                            self.inverse_pathfinding = distance
+
+            #prevent enemys hitting themselves
+            if self.tileSelected == self.tile:
+                self.tileSelected = None
 
     def updateStats(self):
         #base stats
@@ -813,6 +868,28 @@ class Entity:
                             
                             #TODO: add enchantments that trigger on teleport
 
+                        #knockback
+                        elif enchantment.effectType[i] == "knockback":
+                            for i in range(magnitude):
+                                #entity must pathfind away from target
+
+                                #change these to set the maximum and minimum engagement/disengagement ranges
+                                target.pathfinding = 10000
+                                target.inverse_pathfinding = -1
+
+                                #run the pathing algorithm on every adjacent tile
+                                #for every adjacent tile
+                                for tile in target.tile.adjTiles:
+                                    #find the closest to the player
+                                    target.pathAlgorithm(tile,origin,False)
+
+                                #if a tile is selected and no one is on it then move to it
+                                if target.tileSelected != None and target.tileSelected.occupant == None:
+                                    target.speed += 1
+                                    target.move(target.tileSelected)
+                                #if no tile is selected, stand still and end turn
+
+                                self.text = (target.name+" was pushed back "+str(round(magnitude*self.mult))+" tile/s by "+originName+enchantment.name+". ")
 
                         #enchantments can also trigger attacks
                         elif enchantment.effectType[i] == "attack":
@@ -896,14 +973,14 @@ class Entity:
                                             tile.occupant = ally
 
                                         elif enchantment.effectType[i] == "raahTwo":
-                                            ally = NPC(self.window,self.level,tile,Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire2,Armoury.raahTrousers,Armoury.starWalker,"Raah, the Starbane",summonType,self.mult,torch = True)
+                                            ally = NPC(self.window,self.level,tile,Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire2,Armoury.raahTrousers,Armoury.starWalker,"Starbane Ra'ah",summonType,self.mult,torch = True)
                                             self.text = ("--Second Phase--. ")
                                             tile.occupant = ally
 
-                                            #now with 2nd phase music
-                                            pygame.mixer.music.fadeout(1000)
-                                            pygame.mixer.music.load('music/Heolstor 2.mp3')
-                                            pygame.mixer.music.play(-1,0,1000)
+                                            #now with(out) 2nd phase music
+                                            #pygame.mixer.music.fadeout(1000)
+                                            #pygame.mixer.music.load('music/Heolstor 2.mp3')
+                                            #pygame.mixer.music.play(-1,0,1000)
 
                                         elif enchantment.effectType[i] == "crystalLump":
                                             ally = NPC(self.window,self.level,tile,None,None,None,Armoury.crystalLumpPlayer,None,None,"Crystal Growth",summonType,self.mult,torch = True)
@@ -1023,6 +1100,10 @@ class Player(Entity):
 
     def action(self):
         self.colour = (0,100,0)
+
+        #change these to set the maximum and minimum engagement/disengagement ranges
+        self.pathfinding = 10000
+        self.inverse_pathfinding = -1
         
         #if turn has ended and player is selected
         if self.endTurn == True and self.level.selectedPlayer == self:
@@ -1147,43 +1228,12 @@ class Player(Entity):
             
 
 class NPC(Entity):
-    def pathAlgorithm(self,tile,target): #incredibly dumb ai
-        
-        if tile != None:
-            xDistance = abs(target.x - tile.x)
-            yDistance = abs(target.y - tile.y)
-            #add these together
-            distance = xDistance + yDistance
-
-            #find lowest xDistance and YDistance
-            if distance < self.pathfinding:
-                #only attempt to move to a tile that isnt occupied by an entity of the same faction
-                if tile.occupant == None:
-                    self.tileSelected = tile
-                    self.pathfinding = distance
-                #only attempt to move to a tile that isnt occupied by an entity of the same faction
-                elif (not(tile.occupant.entityType == "ally" or tile.occupant.entityType == "player") and self.entityType == "ally") or  (tile.occupant.entityType != "enemy" and self.entityType == "enemy"):
-                    #if the tile is occupied by a wall, only break through if theres no other option
-                    if tile.occupant.entityType == "wall":
-                        if self.tileSelected == None:
-                            self.tileSelected = tile
-                            self.pathfinding = distance
-                    else:
-                        self.tileSelected = tile
-                        self.pathfinding = distance
-
-            #prevent enemys hitting themselves
-            if self.tileSelected == self.tile:
-                self.tileSelected = None
-            
         
     def action(self):
         #find target:
         target = self.findTarget("enemy")
         if self.endTurn == False and target != None:
             #define a target to move towards
-            #TODO: base it on closest enemy
-
             #keep track of if entity has attacked
             attacked = False
 
@@ -1192,16 +1242,16 @@ class NPC(Entity):
                 #for enchantment in self.enchantments:
                     #if enchantment.trigger == "action":
                         #self.triggerEnchant(enchantment) 
-            
 
-            #change this to set the maximum engagement range
+            #change these to set the maximum and minimum engagement/disengagement ranges
             self.pathfinding = 10000
+            self.inverse_pathfinding = -1
 
             #run the pathing algorithm on every adjacent tile
             #for every adjacent tile
             for tile in self.tile.adjTiles:
                 #find the closest to the player
-                self.pathAlgorithm(tile,target)
+                self.pathAlgorithm(tile,target,True)
 
             #for each weapon
             for i in range(0,2):

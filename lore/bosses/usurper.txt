@@ -1,6 +1,9 @@
-The final obstacle of your travels lies in a pool of his own burning blood. Raah is already slain, and on his throne sits 
-one of your kindred, basking in Solei's mournful dusk-glow. As Solei shrinks in the sky, abandoning the dying world that has slain
-their champion, you step forward to confront this False Usurper, and claim the throne that is rightfully yours.
+The final obstacle of your travels lies in a pool of his own burning blood. Ra'ah is already slain, and upon the Solar Throne sits 
+one of your kindred, basking in Solei's mournful dusk-glow. In their grief, Solei flares with a light that burns the sky, boiling
+oceans and causing trees to burst aflame. Then, with the last of their power expended, they hang limply in the firmament, 
+awaiting one final duel with the Darkness. As you step forward to confront the False Usurper upon your rightful throne, 
+the Shadowy Greatbeast sweeps across the horizon at your back, ready to strike one final blow upon the Sun-God. 
+There will only be enought time for one battle before the onset of a True Night that may never end.
 \p
-Khurgan cares not for who or what is sacrificed in his name, only that sacrifices are made.
+"Khurgan cares not for who or what is sacrificed in his name, only that sacrifices are made."
 \p
