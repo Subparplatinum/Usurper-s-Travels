@@ -3,51 +3,52 @@ import random
 from HelperFunctions import allLore
 
 #all enemies now have a NEW FIELD which dictates if theyre a light source or not
+#added another new field for sprite paths
 
 #Northern Tribes
-direWolf = [Armoury.iceClaw,Armoury.iceClaw,Armoury.beastFangs,None,None,None,"Direwolf","enemy",False]
-beserker = [Armoury.bloodyAxe,Armoury.bloodyAxe,Armoury.warMask,None,None,None,"Beserker","enemy",False]
-kralBreeder = [Armoury.iceWhistle,None,None,Armoury.iceHide,Armoury.fur,Armoury.frostHooves,"Hunter","enemy",False]
+direWolf = [Armoury.iceClaw,Armoury.iceClaw,Armoury.beastFangs,None,None,None,"Direwolf","enemy",False,None]
+beserker = [Armoury.bloodyAxe,Armoury.bloodyAxe,Armoury.warMask,None,None,None,"Beserker","enemy",False,None]
+kralBreeder = [Armoury.iceWhistle,None,None,Armoury.iceHide,Armoury.fur,Armoury.frostHooves,"Hunter","enemy",False,None]
 
 #Solar Knights
-swordsman = [Armoury.swordsmanStats,None,None,None,None,None,"Inquisitor","enemy",True]
-crossbowman = [Armoury.crossbowmanStats,None,None,None,None,None,"Assassin","enemy",True]
-solarPriest = [Armoury.solarPriestStats,None,None,None,None,None,"Solar Priest","enemy",True]
+swordsman = [Armoury.swordsmanStats,None,None,None,None,None,"Inquisitor","enemy",True,None]
+crossbowman = [Armoury.crossbowmanStats,None,None,None,None,None,"Assassin","enemy",True,None]
+solarPriest = [Armoury.solarPriestStats,None,None,None,None,None,"Solar Priest","enemy",True,None]
 
 #Children of the Dark
-darkwalker = [Armoury.darkwalkerStats,None,None,None,None,None,"Darkwalker","enemy",False]
-pit = [Armoury.pitStats,None,None,None,None,None,"Deep Frigid Hole","enemy",False]
-phalanxGrowth = [Armoury.phalanxGrowthStats,None,None,None,None,None,"Chitinous Sludge","enemy",False]
-ballistaGrowth = [Armoury.BallistaGrowthStats,None,None,None,None,None,"Spiked Sludge","enemy",False]
+darkwalker = [Armoury.darkwalkerStats,None,None,None,None,None,"Darkwalker","enemy",False,None]
+pit = [Armoury.pitStats,None,None,None,None,None,"Deep Frigid Hole","enemy",False,None]
+phalanxGrowth = [Armoury.phalanxGrowthStats,None,None,None,None,None,"Chitinous Sludge","enemy",False,None]
+ballistaGrowth = [Armoury.BallistaGrowthStats,None,None,None,None,None,"Spiked Sludge","enemy",False,None]
 
 #New North
-peasant = [Armoury.peasantStats,None,Armoury.peasantStats2,None,None,None,"Feral Peasant","enemy",False]
-razorKnight = [Armoury.razorKnightStats,None,Armoury.razorKnightStats2,None,None,None,"Razor Knight","enemy",True]
-cultist = [Armoury.cultistStats,None,None,None,None,None,"Blood Star Cultist","enemy",True]
+peasant = [Armoury.peasantStats,None,Armoury.peasantStats2,None,None,None,"Feral Peasant","enemy",True,"feralPeasant.png"]
+razorKnight = [Armoury.razorKnightStats,None,Armoury.razorKnightStats2,None,None,None,"Razor Knight","enemy",True,"razorKnight.png"]
+cultist = [Armoury.cultistStats,None,None,None,None,None,"Blood Star Cultist","enemy",True,None]
 
 #bosses (has extra field for title card)
-mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Solar Knight","enemy",True,allLore["mageKnight"]]
+mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Solar Knight","enemy",True,allLore["mageKnight"],None]
                                                                                                                  
-fireball = [Armoury.fireballStats,None,Armoury.fireballExplode,None,None,Armoury.spellBoots,"Fireball","enemy",True]                                                                                                                                                                                                                             
+fireball = [Armoury.fireballStats,None,Armoury.fireballExplode,None,None,Armoury.spellBoots,"Fireball","enemy",True,None]                                                                                                                                                                                                                             
 
-winter = [Armoury.silentNight,None,None,Armoury.frostPlate,Armoury.elfLeggings,Armoury.spellBoots,"The King of Winter","enemy",True,allLore["winter"]]
-winterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","enemy",True]
-friendWinterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","ally",True]
+winter = [Armoury.silentNight,None,None,Armoury.frostPlate,Armoury.elfLeggings,Armoury.spellBoots,"The King of Winter","enemy",True,allLore["winter"],None]
+winterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","enemy",True,None]
+friendWinterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","ally",True,None]
 
-mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Ooglesh, the Primordial Ooze","enemy",False,allLore["mass"]]
+mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Ooglesh, the Primordial Ooze","enemy",False,allLore["mass"],None]
 
-lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord of Dusk","enemy",False,allLore["lethe"]]
+lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord of Dusk","enemy",False,allLore["lethe"],None]
 
-umbralDaemon = [Armoury.daemonStats,None,None,None,None,None,"Umbral Daemon","enemy",False]
+umbralDaemon = [Armoury.daemonStats,None,None,None,None,None,"Umbral Daemon","enemy",False,None]
 
-prideDaughter = [Armoury.corruptStats,Armoury.prideStats,None,None,None,None,"Daughter of Pride","enemy",False,allLore["DoC"]]
-slothDaughter = [None,Armoury.slothStats,None,None,None,None,"Daughter of Sloth","enemy",False]
-envyDaughter = [Armoury.corruptStats,Armoury.envyStats,None,None,None,None,"Daughter of Envy","enemy",False]
+prideDaughter = [Armoury.corruptStats,Armoury.prideStats,None,None,None,None,"Daughter of Pride","enemy",False,allLore["DoC"],None]
+slothDaughter = [None,Armoury.slothStats,None,None,None,None,"Daughter of Sloth","enemy",False,None]
+envyDaughter = [Armoury.corruptStats,Armoury.envyStats,None,None,None,None,"Daughter of Envy","enemy",False,None]
 
-glassKnight = [Armoury.glassKnightStats,None,Armoury.glassKnightStats2,Armoury.glassKnightStats3,None,None,"Glass Knight","enemy",True,allLore["glass"]]
+glassKnight = [Armoury.glassKnightStats,None,Armoury.glassKnightStats2,Armoury.glassKnightStats3,None,None,"Glass Knight","enemy",True,allLore["glass"],None]
 
 #super bosses (has extra field for title card)                                                                  
-raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.raahTrousers,Armoury.starWalker,"Sun-King Ra'ah","enemy",True,allLore["raah"]]
+raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.raahTrousers,Armoury.starWalker,"Sun-King Ra'ah","enemy",True,allLore["raah"],None]
                                                                                                                                                      
 weapons = []
 helmets = []
@@ -73,7 +74,7 @@ def sort(equipment):
 for equipment in Armoury.lootTable:
     sort(equipment)
 
-usurper = [random.choice(weapons),random.choice(weapons),random.choice(helmets),random.choice(breastplates),random.choice(leggings),random.choice(boots),"False Usurper ","enemy",False,allLore["usurper"]]
+usurper = [random.choice(weapons),random.choice(weapons),random.choice(helmets),random.choice(breastplates),random.choice(leggings),random.choice(boots),"False Usurper ","enemy",False,allLore["usurper"],None]
                                                                                                                                                                                    
                                                                                                                                                    
 
