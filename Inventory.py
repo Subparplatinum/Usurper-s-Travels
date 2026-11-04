@@ -115,7 +115,7 @@ def inventory(items,players,window,level):
         
     #if normal level
     else:
-        text = "Darkness begins to leak into world. Continue your travels and grow in strength, before the True Night comes! \p "
+        text = "Darkness begins to leak into the world. Continue your travels and grow in strength, before the True Night comes! \p "
 
     text += " -Press ENTER to continue-"
     while not(finished):
