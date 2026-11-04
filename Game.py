@@ -1,6 +1,6 @@
 """
 
-Run "Pyinstaller game.py" to compile the game files
+Run "Pyinstaller game.py --onefile" to compile the game files
 
 """
 

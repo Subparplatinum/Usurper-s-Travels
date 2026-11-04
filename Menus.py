@@ -16,6 +16,17 @@ colour = (255,255,255)
 red = (100,0,0)
 grey = (100,100,100)
 
+#load tidbits
+file = open("lore/tidbits")
+tidbits = []
+for line in file:
+    text = line
+    text = text.strip("\n")
+    tidbits.append(text)
+file.close()
+
+
+
 def selectBoss(window):
     bosses = random.sample(Tables.bossTables, 3)
 
@@ -493,6 +504,8 @@ def openingCutscene(window,font,colour):
                 sys.exit()
 
 def startMenu(window):
+    #load tidbit
+    tidbit = random.choice(tidbits)
 
     #play menu music
     # Fade it in if music is already playing, otherwise just start it
@@ -521,6 +534,7 @@ def startMenu(window):
 
         if menu == 0:
             window.blit(bigFont.render("Usurper's Travels",True,red),(100,50))
+            window.blit(font.render(tidbit,True,red),(110,170))
 
             # Draw Play button
             playButton.draw(mousePos,window)

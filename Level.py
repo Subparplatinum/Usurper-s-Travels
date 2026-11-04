@@ -248,18 +248,19 @@ class Level:
                     randRow = random.randint(0,len(self.tiles)-1)
                     randTile = random.randint(0,len(self.tiles[randRow])-1)
                 #spawn boss
-
-                if enemy[10] != None:
-                    spritePth="sprites/entities/"+enemy[10]
+            
+                if enemy[9] != None:
+                    spritePth="sprites/entities/"+enemy[9]
                 else:
                     spritePth=None
+
                 self.tiles[randRow][randTile].occupant = Entity.NPC(self.window,self,self.tiles[randRow][randTile],enemy[0],enemy[1],enemy[2],enemy[3],enemy[4],enemy[5],enemy[6],enemy[7],self.mult,torch = enemy[8],spritePath=spritePth)
 
             
             #render lore
 
             #boss speaks (boss will always be first entity in list)
-            textToRender = self.spawnTable[0][0][9]
+            textToRender = self.spawnTable[0][0][10]
             
             textToRender += " -Press ENTER to continue-"
             #print(lenDialogue)

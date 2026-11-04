@@ -27,28 +27,28 @@ razorKnight = [Armoury.razorKnightStats,None,Armoury.razorKnightStats2,None,None
 cultist = [Armoury.cultistStats,None,None,None,None,None,"Blood Star Cultist","enemy",True,None]
 
 #bosses (has extra field for title card)
-mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Solar Knight","enemy",True,allLore["mageKnight"],None]
+mageKnight = [Armoury.KotFFStats,None,None,Armoury.sunAttune,None,None,"Solar Knight","enemy",True,None,allLore["mageKnight"]]
                                                                                                                  
 fireball = [Armoury.fireballStats,None,Armoury.fireballExplode,None,None,Armoury.spellBoots,"Fireball","enemy",True,None]                                                                                                                                                                                                                             
 
-winter = [Armoury.silentNight,None,None,Armoury.frostPlate,Armoury.elfLeggings,Armoury.spellBoots,"The King of Winter","enemy",True,allLore["winter"],None]
+winter = [Armoury.silentNight,None,None,Armoury.frostPlate,Armoury.elfLeggings,Armoury.spellBoots,"The King of Winter","enemy",True,None,allLore["winter"]]
 winterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","enemy",True,None]
 friendWinterguard = [Armoury.winterguard,None,None,None,None,None,"Winterguard","ally",True,None]
 
-mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Ooglesh, the Primordial Ooze","enemy",False,allLore["mass"],None]
+mass = [Armoury.longsword,None,None,Armoury.core,Armoury.endlessGrowths,None,"Ooglesh, the Primordial Ooze","enemy",False,None,allLore["mass"]]
 
-lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord of Dusk","enemy",False,allLore["lethe"],None]
+lethe = [Armoury.LetheStats,None,Armoury.LetheStats2,None,None,None,"Lethe, Lord of Dusk","enemy",False,None,allLore["lethe"]]
 
 umbralDaemon = [Armoury.daemonStats,None,None,None,None,None,"Umbral Daemon","enemy",False,None]
 
-prideDaughter = [Armoury.corruptStats,Armoury.prideStats,None,None,None,None,"Daughter of Pride","enemy",False,allLore["DoC"],None]
+prideDaughter = [Armoury.corruptStats,Armoury.prideStats,None,None,None,None,"Daughter of Pride","enemy",False,None,allLore["DoC"]]
 slothDaughter = [None,Armoury.slothStats,None,None,None,None,"Daughter of Sloth","enemy",False,None]
 envyDaughter = [Armoury.corruptStats,Armoury.envyStats,None,None,None,None,"Daughter of Envy","enemy",False,None]
 
-glassKnight = [Armoury.glassKnightStats,None,Armoury.glassKnightStats2,Armoury.glassKnightStats3,None,None,"Glass Knight","enemy",True,allLore["glass"],None]
+glassKnight = [Armoury.glassKnightStats,None,Armoury.glassKnightStats2,Armoury.glassKnightStats3,None,None,"Glass Knight","enemy",True,None,allLore["glass"]]
 
 #super bosses (has extra field for title card)                                                                  
-raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.raahTrousers,Armoury.starWalker,"Sun-King Ra'ah","enemy",True,allLore["raah"],None]
+raah = [Armoury.severingblade,None,Armoury.starScar,Armoury.raahAttire,Armoury.raahTrousers,Armoury.starWalker,"Sun-King Ra'ah","enemy",True,None,allLore["raah"]]
                                                                                                                                                      
 weapons = []
 helmets = []
@@ -96,11 +96,11 @@ northBoss = [[winter,winterguard,winterguard,winterguard],"sprites/north/","musi
 darkBoss = [[mass,ballistaGrowth,ballistaGrowth,ballistaGrowth],"sprites/forest/","music/Creature of Darkness.mp3","Impact Site",4,Armoury.massLootTable]
 darkBoss2 = [[lethe,umbralDaemon,umbralDaemon,umbralDaemon],"sprites/darkness/","music/Deluded Old Man.mp3","The Umbral Wood",5,Armoury.letheLootTable]
 lifeBoss = [[prideDaughter,slothDaughter,envyDaughter],"sprites/greattree/","music/Daughter of Corruption.mp3","Cursed Great-Tree",5,Armoury.daughterLootTable]
-knightBoss = [[glassKnight],"sprites/palmor/","music/Daughter of Corruption.mp3","Sinking City",5,Armoury.glassLootTable]
+knightBoss = [[glassKnight],"sprites/palmor/","music/Look Into My Mirror.mp3","Sinking City",5,Armoury.glassLootTable]
 
 #superbosstables
 mageSuperBoss = [[raah],"sprites/throne/","music/Starslayer.mp3","Ra'ah's Inner Sanctum",6,None]
-usurperSuperBoss = [[usurper],"sprites/throne/","music/Usurper's Travels.mp3","Ra'ah's Inner Sanctum",6,None]
+usurperSuperBoss = [[usurper,razorKnight],"sprites/throne/","music/Usurper's Travels.mp3","Ra'ah's Inner Sanctum",6,None]
 
 #all spawntables
 spawnTables = [solarKnights,solarKnights,darkness,darkness,newNorth,newNorth2]
