@@ -74,7 +74,7 @@ def sort(equipment):
 for equipment in Armoury.lootTable:
     sort(equipment)
 
-usurper = [random.choice(weapons),random.choice(weapons),random.choice(helmets),random.choice(breastplates),random.choice(leggings),random.choice(boots),"False Usurper ","enemy",False,allLore["usurper"],None]
+usurper = [random.choice(weapons),random.choice(weapons),random.choice(helmets),random.choice(breastplates),random.choice(leggings),random.choice(boots),"False Usurper ","enemy",False,None,allLore["usurper"],None]
                                                                                                                                                                                    
                                                                                                                                                    
 

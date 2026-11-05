@@ -278,7 +278,7 @@ lance = Weapon(0,0,0,0,20,Spellbook.charge,"Valiant Lance",1,True,None)
 Wyvern Download stuff
 """
 #weapons
-stoneTotem = Weapon(-1,0,0,0,80,Spellbook.wyvern,"Basalt Totem",1,True,lootTable)
+stoneTotem = Weapon(-1,0,0,0,150,Spellbook.wyvern,"Basalt Totem",1,True,lootTable)
 
 stoneTotemTwo = Weapon(3,900,0,-100,100,None,"Basalt Totem",1,True,None)
 
@@ -378,7 +378,7 @@ iceWhistle = Weapon(0,0,0,50,0,Spellbook.frosthound,"Ice Whistle",5,False,lootTa
 greatbow = Weapon(-1,0,0,0,75,Spellbook.prepare,"Greatbow",10,True,lootTable)
 solarEffigy = Weapon(0,0,0,-100,50,Spellbook.wrath,"Defiled Solar Effigy",1,True,lootTable)
 voidBlade = Weapon(0,0,0,0,0,Spellbook.voidBlade,"Void Blade",15,False,lootTable)
-smoughHammer = Weapon(-1,0,0,0,150,Spellbook.hammerTremor,"Execution Hammer",1,True,lootTable)
+smoughHammer = Weapon(-1,0,0,0,150,Spellbook.hammerTremor,"The Sludgebeater",1,True,lootTable)
 
 #helmets
 zodiacHat = Equipment(0,0,0,80,0,Spellbook.zodiac,"Zodiac's Hood","helmet",lootTable)

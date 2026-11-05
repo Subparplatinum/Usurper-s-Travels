@@ -25,6 +25,10 @@ for line in file:
     tidbits.append(text)
 file.close()
 
+#load background
+background = pygame.image.load("sprites/mainMenu/mainMenu1.jpg")
+
+
 
 
 def selectBoss(window):
@@ -504,6 +508,7 @@ def openingCutscene(window,font,colour):
                 sys.exit()
 
 def startMenu(window):
+
     #load tidbit
     tidbit = random.choice(tidbits)
 
@@ -529,6 +534,8 @@ def startMenu(window):
     while menu != 1:
         pygame.display.flip()
         window.fill((0,0,0))
+
+        window.blit(background,(0,0))
         mousePos = pygame.mouse.get_pos()
 
 
