@@ -173,7 +173,7 @@ def inventory(items,players,window,level):
         #titles
         window.blit(font.render("Weapons",True,colour),(weaponPos,450))
         window.blit(font.render("Helmets",True,colour),(helmetPos,450))
-        window.blit(font.render("Breasplates",True,colour),(breastplatePos,450))
+        window.blit(font.render("Breastplates",True,colour),(breastplatePos,450))
         window.blit(font.render("Leggings",True,colour),(leggingsPos,450))
         window.blit(font.render("Boots",True,colour),(bootsPos,450))
 
